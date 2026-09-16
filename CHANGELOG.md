@@ -13,7 +13,13 @@ Follows [Semantic Versioning](https://semver.org/).
   ivy/lattice/stapler in `vendor/`.
 - `scripts/build.js` concatenates `src/` into the shipped `frond.css` / `frond.frame.css`.
 - `frond.json` — generated vocabulary index (atoms, molecules, grounds, textures, sizes).
-- `.github/workflows/minify-css.yml` — CI build + minify to `dist/`.
+- `.github/workflows/minify-css.yml` — CI build + minify to `dist/`, now also syncing
+  `docs/`.
+- `docs/` — GitHub Pages site: gallery (`index.html`), cheat sheet (`cheatsheet.html`), a
+  ten-slide demo (`demo.html`), and eight archetype carousels (`archetypes/`), plus its own
+  self-contained copy of the CSS/themes/vendor (Pages serves `docs/` only). Gallery and
+  cheat sheet are generated from one shared data set (`scripts/gen-gallery.js`) so they
+  can't drift from each other.
 - `sizes/portrait-1350.css` — the default canvas made an explicit, swappable preset.
 - `sizes/widescreen.css` (1920×1080) — new size, not in the prototype.
 

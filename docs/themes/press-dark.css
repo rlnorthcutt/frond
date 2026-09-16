@@ -1,0 +1,13 @@
+/*! frond — themes/press-dark.css */
+
+:root,
+.t-press-dark {
+  --bg: #171316;
+  --surface: #221c20;
+  --ink: #f4f1ef;
+  --ink-muted: #a1949a;
+  --accent: #ff5fa2;
+  --accent-ink: #2b0016;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+}

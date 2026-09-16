@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<title>Myth vs fact &mdash; frond</title>
+<link rel="stylesheet" href="../vendor/ivy.full.min.css">
+<link rel="stylesheet" href="../vendor/lattice.full.min.css">
+<link rel="stylesheet" href="../frond.full.css">
+<link rel="stylesheet" href="../themes/light.css">
+<script src="../vendor/stapler.min.js"></script>
+<style>
+  body { background: #c9c6c3; margin: 0; padding: 40px 0; }
+  main { max-width: none; padding: 0; }
+  @media print { body { background: #fff; padding: 0; } }
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<nav class="docs-nav" aria-label="Docs">
+  <a class="docs-nav__brand" href="../index.html">frond</a>
+  <a href="../index.html">Gallery</a>
+  <a href="../cheatsheet.html">Cheat sheet</a>
+  <a href="../demo.html">Demo</a>
+  <span class="docs-nav__sep">·</span>
+  <span class="docs-nav__archetypes"><a href="how-to.html">How-to</a><a href="listicle.html">Listicle</a><a href="checklist.html">Checklist</a><a href="myth-vs-fact.html" aria-current="page">Myth vs fact</a><a href="before-after.html">Before/after</a><a href="data-story.html">Data story</a><a href="problem-solution.html">Problem/solution</a><a href="case-study.html">Case study</a></span>
+</nav>
+
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></symbol>
+</svg>
+
+<stapled-doc mode="explicit" page-width="1080px" page-height="1350px" page-gap="40px">
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="01 Cover">
+        <header class="slide__head"><span class="c-badge">Myth / fact</span></header>
+        <div class="slide__body m-cover">
+          <h1 class="c-title c-title--cover">Four things people get <mark class="c-hl--box">wrong</mark> about LLMs</h1>
+          <hr class="c-divider">
+          <p class="c-sub">Each one costs somebody a bad architecture decision.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"></use></svg></span>Swipe</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="02 Comparison">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Myth one</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">&ldquo;It searches the internet&rdquo;</h2>
+          <div class="m-compare m-compare--vs">
+            <div class="m-compare__col m-compare__col--muted">
+              <span class="c-badge c-badge--outline">Myth</span>
+              <p class="c-body">It looks things up when you ask.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Answers come from a live index</span></li>
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Facts are current by default</span></li>
+          </ul>
+            </div>
+            <span class="m-compare__vs">vs</span>
+            <div class="m-compare__col">
+              <span class="c-badge">Fact</span>
+              <p class="c-body">It predicts from frozen weights.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Nothing is retrieved unless a tool does it</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Its world ends at its training cutoff</span></li>
+          </ul>
+            </div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">2 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="03 Comparison">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Myth two</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">&ldquo;It learns from our chats&rdquo;</h2>
+          <div class="m-compare m-compare--vs">
+            <div class="m-compare__col m-compare__col--muted">
+              <span class="c-badge c-badge--outline">Myth</span>
+              <p class="c-body">Correcting it today improves it tomorrow.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Feedback updates the model live</span></li>
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>It remembers your preferences</span></li>
+          </ul>
+            </div>
+            <span class="m-compare__vs">vs</span>
+            <div class="m-compare__col">
+              <span class="c-badge">Fact</span>
+              <p class="c-body">Weights are fixed at inference.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Memory is text replayed into context</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Close the window and it is gone</span></li>
+          </ul>
+            </div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="04 Comparison">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Myth three</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">&ldquo;A bigger window means better recall&rdquo;</h2>
+          <div class="m-compare m-compare--vs">
+            <div class="m-compare__col m-compare__col--muted">
+              <span class="c-badge c-badge--outline">Myth</span>
+              <p class="c-body">Paste everything and let it sort it out.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>All tokens weigh the same</span></li>
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>More context is always better</span></li>
+          </ul>
+            </div>
+            <span class="m-compare__vs">vs</span>
+            <div class="m-compare__col">
+              <span class="c-badge">Fact</span>
+              <p class="c-body">Attention is finite and uneven.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>The middle of a long context gets read least</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Curation beats volume</span></li>
+          </ul>
+            </div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">4 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="05 Comparison">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Myth four</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">&ldquo;Hallucination is a bug&rdquo;</h2>
+          <div class="m-compare m-compare--vs">
+            <div class="m-compare__col m-compare__col--muted">
+              <span class="c-badge c-badge--outline">Myth</span>
+              <p class="c-body">A good enough model will stop making things up.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>It is a defect to be patched</span></li>
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Confidence tracks correctness</span></li>
+          </ul>
+            </div>
+            <span class="m-compare__vs">vs</span>
+            <div class="m-compare__col">
+              <span class="c-badge">Fact</span>
+              <p class="c-body">It is the mechanism working as designed.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>A plausible token is still a token</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Grounding is your job, not its</span></li>
+          </ul>
+            </div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">5 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="06 Statement">
+        <header class="slide__head"><span class="c-badge c-badge--ghost">The through-line</span></header>
+        <div class="slide__body m-statement">
+          <h2 class="c-title c-title--xl">Every myth assumes a <mark class="c-hl--underline">database</mark>.</h2>
+          <p class="c-body c-body--muted">It is a function. You supply the facts; it supplies the fluency.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">6 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="07 Checklist">
+        <header class="slide__head"><span class="c-badge">So</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">What to change on Monday</h2>
+          <ul class="m-checklist">
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Ground anything factual in a document you pasted</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Treat memory as a feature you build, not one you get</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Curate context instead of filling it</span></li>
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Wait for the next model to fix your pipeline</span></li>
+          </ul>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">7 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide slide--accent" data-screen-label="08 CTA">
+        <header class="slide__head"><span class="c-badge">One ask</span></header>
+        <div class="slide__body m-cta">
+          <h2 class="c-title c-title--cover">Four myths. <mark>One cause.</mark></h2>
+          <div class="c-cta"><p class="c-cta__title">Which one cost you a week?</p><p class="c-cta__action">@rlnorthcutt &middot; reply below</p></div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-pagenum">8 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+</stapled-doc>
+
+</body>
+</html>

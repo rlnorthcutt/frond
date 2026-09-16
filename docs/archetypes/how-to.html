@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<title>How-to &mdash; frond</title>
+<link rel="stylesheet" href="../vendor/ivy.full.min.css">
+<link rel="stylesheet" href="../vendor/lattice.full.min.css">
+<link rel="stylesheet" href="../frond.full.css">
+<link rel="stylesheet" href="../themes/light.css">
+<script src="../vendor/stapler.min.js"></script>
+<style>
+  body { background: #c9c6c3; margin: 0; padding: 40px 0; }
+  main { max-width: none; padding: 0; }
+  @media print { body { background: #fff; padding: 0; } }
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<nav class="docs-nav" aria-label="Docs">
+  <a class="docs-nav__brand" href="../index.html">frond</a>
+  <a href="../index.html">Gallery</a>
+  <a href="../cheatsheet.html">Cheat sheet</a>
+  <a href="../demo.html">Demo</a>
+  <span class="docs-nav__sep">·</span>
+  <span class="docs-nav__archetypes"><a href="how-to.html" aria-current="page">How-to</a><a href="listicle.html">Listicle</a><a href="checklist.html">Checklist</a><a href="myth-vs-fact.html">Myth vs fact</a><a href="before-after.html">Before/after</a><a href="data-story.html">Data story</a><a href="problem-solution.html">Problem/solution</a><a href="case-study.html">Case study</a></span>
+</nav>
+
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></symbol>
+</svg>
+
+<stapled-doc mode="explicit" page-width="1080px" page-height="1350px" page-gap="40px">
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="01 Cover">
+        <header class="slide__head"><span class="c-badge">How-to</span></header>
+        <div class="slide__body m-cover">
+          <h1 class="c-title c-title--cover">How to get a straight answer out of an <mark class="c-hl--box">LLM</mark></h1>
+          <hr class="c-divider">
+          <p class="c-sub">Eight slides on what the model is actually doing while you wait for it.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"></use></svg></span>Swipe</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="02 Statement">
+        <header class="slide__head"><span class="c-badge c-badge--ghost">The premise</span></header>
+        <div class="slide__body m-statement">
+          <h2 class="c-title c-title--xl">It never looks anything up. It <mark class="c-hl--underline">predicts</mark>.</h2>
+          <p class="c-body c-body--muted">Every answer is the next token, then the next, chosen from a distribution over the whole vocabulary.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">2 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="03 Process">
+        <header class="slide__head"><span class="c-badge">Four moves</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">Give it what it cannot infer</h2>
+          <ol class="m-process">
+            <li class="c-step"><span class="c-step__n">1</span><span class="c-step__text">Name the role and the reader — the model has no idea who is asking.</span></li>
+            <li class="c-step"><span class="c-step__n">2</span><span class="c-step__text">Paste the material. Retrieval beats recall, always.</span></li>
+            <li class="c-step"><span class="c-step__n">3</span><span class="c-step__text">Specify the output shape before the task, not after.</span></li>
+            <li class="c-step"><span class="c-step__n">4</span><span class="c-step__text">Ask for the reasoning last, so it does not pad the answer.</span></li>
+          </ol>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="04 Checklist">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Prompt hygiene</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">What separates a good prompt</h2>
+          <ul class="m-checklist">
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>One task per request</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>The source text pasted in, not referenced</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>An explicit format: table, JSON, three bullets</span></li>
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Please be accurate and do not hallucinate</span></li>
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Six questions stacked in one message</span></li>
+          </ul>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">4 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="05 Stats">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Scale</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">The units it thinks in</h2>
+          <div class="m-stats m-stats--3">
+            <div class="c-stat"><span class="c-stat__value">~4</span><span class="c-stat__label">characters per token in English prose</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">1</span><span class="c-stat__label">token generated per forward pass</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">0</span><span class="c-stat__label">weights changed while answering you</span></div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">5 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="06 Decision">
+        <header class="slide__head"><span class="c-badge">If / then</span></header>
+        <div class="slide__body m-decide">
+          <h2 class="c-title">Pick the move by what you need</h2>
+          <dl class="c-decide">
+            <div class="c-decide__row"><dt class="c-decide__if">You need current facts</dt><span class="c-decide__arrow">&rarr;</span><dd class="c-decide__then">Give it sources</dd></div>
+            <div class="c-decide__row"><dt class="c-decide__if">You need one exact format</dt><span class="c-decide__arrow">&rarr;</span><dd class="c-decide__then">Show one example</dd></div>
+            <div class="c-decide__row"><dt class="c-decide__if">You need less waffle</dt><span class="c-decide__arrow">&rarr;</span><dd class="c-decide__then">Cap the word count</dd></div>
+            <div class="c-decide__row"><dt class="c-decide__if">You need consistency</dt><span class="c-decide__arrow">&rarr;</span><dd class="c-decide__then">Drop the temperature</dd></div>
+            <div class="c-decide__row"><dt class="c-decide__if">You need judgement</dt><span class="c-decide__arrow">&rarr;</span><dd class="c-decide__then">Ask for the tradeoff, not the answer</dd></div>
+          </dl>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">6 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="07 Quote">
+        <header class="slide__head"><span class="c-badge c-badge--ghost">Breather</span></header>
+        <div class="slide__body m-quote">
+          <blockquote class="c-quote">
+            <span class="c-quote__mark" aria-hidden="true">&ldquo;</span>
+            <p>The model is not being lazy. It is being probable.</p>
+            <footer><span class="c-avatar c-avatar--ring">RN</span><span>Ron Northcutt &middot; Product</span></footer>
+          </blockquote>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">7 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide slide--accent" data-screen-label="08 CTA">
+        <header class="slide__head"><span class="c-badge">One ask</span></header>
+        <div class="slide__body m-cta">
+          <h2 class="c-title c-title--cover">Keep slide 4. <mark>Not the post.</mark></h2>
+          <div class="c-cta"><p class="c-cta__title">Save the prompt checklist</p><p class="c-cta__action">@rlnorthcutt &middot; frond</p></div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-pagenum">8 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+</stapled-doc>
+
+</body>
+</html>

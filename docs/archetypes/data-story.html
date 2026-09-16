@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<title>Data story &mdash; frond</title>
+<link rel="stylesheet" href="../vendor/ivy.full.min.css">
+<link rel="stylesheet" href="../vendor/lattice.full.min.css">
+<link rel="stylesheet" href="../frond.full.css">
+<link rel="stylesheet" href="../themes/light.css">
+<script src="../vendor/stapler.min.js"></script>
+<style>
+  body { background: #c9c6c3; margin: 0; padding: 40px 0; }
+  main { max-width: none; padding: 0; }
+  @media print { body { background: #fff; padding: 0; } }
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<nav class="docs-nav" aria-label="Docs">
+  <a class="docs-nav__brand" href="../index.html">frond</a>
+  <a href="../index.html">Gallery</a>
+  <a href="../cheatsheet.html">Cheat sheet</a>
+  <a href="../demo.html">Demo</a>
+  <span class="docs-nav__sep">·</span>
+  <span class="docs-nav__archetypes"><a href="how-to.html">How-to</a><a href="listicle.html">Listicle</a><a href="checklist.html">Checklist</a><a href="myth-vs-fact.html">Myth vs fact</a><a href="before-after.html">Before/after</a><a href="data-story.html" aria-current="page">Data story</a><a href="problem-solution.html">Problem/solution</a><a href="case-study.html">Case study</a></span>
+</nav>
+
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></symbol>
+</svg>
+
+<stapled-doc mode="explicit" page-width="1080px" page-height="1350px" page-gap="40px">
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="01 Cover">
+        <header class="slide__head"><span class="c-badge">Data story</span></header>
+        <div class="slide__body m-cover">
+          <h1 class="c-title c-title--cover">What one answer actually <mark class="c-hl--box">costs</mark></h1>
+          <hr class="c-divider">
+          <p class="c-sub">The arithmetic behind a single paragraph of generated text.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"></use></svg></span>Swipe</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="02 Number">
+        <header class="slide__head"><span class="c-badge c-badge--num">Headline</span></header>
+        <div class="slide__body m-number">
+          <span class="c-bignum">1</span>
+          <h2 class="c-title">One full pass through the network, per token</h2>
+          <p class="c-body c-body--muted">A hundred-word answer is roughly a hundred and thirty of them, back to back.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">2 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="03 Stats">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Units</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">The three numbers that matter</h2>
+          <div class="m-stats m-stats--3">
+            <div class="c-stat"><span class="c-stat__value">~4</span><span class="c-stat__label">characters per token in English prose</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">~130</span><span class="c-stat__label">tokens in a hundred-word answer</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">&times;100</span><span class="c-stat__label">more tokens read than written</span></div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="04 Stats rows">
+        <header class="slide__head"><span class="c-badge">Breakdown</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">Where the context goes</h2>
+          <div class="m-stats m-stats--rows">
+            <div class="c-stat"><span class="c-stat__value">60%</span><span class="c-stat__label">pasted source material</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">25%</span><span class="c-stat__label">conversation replayed as memory</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">10%</span><span class="c-stat__label">system instructions</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">5%</span><span class="c-stat__label">your actual question</span></div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">4 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="05 Statement">
+        <header class="slide__head"><span class="c-badge c-badge--ghost">So what</span></header>
+        <div class="slide__body m-statement">
+          <h2 class="c-title c-title--xl">You pay for the <mark class="c-hl--underline">reading</mark>, not the writing.</h2>
+          <p class="c-body c-body--muted">Which is why curating context is the whole optimisation.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">5 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="06 Pillars">
+        <header class="slide__head"><span class="c-badge">Three levers</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">Where to spend the budget</h2>
+          <div class="m-pillars m-pillars--3">
+            <article class="m-pillar"><span class="m-pillar__i">&#10022;</span><h3 class="m-pillar__title">Trim</h3><p class="m-pillar__desc">Cut replayed turns before you cut the source.</p></article>
+            <article class="m-pillar"><span class="m-pillar__i">&#9670;</span><h3 class="m-pillar__title">Chunk</h3><p class="m-pillar__desc">Retrieve the three paragraphs, not the manual.</p></article>
+            <article class="m-pillar"><span class="m-pillar__i">&#9679;</span><h3 class="m-pillar__title">Cache</h3><p class="m-pillar__desc">A stable prefix is a cheap prefix.</p></article>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">6 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="07 Quote">
+        <header class="slide__head"><span class="c-badge c-badge--ghost">Breather</span></header>
+        <div class="slide__body m-quote">
+          <blockquote class="c-quote">
+            <span class="c-quote__mark" aria-hidden="true">&ldquo;</span>
+            <p>Nobody has a token problem. Everybody has a context-curation problem.</p>
+            <footer><span class="c-avatar c-avatar--ring">RN</span><span>Ron Northcutt &middot; Product</span></footer>
+          </blockquote>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">7 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide slide--accent" data-screen-label="08 CTA">
+        <header class="slide__head"><span class="c-badge">One ask</span></header>
+        <div class="slide__body m-cta">
+          <h2 class="c-title c-title--cover">Read less. <mark>Answer better.</mark></h2>
+          <div class="c-cta"><p class="c-cta__title">Save slide 4</p><p class="c-cta__action">@rlnorthcutt &middot; frond</p></div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-pagenum">8 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+</stapled-doc>
+
+</body>
+</html>

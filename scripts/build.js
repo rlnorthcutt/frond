@@ -22,4 +22,11 @@ const frame = read('frame.css');
 fs.writeFileSync(path.join(root, 'frond.css'), core);
 fs.writeFileSync(path.join(root, 'frond.frame.css'), frame);
 
-console.log('Built frond.css and frond.frame.css from src/');
+// Non-minified full bundle — CI also builds this into dist/, but a local
+// unminified copy is what docs/ syncs from (see scripts/sync-docs.js) so
+// the docs site doesn't depend on clean-css-cli being installed locally.
+const distDir = path.join(root, 'dist');
+fs.mkdirSync(distDir, { recursive: true });
+fs.writeFileSync(path.join(distDir, 'frond.full.css'), core + '\n' + frame);
+
+console.log('Built frond.css, frond.frame.css, and dist/frond.full.css from src/');

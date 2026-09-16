@@ -1,0 +1,20 @@
+/*! frond — sizes/widescreen.css — 1920×1080
+ *  Load after base.css. Same 1080px height as square.css, so the same
+ *  height-driven type sizes come down for the same reason — the extra width
+ *  buys room for the grid, not for taller display type.
+ */
+
+:root {
+  --cv-w: 1920px;
+  --cv-h: 1080px;
+  --cv-pad: 64px;
+  --cv-gap: 28px;
+  --fs-statement: 68px;
+  --fs-bignum: 340px;
+  --fs-mark: 150px;
+}
+
+@page {
+  size: 1920px 1080px;
+  margin: 0;
+}

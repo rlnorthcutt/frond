@@ -1,0 +1,251 @@
+/* frond docs — chrome shared by every docs page. Never affects the printed
+   PDF: everything here is hidden under @media print. */
+
+.docs-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  padding: 14px 24px;
+  background: #201e1d;
+  color: #f3f2f2;
+  font: 14px/1.4 -apple-system, system-ui, sans-serif;
+}
+.docs-nav a {
+  color: #f3f2f2;
+  text-decoration: none;
+  opacity: .78;
+}
+.docs-nav a:hover,
+.docs-nav a[aria-current="page"] {
+  opacity: 1;
+  text-decoration: underline;
+}
+.docs-nav__brand {
+  font-weight: 700;
+  letter-spacing: -.01em;
+  opacity: 1 !important;
+  text-decoration: none !important;
+  margin-right: 4px;
+}
+.docs-nav__sep {
+  opacity: .4;
+}
+.docs-nav__archetypes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-left: auto;
+}
+
+@media print {
+  .docs-nav { display: none; }
+}
+
+/* ---- gallery / cheat sheet shell -------------------------------------- */
+body {
+  margin: 0;
+  background: #c9c6c3;
+  font: 15px/1.5 -apple-system, system-ui, sans-serif;
+  color: #201e1d;
+}
+.docs-main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+.docs-hero h1 {
+  font: 700 40px/1.05 -apple-system, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+.docs-hero p {
+  max-width: 46em;
+  color: #4a4542;
+  margin: 0 0 24px;
+}
+.docs-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  align-items: center;
+  font-size: 13px;
+  color: #4a4542;
+}
+.docs-hero__meta a { color: inherit; }
+
+.theme-picker {
+  display: inline-flex;
+  gap: 6px;
+  padding: 4px;
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px #d8d3ce;
+}
+.theme-picker button {
+  border: 0;
+  background: transparent;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font: 600 13px/1 -apple-system, system-ui, sans-serif;
+  cursor: pointer;
+  color: #4a4542;
+}
+.theme-picker button[aria-pressed="true"] {
+  background: #201e1d;
+  color: #fff;
+}
+
+.docs-section { margin-top: 64px; }
+.docs-section > h2 {
+  font: 700 26px/1.1 -apple-system, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+}
+.docs-section > p.docs-section__lede {
+  color: #4a4542;
+  max-width: 52em;
+  margin: 0 0 28px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.atom-card, .ground-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 26px -18px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+.atom-card__head, .molecule-card__head {
+  padding: 16px 18px 12px;
+}
+.atom-card__id, .molecule-card__id {
+  display: inline-block;
+  font: 700 11px/1 ui-monospace, monospace;
+  letter-spacing: .04em;
+  color: #fff;
+  background: #6b6663;
+  padding: 3px 7px;
+  border-radius: 5px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.atom-card__title, .molecule-card__title {
+  font: 600 15px/1.2 -apple-system, system-ui, sans-serif;
+}
+.atom-card__cls, .molecule-card__cls {
+  display: block;
+  font: 12px/1.4 ui-monospace, monospace;
+  color: #8a8481;
+  margin-top: 4px;
+}
+.atom-card__blurb, .molecule-card__blurb {
+  font-size: 13px;
+  color: #4a4542;
+  margin: 6px 0 0;
+  padding: 0 18px 14px;
+}
+.atom-card__stage {
+  border-top: 1px solid #eee;
+  overflow: hidden;
+}
+.atom-card__stage .cv-stage {
+  width: 100% !important;
+  padding: 24px;
+  gap: 16px;
+}
+
+.molecule-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 26px -18px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+.m-frame {
+  width: 100%;
+  aspect-ratio: 1080 / 1350;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+}
+.m-frame__inner {
+  width: 1080px;
+  height: 1350px;
+  transform: scale(0.2778);
+  transform-origin: top left;
+}
+
+.ground-card .m-frame { aspect-ratio: 1080 / 1350; }
+
+.texture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+.texture-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 26px -18px rgba(0,0,0,.35);
+}
+.texture-card .cv-stage {
+  width: 100% !important;
+  min-height: 160px;
+  justify-content: center;
+}
+.texture-card__label {
+  padding: 10px 16px;
+  font: 600 12px/1 ui-monospace, monospace;
+  color: #4a4542;
+  border-top: 1px solid #eee;
+}
+
+/* ---- cheat sheet -------------------------------------------------------- */
+.cheat-section { margin-top: 40px; }
+.cheat-item {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 22px -16px rgba(0,0,0,.3);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.cheat-item__head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 14px 18px 4px;
+}
+.cheat-item__variants {
+  padding: 0 18px 12px;
+  font: 12px/1.5 ui-monospace, monospace;
+  color: #6b6663;
+}
+.cheat-item pre {
+  margin: 0;
+  padding: 16px 18px;
+  background: #1c1a19;
+  color: #e8e5e2;
+  font: 13px/1.55 ui-monospace, "SFMono-Regular", Menlo, monospace;
+  overflow-x: auto;
+}
+.cheat-item__copy {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  border: 0;
+  background: #3a3634;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}

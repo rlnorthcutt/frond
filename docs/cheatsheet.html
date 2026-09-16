@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cheat sheet — frond</title>
+<meta name="description" content="Copy-paste markup for every frond atom and molecule.">
+<link rel="stylesheet" href="vendor/ivy.full.min.css">
+<link rel="stylesheet" href="vendor/lattice.full.min.css">
+<link rel="stylesheet" href="frond.full.css">
+<link id="theme-link" rel="stylesheet" href="themes/light.css">
+<link rel="stylesheet" href="site.css">
+<nav class="docs-nav" aria-label="Docs">
+  <a class="docs-nav__brand" href="index.html">frond</a>
+  <a href="index.html" id="nav-gallery">Gallery</a>
+  <a href="cheatsheet.html" id="nav-cheatsheet">Cheat sheet</a>
+  <a href="demo.html">Demo</a>
+  <a href="archetypes/how-to.html">Archetypes</a>
+  <span class="docs-nav__sep">·</span>
+  <a href="https://github.com/rlnorthcutt/frond">GitHub</a>
+</nav>
+
+</head>
+<body>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+</svg>
+<main class="docs-main">
+  <div class="docs-hero">
+    <h1>Cheat sheet</h1>
+    <p>Copy-paste markup for every atom and molecule. The full machine-readable index (every class, every variant) is <a href="../frond.json">frond.json</a>.</p>
+  </div>
+
+  <section class="docs-section cheat-section" id="atoms">
+    <h2>Atoms</h2>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A1</span><strong>.c-title</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-title--cover (52px) · .c-title--xl (80px, statement weight) · .c-title--sm (38px)</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;h2 class="c-title"&gt;Reach is rented. A &lt;mark class="c-hl--underline"&gt;save&lt;/mark&gt; is owned.&lt;/h2&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A2</span><strong>.c-sub · .c-body · .c-caption</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-body--muted</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;p class="c-sub"&gt;Nine slides on the difference between a post people scroll past and one they keep.&lt;/p&gt;
+&lt;p class="c-body"&gt;Every answer is the next token, chosen from a distribution over the vocabulary.&lt;/p&gt;
+&lt;p class="c-body c-body--muted"&gt;Impressions expire in a day. A saved carousel gets reopened for months.&lt;/p&gt;
+&lt;p class="c-caption"&gt;Fig. 1 — the eight tokens a theme sets.&lt;/p&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A3</span><strong>.c-badge</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-badge--outline · .c-badge--ghost · .c-badge--num</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;span class="c-badge"&gt;Playbook&lt;/span&gt;
+&lt;span class="c-badge c-badge--outline"&gt;Numbers&lt;/span&gt;
+&lt;span class="c-badge c-badge--ghost"&gt;The premise&lt;/span&gt;
+&lt;span class="c-badge c-badge--num"&gt;01&lt;/span&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A4</span><strong>.c-stat</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-stat--ink (ink color instead of accent) · .c-stat--sm · .c-stat--boxed</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;div class="c-stat"&gt;
+  &lt;span class="c-stat__value"&gt;278%&lt;/span&gt;
+  &lt;span class="c-stat__label"&gt;more engagement than a plain video post&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A5</span><strong>.c-check</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-check--dot / .c-check--dash (icon-free fallback, no SVG needed)</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;ul class="m-checklist"&gt;
+  &lt;li class="c-check c-check--yes"&gt;&lt;span class="c-check__i"&gt;&lt;svg&gt;&lt;use href="#i-check"/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span&gt;Cover headline reads in under two seconds&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="c-check c-check--no"&gt;&lt;span class="c-check__i"&gt;&lt;svg&gt;&lt;use href="#i-cross"/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span&gt;More than four bullets anywhere&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A6</span><strong>.c-num</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-num--circle · .c-num--ring · .c-num--ghost (watermark numeral behind the text)</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;ol class="m-list"&gt;
+  &lt;li class="c-num"&gt;&lt;span class="c-num__n"&gt;01&lt;/span&gt;&lt;span class="c-num__text"&gt;A cover that promises something, not just names the topic.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="c-num c-num--circle"&gt;&lt;span class="c-num__n"&gt;02&lt;/span&gt;&lt;span class="c-num__text"&gt;Circle variant — quieter emphasis.&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A7</span><strong>.c-cta</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-cta--outline · .c-cta--plain (no box, just color)</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;div class="c-cta"&gt;
+  &lt;p class="c-cta__title"&gt;Save slide 5&lt;/p&gt;
+  &lt;p class="c-cta__action"&gt;@rlnorthcutt · frond on GitHub&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A8</span><strong>.c-quote</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-quote--bar · .c-quote--plain</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;blockquote class="c-quote"&gt;
+  &lt;span class="c-quote__mark" aria-hidden="true"&gt;&amp;ldquo;&lt;/span&gt;
+  &lt;p&gt;Design is the art of deciding what to leave out, one thousand times.&lt;/p&gt;
+  &lt;footer&gt;&lt;span class="c-avatar c-avatar--ring"&gt;RN&lt;/span&gt;&lt;span&gt;Ron Northcutt &amp;middot; Product&lt;/span&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A9</span><strong>.c-icon-bullet</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;ul class="m-list"&gt;
+  &lt;li class="c-icon-bullet"&gt;&lt;span class="c-icon-bullet__i"&gt;&lt;svg&gt;&lt;use href="#i-check"/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span&gt;Fixed canvas — no responsive surprises&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="c-icon-bullet"&gt;&lt;span class="c-icon-bullet__i"&gt;&lt;svg&gt;&lt;use href="#i-arrow"/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span&gt;Closed vocabulary — eighteen atoms, sixteen molecules&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A10</span><strong>.c-avatar</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-avatar--lg · .c-avatar--ring</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;span class="c-avatar"&gt;RN&lt;/span&gt;
+&lt;span class="c-avatar c-avatar--lg c-avatar--ring"&gt;RN&lt;/span&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A11</span><strong>.c-hl</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-hl--underline · .c-hl--box · .c-hl--italic</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;p class="c-body"&gt;A &lt;mark class="c-hl--underline"&gt;save&lt;/mark&gt; is owned. A &lt;mark class="c-hl--box"&gt;reach&lt;/mark&gt; is rented.&lt;/p&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A12</span><strong>.c-bignum</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-bignum--ghost</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;span class="c-bignum"&gt;1&lt;/span&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A13</span><strong>.c-step</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-step--h (horizontal, for column layouts)</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;ol class="m-process"&gt;
+  &lt;li class="c-step"&gt;&lt;span class="c-step__n"&gt;1&lt;/span&gt;&lt;span class="c-step__text"&gt;Write the last slide first — the ask sets the argument.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="c-step"&gt;&lt;span class="c-step__n"&gt;2&lt;/span&gt;&lt;span class="c-step__text"&gt;Write the cover second, as a promise you can keep.&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A14</span><strong>.c-decor</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-decor--dots · .c-decor--lines · .c-decor--glow · .c-decor--mesh</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;div class="c-decor c-decor--dots c-decor--top"&gt;&lt;/div&gt;
+&lt;p class="c-body"&gt;Decoration sits behind content, clipped to a band.&lt;/p&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A15</span><strong>.c-img</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-img--rounded · .c-img--framed · .c-img--bleed (escapes slide padding) · .c-img--43 / --11 / --169</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;figure class="c-img c-img--framed c-img--43"&gt;
+  &lt;img src="placeholder.svg" alt=""&gt;
+  &lt;figcaption&gt;Fig. 2 — a framed 4:3 slot.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A16</span><strong>.c-device · .c-code</strong></div>
+  <div class="cheat-item__variants">Modifiers: .c-device--code · .c-device--phone · .c-device--flush</div>
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;div class="c-device c-device--code"&gt;
+  &lt;div class="c-device__bar"&gt;&lt;span class="c-device__dot"&gt;&lt;/span&gt;&lt;span class="c-device__dot"&gt;&lt;/span&gt;&lt;span class="c-device__dot"&gt;&lt;/span&gt;&lt;span class="c-device__url"&gt;prompt.txt&lt;/span&gt;&lt;/div&gt;
+  &lt;pre class="c-code"&gt;&lt;code&gt;You are a careful editor.
+Return exactly three bullets.&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A17</span><strong>.c-repo</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;div class="c-repo"&gt;
+  &lt;p class="c-repo__name"&gt;&lt;span class="c-repo__owner"&gt;rlnorthcutt/&lt;/span&gt;frond&lt;/p&gt;
+  &lt;p class="c-repo__desc"&gt;A CSS component library for fixed-canvas sheets, on ivy, lattice and stapler.&lt;/p&gt;
+  &lt;div class="c-repo__meta"&gt;&lt;span&gt;&lt;i class="c-repo__lang"&gt;&lt;/i&gt;CSS&lt;/span&gt;&lt;span&gt;MIT&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">A18</span><strong>.c-decide</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;dl class="c-decide"&gt;
+  &lt;div class="c-decide__row"&gt;&lt;dt class="c-decide__if"&gt;You need current facts&lt;/dt&gt;&lt;span class="c-decide__arrow"&gt;&amp;rarr;&lt;/span&gt;&lt;dd class="c-decide__then"&gt;Give it sources&lt;/dd&gt;&lt;/div&gt;
+  &lt;div class="c-decide__row"&gt;&lt;dt class="c-decide__if"&gt;You need one exact format&lt;/dt&gt;&lt;span class="c-decide__arrow"&gt;&amp;rarr;&lt;/span&gt;&lt;dd class="c-decide__then"&gt;Show one example&lt;/dd&gt;&lt;/div&gt;
+&lt;/dl&gt;</code></pre>
+</div>
+  </section>
+
+  <section class="docs-section cheat-section" id="molecules">
+    <h2>Molecules</h2>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M1</span><strong>.slide</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="01 Shell"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge"&gt;Shell&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body"&gt;
+    &lt;h2 class="c-title"&gt;Every molecule is this shell plus one body class.&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M2</span><strong>.m-cover</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="01 Cover"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge"&gt;Playbook&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body m-cover"&gt;
+    &lt;h1 class="c-title c-title--cover"&gt;Nobody saves your carousel. &lt;mark class="c-hl--box"&gt;Here is why.&lt;/mark&gt;&lt;/h1&gt;
+    &lt;hr class="c-divider"&gt;
+    &lt;p class="c-sub"&gt;Nine slides on the difference between a post people scroll past and one they keep.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-avatar"&gt;RN&lt;/span&gt;&lt;span class="c-foot__id"&gt;&lt;span class="c-foot__name"&gt;Ron Northcutt&lt;/span&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;span class="c-swipe"&gt;&lt;span class="c-swipe__arrow"&gt;&lt;svg width="22" height="22"&gt;&lt;use href="#i-arrow"/&gt;&lt;/svg&gt;&lt;/span&gt;Swipe&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M3</span><strong>.m-list</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="04 List"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge"&gt;Four failures&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body"&gt;
+    &lt;h2 class="c-title"&gt;Where carousels lose the reader&lt;/h2&gt;
+    &lt;ol class="m-list"&gt;
+      &lt;li class="c-num"&gt;&lt;span class="c-num__n"&gt;01&lt;/span&gt;&lt;span class="c-num__text"&gt;A cover that describes the topic instead of promising something.&lt;/span&gt;&lt;/li&gt;
+      &lt;li class="c-num"&gt;&lt;span class="c-num__n"&gt;02&lt;/span&gt;&lt;span class="c-num__text"&gt;Two ideas fighting on one slide, so neither lands.&lt;/span&gt;&lt;/li&gt;
+      &lt;li class="c-num"&gt;&lt;span class="c-num__n"&gt;03&lt;/span&gt;&lt;span class="c-num__text"&gt;Body type below 26px — unreadable in the feed.&lt;/span&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M4</span><strong>.m-checklist</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="05 Checklist"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge c-badge--outline"&gt;Audit&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body"&gt;
+    &lt;h2 class="c-title"&gt;Run this before you publish&lt;/h2&gt;
+    &lt;ul class="m-checklist"&gt;
+      &lt;li class="c-check c-check--yes"&gt;&lt;span class="c-check__i"&gt;&lt;svg&gt;&lt;use href="#i-check"/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span&gt;Cover headline reads in under two seconds&lt;/span&gt;&lt;/li&gt;
+      &lt;li class="c-check c-check--yes"&gt;&lt;span class="c-check__i"&gt;&lt;svg&gt;&lt;use href="#i-check"/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span&gt;One idea per slide, no exceptions&lt;/span&gt;&lt;/li&gt;
+      &lt;li class="c-check c-check--no"&gt;&lt;span class="c-check__i"&gt;&lt;svg&gt;&lt;use href="#i-cross"/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span&gt;More than four bullets anywhere&lt;/span&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M5</span><strong>.m-stats</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="03 Stats"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge c-badge--outline"&gt;Numbers&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body"&gt;
+    &lt;h2 class="c-title"&gt;What the format actually buys you&lt;/h2&gt;
+    &lt;div class="m-stats m-stats--3"&gt;
+      &lt;div class="c-stat"&gt;&lt;span class="c-stat__value"&gt;278%&lt;/span&gt;&lt;span class="c-stat__label"&gt;more engagement than a plain video post&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="c-stat c-stat--ink"&gt;&lt;span class="c-stat__value"&gt;8.1s&lt;/span&gt;&lt;span class="c-stat__label"&gt;median dwell time per slide sequence&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="c-stat c-stat--ink"&gt;&lt;span class="c-stat__value"&gt;3&amp;times;&lt;/span&gt;&lt;span class="c-stat__label"&gt;save rate versus a single image&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M6</span><strong>.m-quote</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="09 Quote"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge c-badge--ghost"&gt;Breather&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body m-quote"&gt;
+    &lt;blockquote class="c-quote"&gt;
+      &lt;span class="c-quote__mark" aria-hidden="true"&gt;&amp;ldquo;&lt;/span&gt;
+      &lt;p&gt;Design is the art of deciding what to leave out, one thousand times.&lt;/p&gt;
+      &lt;footer&gt;&lt;span class="c-avatar c-avatar--ring"&gt;RN&lt;/span&gt;&lt;span&gt;Ron Northcutt &amp;middot; Product&lt;/span&gt;&lt;/footer&gt;
+    &lt;/blockquote&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M7</span><strong>.m-cta</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide slide--accent" data-screen-label="10 CTA"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge"&gt;One ask&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body m-cta"&gt;
+    &lt;h2 class="c-title c-title--cover"&gt;Keep the checklist. &lt;mark&gt;Not the post.&lt;/mark&gt;&lt;/h2&gt;
+    &lt;div class="c-cta"&gt;&lt;p class="c-cta__title"&gt;Save slide 5&lt;/p&gt;&lt;p class="c-cta__action"&gt;@rlnorthcutt &amp;middot; frond on GitHub&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-avatar"&gt;RN&lt;/span&gt;&lt;span class="c-foot__id"&gt;&lt;span class="c-foot__name"&gt;Ron Northcutt&lt;/span&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;span class="c-swipe"&gt;&lt;span class="c-swipe__arrow"&gt;&lt;svg width="22" height="22"&gt;&lt;use href="#i-arrow"/&gt;&lt;/svg&gt;&lt;/span&gt;Swipe&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M8</span><strong>.m-statement</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="02 Statement"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge c-badge--ghost"&gt;The premise&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body m-statement"&gt;
+    &lt;h2 class="c-title c-title--xl"&gt;Reach is rented. A &lt;mark class="c-hl--underline"&gt;save&lt;/mark&gt; is owned.&lt;/h2&gt;
+    &lt;p class="c-body c-body--muted"&gt;Impressions expire in a day. A saved carousel gets reopened for months.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M9</span><strong>.m-process</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="06 Process"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge"&gt;Method&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body"&gt;
+    &lt;h2 class="c-title"&gt;Four passes, in order&lt;/h2&gt;
+    &lt;ol class="m-process"&gt;
+      &lt;li class="c-step"&gt;&lt;span class="c-step__n"&gt;1&lt;/span&gt;&lt;span class="c-step__text"&gt;Write the last slide first — the ask sets the argument.&lt;/span&gt;&lt;/li&gt;
+      &lt;li class="c-step"&gt;&lt;span class="c-step__n"&gt;2&lt;/span&gt;&lt;span class="c-step__text"&gt;Write the cover second, as a promise you can keep.&lt;/span&gt;&lt;/li&gt;
+      &lt;li class="c-step"&gt;&lt;span class="c-step__n"&gt;3&lt;/span&gt;&lt;span class="c-step__text"&gt;Fill the middle with one idea per sheet.&lt;/span&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M10</span><strong>.m-compare</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="07 Comparison"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge c-badge--outline"&gt;Before / after&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body"&gt;
+    &lt;h2 class="c-title"&gt;Same content, two covers&lt;/h2&gt;
+    &lt;div class="m-compare m-compare--vs"&gt;
+      &lt;div class="m-compare__col m-compare__col--muted"&gt;&lt;span class="c-badge c-badge--outline"&gt;Before&lt;/span&gt;&lt;p class="c-body"&gt;&amp;ldquo;A guide to LinkedIn carousels&amp;rdquo;&lt;/p&gt;&lt;/div&gt;
+      &lt;span class="m-compare__vs"&gt;vs&lt;/span&gt;
+      &lt;div class="m-compare__col"&gt;&lt;span class="c-badge"&gt;After&lt;/span&gt;&lt;p class="c-body"&gt;&amp;ldquo;Nobody saves your carousel. Here is why.&amp;rdquo;&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M11</span><strong>.m-pillars</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="08 Pillars"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge"&gt;Framework&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body"&gt;
+    &lt;h2 class="c-title"&gt;Three things a saved slide has&lt;/h2&gt;
+    &lt;div class="m-pillars m-pillars--3"&gt;
+      &lt;article class="m-pillar"&gt;&lt;span class="m-pillar__i"&gt;&amp;#10022;&lt;/span&gt;&lt;h3 class="m-pillar__title"&gt;A number&lt;/h3&gt;&lt;p class="m-pillar__desc"&gt;Something specific enough to quote in a meeting.&lt;/p&gt;&lt;/article&gt;
+      &lt;article class="m-pillar"&gt;&lt;span class="m-pillar__i"&gt;&amp;#9670;&lt;/span&gt;&lt;h3 class="m-pillar__title"&gt;A rule&lt;/h3&gt;&lt;p class="m-pillar__desc"&gt;A line the reader can apply tomorrow without you.&lt;/p&gt;&lt;/article&gt;
+      &lt;article class="m-pillar"&gt;&lt;span class="m-pillar__i"&gt;&amp;#9679;&lt;/span&gt;&lt;h3 class="m-pillar__title"&gt;A checklist&lt;/h3&gt;&lt;p class="m-pillar__desc"&gt;The reason people screenshot slides in the first place.&lt;/p&gt;&lt;/article&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M12</span><strong>.m-split</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="12 Split"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge"&gt;Two-up&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body m-split"&gt;
+    &lt;div class="m-split__text"&gt;
+      &lt;h2 class="c-title"&gt;Text one side, visual the other.&lt;/h2&gt;
+      &lt;p class="c-body c-body--muted"&gt;.m-split__media keeps its own aspect ratio, so a late image swap never reflows the text.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="m-split__media"&gt;&lt;img src="placeholder.svg" alt=""&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M13</span><strong>.m-number</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="13 Number"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge"&gt;Data story&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body"&gt;
+    &lt;span class="c-bignum"&gt;1&lt;/span&gt;
+    &lt;h2 class="c-title c-title--sm"&gt;idea per slide — the whole rule.&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M14</span><strong>.m-profile</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="14 Profile"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge c-badge--outline"&gt;Who fixed it&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body m-profile"&gt;
+    &lt;div class="m-profile__id"&gt;
+      &lt;span class="c-avatar c-avatar--lg c-avatar--ring"&gt;RN&lt;/span&gt;
+      &lt;span&gt;&lt;span class="m-profile__name"&gt;Ron Northcutt&lt;/span&gt;&lt;br&gt;&lt;span class="m-profile__role"&gt;Product &amp;middot; open source tooling&lt;/span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;p class="m-profile__bio"&gt;Fifteen years shipping developer tools. Currently building small CSS libraries that do one thing.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M15</span><strong>.m-decide</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="15 Decide"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge"&gt;Cheat sheet&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body m-decide"&gt;
+    &lt;h2 class="c-title c-title--sm"&gt;Which move, when&lt;/h2&gt;
+    &lt;dl class="c-decide"&gt;
+      &lt;div class="c-decide__row"&gt;&lt;dt class="c-decide__if"&gt;You need current facts&lt;/dt&gt;&lt;span class="c-decide__arrow"&gt;&amp;rarr;&lt;/span&gt;&lt;dd class="c-decide__then"&gt;Give it sources&lt;/dd&gt;&lt;/div&gt;
+      &lt;div class="c-decide__row"&gt;&lt;dt class="c-decide__if"&gt;You need one exact format&lt;/dt&gt;&lt;span class="c-decide__arrow"&gt;&amp;rarr;&lt;/span&gt;&lt;dd class="c-decide__then"&gt;Show one example&lt;/dd&gt;&lt;/div&gt;
+    &lt;/dl&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+    <div class="cheat-item">
+  <div class="cheat-item__head"><span class="atom-card__id">M16</span><strong>.m-mockup</strong></div>
+  
+  <button type="button" class="cheat-item__copy">Copy</button>
+  <pre><code>&lt;section class="slide" data-screen-label="16 Mockup"&gt;
+  &lt;header class="slide__head"&gt;&lt;span class="c-badge c-badge--outline"&gt;Before / after&lt;/span&gt;&lt;/header&gt;
+  &lt;div class="slide__body m-mockup"&gt;
+    &lt;div class="c-device c-device--code"&gt;
+      &lt;div class="c-device__bar"&gt;&lt;span class="c-device__dot"&gt;&lt;/span&gt;&lt;span class="c-device__dot"&gt;&lt;/span&gt;&lt;span class="c-device__dot"&gt;&lt;/span&gt;&lt;span class="c-device__url"&gt;prompt.txt&lt;/span&gt;&lt;/div&gt;
+      &lt;pre class="c-code"&gt;&lt;code&gt;You are a careful editor.
+Return exactly three bullets.&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;footer class="c-foot"&gt;&lt;div class="c-foot__author"&gt;&lt;span class="c-foot__handle"&gt;@rlnorthcutt&lt;/span&gt;&lt;/div&gt;&lt;span class="c-pagenum"&gt;3 / 8&lt;/span&gt;&lt;/footer&gt;
+&lt;/section&gt;</code></pre>
+</div>
+  </section>
+</main>
+<script src="site.js"></script>
+
+</body>
+</html>

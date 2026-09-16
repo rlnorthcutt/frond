@@ -33,11 +33,9 @@ jobs:
       - name: Install clean-css-cli
         run: npm install -g clean-css-cli@5
 
-      - name: Concatenate src/ into frond.css and frond.frame.css
+      # Writes frond.css, frond.frame.css, and dist/frond.full.css (unminified)
+      - name: Concatenate src/ into frond.css, frond.frame.css, dist/frond.full.css
         run: node scripts/build.js
-
-      - name: Create dist directory
-        run: mkdir -p dist
 
       # --- Individually minified bundles (banners preserved via /*! ... */) ---
       - name: Minify frond.css
@@ -46,18 +44,19 @@ jobs:
       - name: Minify frond.frame.css
         run: cleancss -o dist/frond.frame.min.css frond.frame.css
 
-      # --- Combined FULL bundle (core + frame, non-minified and minified) ---
-      - name: Create non-minified full bundle
-        run: cat frond.css frond.frame.css > dist/frond.full.css
-
       - name: Minify full bundle
         run: cleancss -o dist/frond.full.min.css dist/frond.full.css
+
+      # GitHub Pages serves docs/ only — copy the current CSS/themes/sizes/vendor
+      # in so the docs site never references anything outside its own folder.
+      - name: Sync docs/ assets
+        run: node scripts/sync-docs.js
 
       - name: Commit build outputs
         run: |
           set -e
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add frond.css frond.frame.css dist/
+          git add frond.css frond.frame.css dist/ docs/
           git diff --staged --quiet || git commit -m "Auto-build CSS dist [skip ci]"
           git push

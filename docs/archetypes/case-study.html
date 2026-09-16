@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<title>Case study &mdash; frond</title>
+<link rel="stylesheet" href="../vendor/ivy.full.min.css">
+<link rel="stylesheet" href="../vendor/lattice.full.min.css">
+<link rel="stylesheet" href="../frond.full.css">
+<link rel="stylesheet" href="../themes/light.css">
+<script src="../vendor/stapler.min.js"></script>
+<style>
+  body { background: #c9c6c3; margin: 0; padding: 40px 0; }
+  main { max-width: none; padding: 0; }
+  @media print { body { background: #fff; padding: 0; } }
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<nav class="docs-nav" aria-label="Docs">
+  <a class="docs-nav__brand" href="../index.html">frond</a>
+  <a href="../index.html">Gallery</a>
+  <a href="../cheatsheet.html">Cheat sheet</a>
+  <a href="../demo.html">Demo</a>
+  <span class="docs-nav__sep">·</span>
+  <span class="docs-nav__archetypes"><a href="how-to.html">How-to</a><a href="listicle.html">Listicle</a><a href="checklist.html">Checklist</a><a href="myth-vs-fact.html">Myth vs fact</a><a href="before-after.html">Before/after</a><a href="data-story.html">Data story</a><a href="problem-solution.html">Problem/solution</a><a href="case-study.html" aria-current="page">Case study</a></span>
+</nav>
+
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></symbol>
+</svg>
+
+<stapled-doc mode="explicit" page-width="1080px" page-height="1350px" page-gap="40px">
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="01 Cover">
+        <header class="slide__head"><span class="c-badge">Case study</span></header>
+        <div class="slide__body m-cover">
+          <h1 class="c-title c-title--cover">Three weeks chasing a <mark class="c-hl--box">retrieval</mark> bug</h1>
+          <hr class="c-divider">
+          <p class="c-sub">The model was fine. The chunks were not.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"></use></svg></span>Swipe</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="02 Profile">
+        <header class="slide__head"><span class="c-badge c-badge--ghost">Who</span></header>
+        <div class="slide__body m-profile">
+          <div class="m-profile__id">
+            <span class="c-avatar c-avatar--lg c-avatar--ring">RN</span>
+            <span>
+              <span class="m-profile__name">Ron Northcutt</span><br>
+              <span class="m-profile__role">Product &middot; open source tooling</span>
+            </span>
+          </div>
+          <p class="m-profile__bio">Fifteen years shipping developer tools. Currently building small CSS libraries that do one thing.</p>
+          <div class="m-profile__proof">
+            <span class="c-badge c-badge--outline">ivy</span>
+            <span class="c-badge c-badge--outline">lattice</span>
+            <span class="c-badge c-badge--outline">stapler</span>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">2 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="03 Statement">
+        <header class="slide__head"><span class="c-badge c-badge--ghost">The symptom</span></header>
+        <div class="slide__body m-statement">
+          <h2 class="c-title c-title--xl">Confident answers. <mark class="c-hl--underline">Wrong</mark> sections.</h2>
+          <p class="c-body c-body--muted">Every citation resolved. Every citation pointed at the paragraph next to the right one.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="04 Mockup">
+        <header class="slide__head"><span class="c-badge c-badge--outline">What we saw</span></header>
+        <div class="slide__body m-mockup">
+          <h2 class="c-title c-title--sm">The retrieved chunk, every time</h2>
+          <div class="c-device c-device--browser">
+            <div class="c-device__bar"><span class="c-device__dot"></span><span class="c-device__dot"></span><span class="c-device__dot"></span><span class="c-device__url">localhost:8080/debug/retrieval</span></div>
+            <div class="c-device__screen">
+              <p class="c-caption">query &middot; &ldquo;how do I rotate the signing key&rdquo;</p>
+              <p class="c-body">&ldquo;&hellip;the signing key is stored in the vault. <strong>See the next section for rotation.</strong>&rdquo;</p>
+              <p class="c-caption">score 0.91 &middot; chunk 412 of 5,180</p>
+            </div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">4 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="05 Stats">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Numbers</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">The shape of the mistake</h2>
+          <div class="m-stats m-stats--3">
+            <div class="c-stat"><span class="c-stat__value">0.91</span><span class="c-stat__label">similarity on the wrong chunk</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">512</span><span class="c-stat__label">token chunks, split mid-section</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">0</span><span class="c-stat__label">overlap between neighbours</span></div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">5 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="06 Process">
+        <header class="slide__head"><span class="c-badge">The fix</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">What actually solved it</h2>
+          <ol class="m-process">
+            <li class="c-step"><span class="c-step__n">1</span><span class="c-step__text">Chunk on headings, not on token counts.</span></li>
+            <li class="c-step"><span class="c-step__n">2</span><span class="c-step__text">Add a hundred tokens of overlap between neighbours.</span></li>
+            <li class="c-step"><span class="c-step__n">3</span><span class="c-step__text">Prepend the section title to every chunk.</span></li>
+            <li class="c-step"><span class="c-step__n">4</span><span class="c-step__text">Return the parent section, not the matched fragment.</span></li>
+          </ol>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">6 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="07 Repo">
+        <header class="slide__head"><span class="c-badge">Take it</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">Everything is in the open</h2>
+          <div class="c-repo">
+            <p class="c-repo__name"><span class="c-repo__owner">rlnorthcutt/</span>frond</p>
+            <p class="c-repo__desc">A CSS component library for carousels, on ivy, lattice and stapler. Fifteen atoms, sixteen layouts, eight tokens.</p>
+            <div class="c-repo__meta">
+              <span><i class="c-repo__lang"></i>CSS</span>
+              <span>MIT</span>
+              <span>Zero dependencies</span>
+            </div>
+          </div>
+          <p class="c-body c-body--muted">The chunking notes are in the README, under retrieval.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">7 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide slide--accent" data-screen-label="08 CTA">
+        <header class="slide__head"><span class="c-badge">One ask</span></header>
+        <div class="slide__body m-cta">
+          <h2 class="c-title c-title--cover">Fix the <mark>chunks</mark> first.</h2>
+          <div class="c-cta"><p class="c-cta__title">Save slide 6</p><p class="c-cta__action">@rlnorthcutt &middot; frond</p></div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-pagenum">8 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+</stapled-doc>
+
+</body>
+</html>

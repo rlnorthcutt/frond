@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<title>Demo carousel — frond</title>
+
+<!-- 1. base stack -->
+<link rel="stylesheet" href="vendor/ivy.full.min.css">
+<link rel="stylesheet" href="vendor/lattice.full.min.css">
+<!-- 2. the library -->
+<link rel="stylesheet" href="frond.full.css">
+<!-- 3. one theme (swap for themes/dark.css) -->
+<link rel="stylesheet" href="themes/light.css">
+<script src="vendor/stapler.min.js"></script>
+
+<style>
+  /* Screen-only staging. Nothing here affects the printed PDF. */
+  body { background: #c9c6c3; margin: 0; padding: 40px 0; }
+  main { max-width: none; padding: 0; }
+  stapled-doc { --sp-gap: 40px; }
+  @media print { body { background: #fff; padding: 0; } }
+</style>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<nav class="docs-nav" aria-label="Docs">
+  <a class="docs-nav__brand" href="index.html">frond</a>
+  <a href="index.html">Gallery</a>
+  <a href="cheatsheet.html">Cheat sheet</a>
+  <a href="demo.html" aria-current="page">Demo</a>
+  <span class="docs-nav__sep">·</span>
+  <span class="docs-nav__archetypes"><a href="archetypes/how-to.html">How-to</a><a href="archetypes/listicle.html">Listicle</a><a href="archetypes/checklist.html">Checklist</a><a href="archetypes/myth-vs-fact.html">Myth vs fact</a><a href="archetypes/before-after.html">Before/after</a><a href="archetypes/data-story.html">Data story</a><a href="archetypes/problem-solution.html">Problem/solution</a><a href="archetypes/case-study.html">Case study</a></span>
+</nav>
+
+
+<!-- inline icon sprite: no icon font, survives print -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 12.5l5 5L20 6.5"/>
+  </symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 6l12 12M18 6L6 18"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 12h15M13 6l6 6-6 6"/>
+  </symbol>
+</svg>
+
+<stapled-doc mode="explicit" page-width="1080px" page-height="1350px" page-gap="40px">
+
+<!-- 1 · CoverSlide -->
+<s-page>
+  <s-page-body>
+    <section class="slide" data-screen-label="01 Cover">
+      <div class="c-decor c-decor--dots c-decor--top"></div>
+      <header class="slide__head">
+        <span class="c-badge">Playbook</span>
+      </header>
+      <div class="slide__body m-cover">
+        <h1 class="c-title c-title--cover">Nobody saves your carousel. <mark class="c-hl--box">Here is why.</mark></h1>
+        <hr class="c-divider">
+        <p class="c-sub">Nine slides on the difference between a post people scroll past and one they keep.</p>
+      </div>
+      <footer class="c-foot">
+        <div class="c-foot__author">
+          <span class="c-avatar">RN</span>
+          <span class="c-foot__id">
+            <span class="c-foot__name">Ron Northcutt</span>
+            <span class="c-foot__handle">@rlnorthcutt</span>
+          </span>
+        </div>
+        <span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"/></svg></span>Swipe</span>
+      </footer>
+    </section>
+  </s-page-body>
+</s-page>
+
+<!-- 2 · StatementSlide -->
+<s-page>
+  <s-page-body>
+    <section class="slide" data-screen-label="02 Statement">
+      <header class="slide__head"><span class="c-badge c-badge--ghost">The premise</span></header>
+      <div class="slide__body m-statement">
+        <h2 class="c-title c-title--xl">Reach is rented. A <mark class="c-hl--underline">save</mark> is owned.</h2>
+        <p class="c-body c-body--muted">Impressions expire in a day. A saved carousel gets reopened for months.</p>
+      </div>
+      <footer class="c-foot">
+        <div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div>
+        <span class="c-pagenum">2 / 10</span>
+      </footer>
+    </section>
+  </s-page-body>
+</s-page>
+
+<!-- 3 · StatsSlide -->
+<s-page>
+  <s-page-body>
+    <section class="slide" data-screen-label="03 Stats">
+      <header class="slide__head"><span class="c-badge c-badge--outline">Numbers</span></header>
+      <div class="slide__body">
+        <h2 class="c-title">What the format actually buys you</h2>
+        <div class="m-stats m-stats--3">
+          <div class="c-stat">
+            <span class="c-stat__value">278%</span>
+            <span class="c-stat__label">more engagement than a plain video post</span>
+          </div>
+          <div class="c-stat c-stat--ink">
+            <span class="c-stat__value">8.1s</span>
+            <span class="c-stat__label">median dwell time per slide sequence</span>
+          </div>
+          <div class="c-stat c-stat--ink">
+            <span class="c-stat__value">3×</span>
+            <span class="c-stat__label">save rate versus a single image</span>
+          </div>
+        </div>
+      </div>
+      <footer class="c-foot">
+        <div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div>
+        <span class="c-swipe c-swipe--ghost"><span class="c-swipe__arrow"><svg width="20" height="20"><use href="#i-arrow"/></svg></span>Swipe</span>
+        <span class="c-pagenum">3 / 10</span>
+      </footer>
+    </section>
+  </s-page-body>
+</s-page>
+
+<!-- 4 · ListSlide -->
+<s-page>
+  <s-page-body>
+    <section class="slide" data-screen-label="04 List">
+      <header class="slide__head"><span class="c-badge">Four failures</span></header>
+      <div class="slide__body">
+        <h2 class="c-title">Where carousels lose the reader</h2>
+        <ol class="m-list">
+          <li class="c-num"><span class="c-num__n">01</span><span class="c-num__text">A cover that describes the topic instead of promising something.</span></li>
+          <li class="c-num"><span class="c-num__n">02</span><span class="c-num__text">Two ideas fighting on one slide, so neither lands.</span></li>
+          <li class="c-num"><span class="c-num__n">03</span><span class="c-num__text">Body type below 26px — unreadable in the feed.</span></li>
+          <li class="c-num"><span class="c-num__n">04</span><span class="c-num__text">A final slide that says thanks for reading and asks for nothing.</span></li>
+        </ol>
+      </div>
+      <footer class="c-foot">
+        <div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div>
+        <span class="c-pagenum">4 / 10</span>
+      </footer>
+    </section>
+  </s-page-body>
+</s-page>
+
+<!-- 5 · ChecklistSlide -->
+<s-page>
+  <s-page-body>
+    <section class="slide" data-screen-label="05 Checklist">
+      <header class="slide__head"><span class="c-badge c-badge--outline">Audit</span></header>
+      <div class="slide__body">
+        <h2 class="c-title">Run this before you publish</h2>
+        <ul class="m-checklist">
+          <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"/></svg></span><span>Cover headline reads in under two seconds</span></li>
+          <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"/></svg></span><span>One idea per slide, no exceptions</span></li>
+          <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"/></svg></span><span>Last slide asks for exactly one thing</span></li>
+          <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"/></svg></span><span>Critical text below the bottom 40% of the sheet</span></li>
+          <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"/></svg></span><span>More than four bullets anywhere</span></li>
+        </ul>
+      </div>
+      <footer class="c-foot">
+        <div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div>
+        <span class="c-pagenum">5 / 10</span>
+      </footer>
+    </section>
+  </s-page-body>
+</s-page>
+
+<!-- 6 · ProcessSlide -->
+<s-page>
+  <s-page-body>
+    <section class="slide" data-screen-label="06 Process">
+      <header class="slide__head"><span class="c-badge">Method</span></header>
+      <div class="slide__body">
+        <h2 class="c-title">Four passes, in order</h2>
+        <ol class="m-process">
+          <li class="c-step"><span class="c-step__n">1</span><span class="c-step__text">Write the last slide first — the ask sets the argument.</span></li>
+          <li class="c-step"><span class="c-step__n">2</span><span class="c-step__text">Write the cover second, as a promise you can keep.</span></li>
+          <li class="c-step"><span class="c-step__n">3</span><span class="c-step__text">Fill the middle with one idea per sheet.</span></li>
+          <li class="c-step"><span class="c-step__n">4</span><span class="c-step__text">Cut every slide that does not earn its swipe.</span></li>
+        </ol>
+      </div>
+      <footer class="c-foot">
+        <div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div>
+        <span class="c-pagenum">6 / 10</span>
+      </footer>
+    </section>
+  </s-page-body>
+</s-page>
+
+<!-- 7 · ComparisonSlide -->
+<s-page>
+  <s-page-body>
+    <section class="slide" data-screen-label="07 Comparison">
+      <header class="slide__head"><span class="c-badge c-badge--outline">Before / after</span></header>
+      <div class="slide__body">
+        <h2 class="c-title">Same content, two covers</h2>
+        <div class="m-compare m-compare--vs">
+          <div class="m-compare__col m-compare__col--muted">
+            <span class="c-badge c-badge--outline">Before</span>
+            <p class="c-body">“A guide to LinkedIn carousels”</p>
+            <ul class="m-checklist">
+              <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"/></svg></span><span>Describes the file</span></li>
+              <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"/></svg></span><span>No cost of ignoring it</span></li>
+            </ul>
+          </div>
+          <span class="m-compare__vs">vs</span>
+          <div class="m-compare__col">
+            <span class="c-badge">After</span>
+            <p class="c-body">“Nobody saves your carousel. Here is why.”</p>
+            <ul class="m-checklist">
+              <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"/></svg></span><span>Names the failure</span></li>
+              <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"/></svg></span><span>Promises the reason</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <footer class="c-foot">
+        <div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div>
+        <span class="c-pagenum">7 / 10</span>
+      </footer>
+    </section>
+  </s-page-body>
+</s-page>
+
+<!-- 8 · PillarsSlide -->
+<s-page>
+  <s-page-body>
+    <section class="slide" data-screen-label="08 Pillars">
+      <header class="slide__head"><span class="c-badge">Framework</span></header>
+      <div class="slide__body">
+        <h2 class="c-title">Three things a saved slide has</h2>
+        <div class="m-pillars m-pillars--3">
+          <article class="m-pillar">
+            <span class="m-pillar__i">✦</span>
+            <h3 class="m-pillar__title">A number</h3>
+            <p class="m-pillar__desc">Something specific enough to quote in a meeting.</p>
+          </article>
+          <article class="m-pillar">
+            <span class="m-pillar__i">◆</span>
+            <h3 class="m-pillar__title">A rule</h3>
+            <p class="m-pillar__desc">A line the reader can apply tomorrow without you.</p>
+          </article>
+          <article class="m-pillar">
+            <span class="m-pillar__i">●</span>
+            <h3 class="m-pillar__title">A checklist</h3>
+            <p class="m-pillar__desc">The reason people screenshot slides in the first place.</p>
+          </article>
+        </div>
+      </div>
+      <footer class="c-foot">
+        <div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div>
+        <span class="c-pagenum">8 / 10</span>
+      </footer>
+    </section>
+  </s-page-body>
+</s-page>
+
+<!-- 9 · QuoteSlide -->
+<s-page>
+  <s-page-body>
+    <section class="slide" data-screen-label="09 Quote">
+      <header class="slide__head"><span class="c-badge c-badge--ghost">Breather</span></header>
+      <div class="slide__body m-quote">
+        <blockquote class="c-quote">
+          <span class="c-quote__mark" aria-hidden="true">“</span>
+          <p>Design is the art of deciding what to leave out, one thousand times.</p>
+          <footer>
+            <span class="c-avatar c-avatar--ring">RN</span>
+            <span>Ron Northcutt · Product</span>
+          </footer>
+        </blockquote>
+      </div>
+      <footer class="c-foot">
+        <div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div>
+        <span class="c-pagenum">9 / 10</span>
+      </footer>
+    </section>
+  </s-page-body>
+</s-page>
+
+<!-- 10 · CTASlide -->
+<s-page>
+  <s-page-body>
+    <section class="slide slide--accent" data-screen-label="10 CTA">
+      <header class="slide__head"><span class="c-badge">One ask</span></header>
+      <div class="slide__body m-cta">
+        <h2 class="c-title c-title--cover">Keep the checklist. <mark>Not the post.</mark></h2>
+        <div class="c-cta">
+          <p class="c-cta__title">Save slide 5</p>
+          <p class="c-cta__action">@rlnorthcutt · frond on GitHub</p>
+        </div>
+      </div>
+      <footer class="c-foot">
+        <div class="c-foot__author">
+          <span class="c-avatar">RN</span>
+          <span class="c-foot__id">
+            <span class="c-foot__name">Ron Northcutt</span>
+            <span class="c-foot__handle">@rlnorthcutt</span>
+          </span>
+        </div>
+        <span class="c-pagenum">10 / 10</span>
+      </footer>
+    </section>
+  </s-page-body>
+</s-page>
+
+</stapled-doc>
+
+</body>
+</html>

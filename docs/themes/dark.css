@@ -1,0 +1,16 @@
+/*! frond — themes/dark.css
+ *  Same eight tokens, dark ground. Accent is lifted one step so it still
+ *  clears 4.5:1 against the dark background.
+ */
+
+:root,
+.t-dark {
+  --bg: #171514;
+  --surface: #211e1c;
+  --ink: #f3f2f2;
+  --ink-muted: #9c9693;
+  --accent: #45b8d8;
+  --accent-ink: #07222b;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+}

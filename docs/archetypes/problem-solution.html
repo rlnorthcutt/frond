@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<title>Problem / solution &mdash; frond</title>
+<link rel="stylesheet" href="../vendor/ivy.full.min.css">
+<link rel="stylesheet" href="../vendor/lattice.full.min.css">
+<link rel="stylesheet" href="../frond.full.css">
+<link rel="stylesheet" href="../themes/light.css">
+<script src="../vendor/stapler.min.js"></script>
+<style>
+  body { background: #c9c6c3; margin: 0; padding: 40px 0; }
+  main { max-width: none; padding: 0; }
+  @media print { body { background: #fff; padding: 0; } }
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<nav class="docs-nav" aria-label="Docs">
+  <a class="docs-nav__brand" href="../index.html">frond</a>
+  <a href="../index.html">Gallery</a>
+  <a href="../cheatsheet.html">Cheat sheet</a>
+  <a href="../demo.html">Demo</a>
+  <span class="docs-nav__sep">·</span>
+  <span class="docs-nav__archetypes"><a href="how-to.html">How-to</a><a href="listicle.html">Listicle</a><a href="checklist.html">Checklist</a><a href="myth-vs-fact.html">Myth vs fact</a><a href="before-after.html">Before/after</a><a href="data-story.html">Data story</a><a href="problem-solution.html" aria-current="page">Problem/solution</a><a href="case-study.html">Case study</a></span>
+</nav>
+
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></symbol>
+</svg>
+
+<stapled-doc mode="explicit" page-width="1080px" page-height="1350px" page-gap="40px">
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="01 Cover">
+        <header class="slide__head"><span class="c-badge">Problem / solution</span></header>
+        <div class="slide__body m-cover">
+          <h1 class="c-title c-title--cover">Why your LLM answers <mark class="c-hl--box">drift</mark></h1>
+          <hr class="c-divider">
+          <p class="c-sub">It is almost never the model. It is what you handed it.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"></use></svg></span>Swipe</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="02 Statement">
+        <header class="slide__head"><span class="c-badge c-badge--ghost">The problem</span></header>
+        <div class="slide__body m-statement">
+          <h2 class="c-title c-title--xl">Long chats <mark class="c-hl--underline">rot</mark>.</h2>
+          <p class="c-body c-body--muted">Every turn is replayed into the context, so by turn twenty your question is a footnote.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">2 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="03 List">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Symptoms</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">You have seen all four</h2>
+          <ol class="m-list">
+            <li class="c-num"><span class="c-num__n">01</span><span class="c-num__text">It answers the question you asked ten turns ago.</span></li>
+            <li class="c-num"><span class="c-num__n">02</span><span class="c-num__text">The format changes halfway through a list.</span></li>
+            <li class="c-num"><span class="c-num__n">03</span><span class="c-num__text">It contradicts a constraint you set at the start.</span></li>
+            <li class="c-num"><span class="c-num__n">04</span><span class="c-num__text">It re-explains something you already accepted.</span></li>
+          </ol>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="04 Comparison">
+        <header class="slide__head"><span class="c-badge">The fix</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">Stop chatting. Start restating.</h2>
+          <div class="m-compare m-compare--vs">
+            <div class="m-compare__col m-compare__col--muted">
+              <span class="c-badge c-badge--outline">Drifting</span>
+              <p class="c-body">Twenty turns of accumulated context.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Constraints buried at turn one</span></li>
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Model weighs stale turns equally</span></li>
+          </ul>
+            </div>
+            <span class="m-compare__vs">vs</span>
+            <div class="m-compare__col">
+              <span class="c-badge">Stable</span>
+              <p class="c-body">One fresh message carrying the state.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Constraints restated at the top</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Only the material that still matters</span></li>
+          </ul>
+            </div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">4 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="05 Process">
+        <header class="slide__head"><span class="c-badge">Method</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">Reset a drifting thread</h2>
+          <ol class="m-process">
+            <li class="c-step"><span class="c-step__n">1</span><span class="c-step__text">Ask it to summarise the state in ten lines.</span></li>
+            <li class="c-step"><span class="c-step__n">2</span><span class="c-step__text">Correct that summary yourself — this is the real work.</span></li>
+            <li class="c-step"><span class="c-step__n">3</span><span class="c-step__text">Open a fresh thread with the summary as the first message.</span></li>
+            <li class="c-step"><span class="c-step__n">4</span><span class="c-step__text">Restate the format and the constraints above the task.</span></li>
+          </ol>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">5 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="06 Stats">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Result</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">What resetting buys</h2>
+          <div class="m-stats m-stats--3">
+            <div class="c-stat"><span class="c-stat__value">10</span><span class="c-stat__label">lines of state instead of twenty turns</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">1</span><span class="c-stat__label">place your constraints live</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">0</span><span class="c-stat__label">stale turns competing for attention</span></div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">6 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="07 Checklist">
+        <header class="slide__head"><span class="c-badge">Habits</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">Four habits that prevent it</h2>
+          <ul class="m-checklist">
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Restate constraints every few turns</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Start a new thread per task, not per day</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Keep a written state summary outside the chat</span></li>
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Scroll up to find what you agreed</span></li>
+          </ul>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">7 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide slide--accent" data-screen-label="08 CTA">
+        <header class="slide__head"><span class="c-badge">One ask</span></header>
+        <div class="slide__body m-cta">
+          <h2 class="c-title c-title--cover">Drift is a <mark>context</mark> problem.</h2>
+          <div class="c-cta"><p class="c-cta__title">Save the reset recipe</p><p class="c-cta__action">@rlnorthcutt &middot; slide 5</p></div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-pagenum">8 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+</stapled-doc>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+/*! frond — sizes/square.css — 1080×1080
+ *  Load after base.css. Sets the canvas pair, the @page rule that cannot read
+ *  variables, and the two type sizes that need to come down on a shorter sheet.
+ */
+
+:root {
+  --cv-w: 1080px;
+  --cv-h: 1080px;
+  --cv-pad: 64px;
+  --cv-gap: 28px;
+  --fs-statement: 68px;
+  --fs-bignum: 340px;
+  --fs-mark: 150px;
+}
+
+@page {
+  size: 1080px 1080px;
+  margin: 0;
+}

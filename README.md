@@ -229,9 +229,18 @@ graphics **on**. `@page { size: 1080px 1350px }` (or your chosen preset) does th
 
 ## Examples
 
-Docs site (gallery, cheat sheet, demo carousel, archetypes) is in progress — see
-[TODO.md](./TODO.md). In the meantime, `stapled-doc` + one `<s-page>` per slide is the whole
-pattern; see [Quick start](#quick-start) above.
+`docs/` is the GitHub Pages site — every page is self-contained (own copy of the CSS,
+themes, and vendored libs, since Pages only serves `docs/`):
+
+* `docs/index.html` — gallery: every atom and molecule, rendered live, with a theme switcher.
+* `docs/cheatsheet.html` — copy-paste markup for every component.
+* `docs/demo.html` — a ten-slide carousel exercising one of each molecule.
+* `docs/archetypes/` — eight complete carousels, all on one subject, so the layouts can be
+  compared without the copy getting in the way.
+
+Regenerate the gallery/cheat sheet from source with `node scripts/build-docs-pages.js` (data
+lives in `scripts/gen-gallery.js`) after running `scripts/build.js` and `scripts/sync-docs.js`
+— see [ONBOARDING.md](./ONBOARDING.md).
 
 ---
 

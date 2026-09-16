@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<title>Before / after &mdash; frond</title>
+<link rel="stylesheet" href="../vendor/ivy.full.min.css">
+<link rel="stylesheet" href="../vendor/lattice.full.min.css">
+<link rel="stylesheet" href="../frond.full.css">
+<link rel="stylesheet" href="../themes/light.css">
+<script src="../vendor/stapler.min.js"></script>
+<style>
+  body { background: #c9c6c3; margin: 0; padding: 40px 0; }
+  main { max-width: none; padding: 0; }
+  @media print { body { background: #fff; padding: 0; } }
+</style>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<nav class="docs-nav" aria-label="Docs">
+  <a class="docs-nav__brand" href="../index.html">frond</a>
+  <a href="../index.html">Gallery</a>
+  <a href="../cheatsheet.html">Cheat sheet</a>
+  <a href="../demo.html">Demo</a>
+  <span class="docs-nav__sep">·</span>
+  <span class="docs-nav__archetypes"><a href="how-to.html">How-to</a><a href="listicle.html">Listicle</a><a href="checklist.html">Checklist</a><a href="myth-vs-fact.html">Myth vs fact</a><a href="before-after.html" aria-current="page">Before/after</a><a href="data-story.html">Data story</a><a href="problem-solution.html">Problem/solution</a><a href="case-study.html">Case study</a></span>
+</nav>
+
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"></path></symbol>
+</svg>
+
+<stapled-doc mode="explicit" page-width="1080px" page-height="1350px" page-gap="40px">
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="01 Cover">
+        <header class="slide__head"><span class="c-badge">Before / after</span></header>
+        <div class="slide__body m-cover">
+          <h1 class="c-title c-title--cover">Same question. <mark class="c-hl--box">Two prompts.</mark></h1>
+          <hr class="c-divider">
+          <p class="c-sub">One rewrite, and the model stops guessing at what you meant.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"></use></svg></span>Swipe</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="02 Statement">
+        <header class="slide__head"><span class="c-badge c-badge--ghost">The premise</span></header>
+        <div class="slide__body m-statement">
+          <h2 class="c-title c-title--xl">The model fills every gap you <mark class="c-hl--underline">leave</mark>.</h2>
+          <p class="c-body c-body--muted">Underspecify the task and it will invent a reader, a format and a length for you.</p>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">2 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="03 Code before">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Before</span></header>
+        <div class="slide__body m-mockup">
+          <h2 class="c-title c-title--sm">A prompt with four holes in it</h2>
+          <div class="c-device c-device--code">
+            <div class="c-device__bar"><span class="c-device__dot"></span><span class="c-device__dot"></span><span class="c-device__dot"></span><span class="c-device__url">prompt.txt</span></div>
+            <pre class="c-code"><code><span class="t-dim">&gt;</span> Summarise this and make it good.
+
+<span class="t-dim"># no reader</span>
+<span class="t-dim"># no format</span>
+<span class="t-dim"># no length</span>
+<span class="t-dim"># no source text</span></code></pre>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="04 Code after">
+        <header class="slide__head"><span class="c-badge">After</span></header>
+        <div class="slide__body m-mockup">
+          <h2 class="c-title c-title--sm">The same task, fully specified</h2>
+          <div class="c-device c-device--code">
+            <div class="c-device__bar"><span class="c-device__dot"></span><span class="c-device__dot"></span><span class="c-device__dot"></span><span class="c-device__url">prompt.txt</span></div>
+            <pre class="c-code"><code><span class="t-key">Role</span>   staff engineer reviewing a design doc
+<span class="t-key">Task</span>   summarise the tradeoffs below
+<span class="t-key">Format</span> 3 bullets, &lt;20 words each
+<span class="t-key">Source</span> <span class="t-str">&lt;&lt;&lt; paste doc &gt;&gt;&gt;</span>
+<span class="t-key">Last</span>   name what you would need to be sure</code></pre>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">4 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="05 Comparison">
+        <header class="slide__head"><span class="c-badge">What changed</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">Four holes, four fixes</h2>
+          <div class="m-compare m-compare--vs">
+            <div class="m-compare__col m-compare__col--muted">
+              <span class="c-badge c-badge--outline">Before</span>
+              <p class="c-body">Make it good.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Model picks the audience</span></li>
+            <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"></use></svg></span><span>Model picks the length</span></li>
+          </ul>
+            </div>
+            <span class="m-compare__vs">vs</span>
+            <div class="m-compare__col">
+              <span class="c-badge">After</span>
+              <p class="c-body">Three bullets, under twenty words.</p>
+              <ul class="m-checklist">
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>You pick the audience</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>You pick the shape</span></li>
+          </ul>
+            </div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">5 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="06 Stats">
+        <header class="slide__head"><span class="c-badge c-badge--outline">Result</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">What the rewrite bought</h2>
+          <div class="m-stats m-stats--3">
+            <div class="c-stat"><span class="c-stat__value">1</span><span class="c-stat__label">revision instead of five</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">3</span><span class="c-stat__label">bullets, every single run</span></div>
+            <div class="c-stat c-stat--ink"><span class="c-stat__value">0</span><span class="c-stat__label">invented citations to check</span></div>
+          </div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">6 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide" data-screen-label="07 Checklist">
+        <header class="slide__head"><span class="c-badge">Steal this</span></header>
+        <div class="slide__body">
+          <h2 class="c-title">The five-line prompt frame</h2>
+          <ul class="m-checklist">
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Role — who is answering</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Task — one verb, one object</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Format — shape and length</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Source — the material, pasted</span></li>
+            <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"></use></svg></span><span>Last — what would change the answer</span></li>
+          </ul>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">7 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+  <s-page>
+    <s-page-body>
+      <section class="slide slide--accent" data-screen-label="08 CTA">
+        <header class="slide__head"><span class="c-badge">One ask</span></header>
+        <div class="slide__body m-cta">
+          <h2 class="c-title c-title--cover">Five lines. <mark>Every prompt.</mark></h2>
+          <div class="c-cta"><p class="c-cta__title">Save slide 7</p><p class="c-cta__action">@rlnorthcutt &middot; frond</p></div>
+        </div>
+        <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-pagenum">8 / 8</span></footer>
+      </section>
+    </s-page-body>
+  </s-page>
+
+</stapled-doc>
+
+</body>
+</html>
