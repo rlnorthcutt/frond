@@ -19,6 +19,11 @@ function esc(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// Blurb text uses markdown-style `code` spans; render those as <code>.
+function inlineCode(s) {
+  return s.replace(/`([^`]+)`/g, '<code>$1</code>');
+}
+
 // ---------------------------------------------------------------------------
 // Atoms — A1–A18
 // ---------------------------------------------------------------------------
@@ -336,4 +341,4 @@ const GROUNDS = [
   { cls: 'slide--surface', title: 'Surface ground', blurb: 'Sits the slide on the card surface instead of the page background.' },
 ];
 
-module.exports = { ATOMS, MOLECULES, GROUNDS, ICON_SPRITE, esc };
+module.exports = { ATOMS, MOLECULES, GROUNDS, ICON_SPRITE, esc, inlineCode };

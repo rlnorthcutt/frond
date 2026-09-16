@@ -15,6 +15,7 @@ function copy(from, to) {
 }
 
 copy(path.join(root, 'dist', 'frond.full.css'), path.join(root, 'docs', 'frond.full.css'));
+copy(path.join(root, 'frond.json'), path.join(root, 'docs', 'frond.json'));
 
 for (const dir of ['themes', 'sizes']) {
   const files = fs.readdirSync(path.join(root, dir)).filter((f) => f.endsWith('.css'));
@@ -27,4 +28,4 @@ for (const f of ['ivy.full.min.css', 'lattice.full.min.css', 'stapler.min.js']) 
   copy(path.join(root, 'vendor', f), path.join(root, 'docs', 'vendor', f));
 }
 
-console.log('Synced frond.full.css, themes/, sizes/, and vendor/ into docs/');
+console.log('Synced frond.full.css, frond.json, themes/, sizes/, and vendor/ into docs/');

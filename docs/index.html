@@ -12,12 +12,11 @@
 <link rel="stylesheet" href="site.css">
 <nav class="docs-nav" aria-label="Docs">
   <a class="docs-nav__brand" href="index.html">frond</a>
-  <a href="index.html" id="nav-gallery">Gallery</a>
-  <a href="cheatsheet.html" id="nav-cheatsheet">Cheat sheet</a>
+  <a href="index.html" aria-current="page">Gallery</a>
+  <a href="cheatsheet.html">Cheat sheet</a>
   <a href="demo.html">Demo</a>
+  <span class="docs-nav__sep">&middot;</span>
   <a href="archetypes/how-to.html">Archetypes</a>
-  <span class="docs-nav__sep">·</span>
-  <a href="https://github.com/rlnorthcutt/frond">GitHub</a>
 </nav>
 
 </head>
@@ -33,8 +32,8 @@
     <p>Eighteen content atoms and sixteen slide layouts on a fixed 1080&times;1350 canvas, on top of ivy, lattice, and stapler. Every component below is real markup, rendered live — switch themes to see the eight-token contract hold.</p>
     <div class="docs-hero__meta">
       <span class="theme-picker" id="theme-picker"></span>
-      <a href="../frond.json">frond.json</a>
-      <a href="../README.md">README</a>
+      <a href="frond.json">frond.json</a>
+      <a href="https://github.com/rlnorthcutt/frond#readme">README</a>
       <a href="cheatsheet.html">Cheat sheet &rarr;</a>
     </div>
   </div>
@@ -48,7 +47,7 @@
     <span class="atom-card__id">A1</span><span class="atom-card__title">Title</span>
     <span class="atom-card__cls">.c-title</span>
   </div>
-  <p class="atom-card__blurb">Headline voice. `mark` inside a title picks up the default highlight.</p>
+  <p class="atom-card__blurb">Headline voice. <code>mark</code> inside a title picks up the default highlight.</p>
   <div class="atom-card__stage"><div class="cv-stage"><h2 class="c-title">Reach is rented. A <mark class="c-hl--underline">save</mark> is owned.</h2></div></div>
 </div>
       <div class="atom-card">
@@ -154,7 +153,7 @@
     <span class="atom-card__id">A11</span><span class="atom-card__title">Highlight</span>
     <span class="atom-card__cls">.c-hl</span>
   </div>
-  <p class="atom-card__blurb">The highlight mechanism inside a title or body — also works as a bare `mark`.</p>
+  <p class="atom-card__blurb">The highlight mechanism inside a title or body — also works as a bare <code>mark</code>.</p>
   <div class="atom-card__stage"><div class="cv-stage"><p class="c-body">A <mark class="c-hl--underline">save</mark> is owned. A <mark class="c-hl--box">reach</mark> is rented.</p></div></div>
 </div>
       <div class="atom-card">

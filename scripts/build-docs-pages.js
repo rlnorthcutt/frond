@@ -1,37 +1,27 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
-const { ATOMS, MOLECULES, GROUNDS, ICON_SPRITE, esc } = require('./gen-gallery');
+const { ATOMS, MOLECULES, GROUNDS, ICON_SPRITE, esc, inlineCode } = require('./gen-gallery');
+const { renderNav } = require('./docs-nav');
 
 const root = path.join(__dirname, '..');
 const docs = path.join(root, 'docs');
-
-const NAV = `<link rel="stylesheet" href="site.css">
-<nav class="docs-nav" aria-label="Docs">
-  <a class="docs-nav__brand" href="index.html">frond</a>
-  <a href="index.html" id="nav-gallery">Gallery</a>
-  <a href="cheatsheet.html" id="nav-cheatsheet">Cheat sheet</a>
-  <a href="demo.html">Demo</a>
-  <a href="archetypes/how-to.html">Archetypes</a>
-  <span class="docs-nav__sep">·</span>
-  <a href="https://github.com/rlnorthcutt/frond">GitHub</a>
-</nav>`;
 
 const HEAD_CSS = `<link rel="stylesheet" href="vendor/ivy.full.min.css">
 <link rel="stylesheet" href="vendor/lattice.full.min.css">
 <link rel="stylesheet" href="frond.full.css">
 <link id="theme-link" rel="stylesheet" href="themes/light.css">`;
 
-function page({ title, description, bodyClass, extraHead = '', content, extraScripts = '' }) {
+function page({ title, description, current, bodyClass, extraHead = '', content, extraScripts = '' }) {
   return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${title}</title>
-<meta name="description" content="${description}">
+<meta name="description" content="${esc(description)}">
 ${HEAD_CSS}
-${NAV}
+${renderNav({ base: '', current, archetypeBase: null })}
 ${extraHead}
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
@@ -53,7 +43,7 @@ function atomCard(a) {
     <span class="atom-card__id">${a.id}</span><span class="atom-card__title">${a.title}</span>
     <span class="atom-card__cls">.${a.cls.replace(/ \/ /g, ' · .')}</span>
   </div>
-  ${a.blurb ? `<p class="atom-card__blurb">${a.blurb}</p>` : ''}
+  ${a.blurb ? `<p class="atom-card__blurb">${inlineCode(a.blurb)}</p>` : ''}
   <div class="atom-card__stage"><div class="cv-stage">${a.html}</div></div>
 </div>`;
 }
@@ -65,19 +55,20 @@ function moleculeCard(m) {
     <span class="molecule-card__id">${m.id}</span><span class="molecule-card__title">${m.title}</span>
     <span class="molecule-card__cls">.${m.cls}</span>
   </div>
-  ${m.blurb ? `<p class="molecule-card__blurb">${m.blurb}</p>` : ''}
+  ${m.blurb ? `<p class="molecule-card__blurb">${inlineCode(m.blurb)}</p>` : ''}
 </div>`;
 }
 
 function groundCard(g) {
-  const s = MOLECULES[1].slide.replace('<section class="slide', `<section class="slide ${g.cls}`);
+  const cover = MOLECULES.find((m) => m.id === 'M2');
+  const s = cover.slide.replace('<section class="slide', `<section class="slide ${g.cls}`);
   return `<div class="ground-card">
   <div class="m-frame"><div class="m-frame__inner">${s}</div></div>
   <div class="molecule-card__head">
     <span class="molecule-card__title">${g.title}</span>
     <span class="molecule-card__cls">.${g.cls}</span>
   </div>
-  <p class="molecule-card__blurb">${g.blurb}</p>
+  <p class="molecule-card__blurb">${inlineCode(g.blurb)}</p>
 </div>`;
 }
 
@@ -98,8 +89,8 @@ const galleryContent = `<main class="docs-main">
     <p>Eighteen content atoms and sixteen slide layouts on a fixed 1080&times;1350 canvas, on top of ivy, lattice, and stapler. Every component below is real markup, rendered live — switch themes to see the eight-token contract hold.</p>
     <div class="docs-hero__meta">
       <span class="theme-picker" id="theme-picker"></span>
-      <a href="../frond.json">frond.json</a>
-      <a href="../README.md">README</a>
+      <a href="frond.json">frond.json</a>
+      <a href="https://github.com/rlnorthcutt/frond#readme">README</a>
       <a href="cheatsheet.html">Cheat sheet &rarr;</a>
     </div>
   </div>
@@ -140,6 +131,7 @@ const galleryContent = `<main class="docs-main">
 fs.writeFileSync(path.join(docs, 'index.html'), page({
   title: 'Frond — a CSS library for fixed-canvas carousel sheets',
   description: 'Frond: eighteen content atoms and sixteen slide layouts on a 1080x1350 canvas, built on ivy, lattice, and stapler.',
+  current: 'index',
   content: galleryContent,
 }));
 
@@ -162,7 +154,7 @@ function moleculeCheatItem(m) {
 const cheatContent = `<main class="docs-main">
   <div class="docs-hero">
     <h1>Cheat sheet</h1>
-    <p>Copy-paste markup for every atom and molecule. The full machine-readable index (every class, every variant) is <a href="../frond.json">frond.json</a>.</p>
+    <p>Copy-paste markup for every atom and molecule. The full machine-readable index (every class, every variant) is <a href="frond.json">frond.json</a>.</p>
   </div>
 
   <section class="docs-section cheat-section" id="atoms">
@@ -179,6 +171,7 @@ const cheatContent = `<main class="docs-main">
 fs.writeFileSync(path.join(docs, 'cheatsheet.html'), page({
   title: 'Cheat sheet — frond',
   description: 'Copy-paste markup for every frond atom and molecule.',
+  current: 'cheatsheet',
   content: cheatContent,
 }));
 
