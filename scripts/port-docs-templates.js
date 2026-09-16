@@ -11,12 +11,18 @@ const path = require('path');
 const root = path.join(__dirname, '..');
 const templates = path.join(root, 'mockups', 'templates');
 
-function rewrite(html) {
+const CSS_LINKS_RE = /<link rel="stylesheet" href="\.\.\/css\/base\.css">\n<link rel="stylesheet" href="\.\.\/css\/atoms\.css">\n<link rel="stylesheet" href="\.\.\/css\/molecules\.css">\n<link rel="stylesheet" href="\.\.\/css\/chrome\.css">/;
+
+function rewrite(html, sourceFile) {
+  if (!CSS_LINKS_RE.test(html)) {
+    throw new Error(
+      `${sourceFile}: the four-file css/ <link> block didn't match the expected shape — ` +
+      `refusing to write a page whose CSS paths weren't actually rewritten. ` +
+      `Update CSS_LINKS_RE in scripts/port-docs-templates.js to match the current mockups/ markup.`
+    );
+  }
   return html
-    .replace(
-      /<link rel="stylesheet" href="\.\.\/css\/base\.css">\n<link rel="stylesheet" href="\.\.\/css\/atoms\.css">\n<link rel="stylesheet" href="\.\.\/css\/molecules\.css">\n<link rel="stylesheet" href="\.\.\/css\/chrome\.css">/,
-      '<link rel="stylesheet" href="../frond.full.css">'
-    )
+    .replace(CSS_LINKS_RE, '<link rel="stylesheet" href="../frond.full.css">')
     .replace(/\.\.\/css\/themes\//g, '../themes/')
     .replace(/carousel-lib/g, 'frond');
 }
@@ -34,13 +40,13 @@ fs.mkdirSync(archetypeDir, { recursive: true });
 
 for (const file of archetypeFiles) {
   const html = fs.readFileSync(path.join(templates, file), 'utf8');
-  fs.writeFileSync(path.join(archetypeDir, file), rewrite(html));
+  fs.writeFileSync(path.join(archetypeDir, file), rewrite(html, file));
 }
 
 // Demo: lives directly in docs/, one level shallower than templates/ was —
 // strip the leading "../" from every asset path.
 let demo = fs.readFileSync(path.join(templates, 'demo-carousel.html'), 'utf8');
-demo = rewrite(demo).replace(/(href|src)="\.\.\//g, '$1="');
+demo = rewrite(demo, 'demo-carousel.html').replace(/(href|src)="\.\.\//g, '$1="');
 fs.writeFileSync(path.join(root, 'docs', 'demo.html'), demo);
 
 console.log(`Ported ${archetypeFiles.length} archetypes + demo.html into docs/`);
