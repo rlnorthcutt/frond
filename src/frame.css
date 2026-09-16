@@ -1,0 +1,147 @@
+/*! frond — frame.css (§5)
+ *  Page furniture applied at slide level. Every element is a separate node,
+ *  so "toggling it off" is simply omitting it — no state classes needed.
+ *
+ *  <footer class="c-foot">
+ *    <div class="c-foot__author">…</div>
+ *    <span class="c-swipe">…</span>
+ *    <span class="c-pagenum">3 / 8</span>
+ *  </footer>
+ */
+
+.c-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex: none;
+  padding: 0;
+  font-family: var(--font-body);
+  min-height: 48px;
+}
+.c-foot__author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.c-foot__name {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.c-foot__handle {
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--ink-muted);
+}
+/* stacked name over handle */
+.c-foot__author--stack { flex-direction: row; }
+.c-foot__id { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+
+/* --- PageNumber --------------------------------------------------------- */
+.c-pagenum {
+  font-family: var(--font-body);
+  font-size: 21px;
+  line-height: 1;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  flex: none;
+}
+/* corner variant, when there is no footer row */
+.c-pagenum--corner {
+  position: absolute;
+  right: var(--cv-pad);
+  bottom: var(--cv-pad);
+  z-index: 2;
+}
+
+/* --- LogoSlot ----------------------------------------------------------- */
+.c-logo {
+  flex: none;
+  height: 40px;
+  opacity: 0.25;
+  color: var(--ink);
+}
+.c-logo img,
+.c-logo svg { height: 100%; width: auto; display: block; }
+.c-logo--corner {
+  position: absolute;
+  right: var(--cv-pad);
+  top: var(--cv-pad);
+  z-index: 2;
+}
+
+/* --- SwipeIndicator ----------------------------------------------------- */
+.c-swipe {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+  font-family: var(--font-body);
+  font-size: 21px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.c-swipe__arrow {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  font-size: 24px;
+  line-height: 1;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.c-swipe--ghost .c-swipe__arrow {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+.c-swipe--bare .c-swipe__arrow { display: none; }
+
+/* --- Divider ------------------------------------------------------------ */
+.c-divider {
+  width: 64px;
+  height: var(--cv-rule);
+  flex: none;
+  background: var(--accent);
+  border: 0;
+  border-radius: 2px;
+  margin: 0;
+}
+.c-divider--wide { width: 140px; }
+.c-divider--full { width: 100%; height: 1px; background: var(--hairline); }
+
+/* --- Progress rail — optional alternative to a page number -------------- */
+.c-progress {
+  display: flex;
+  gap: 8px;
+  flex: none;
+  align-items: center;
+}
+.c-progress__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--ink) 22%, var(--bg));
+}
+.c-progress__dot--on { background: var(--accent); }
+.c-progress--bar {
+  width: 180px;
+  height: 6px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--ink) 16%, var(--bg));
+  overflow: hidden;
+  display: block;
+}
+.c-progress--bar > .c-progress__fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}

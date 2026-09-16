@@ -1,0 +1,28 @@
+/*! frond — sizes/portrait-1200.css — 1200×1500
+ *  Load after base.css. A taller sheet takes the type scale up ~11%.
+ */
+
+:root {
+  --cv-w: 1200px;
+  --cv-h: 1500px;
+  --cv-pad: 80px;
+  --cv-gap: 36px;
+  --fs-cover: 58px;
+  --fs-title: 51px;
+  --fs-statement: 89px;
+  --fs-lead: 33px;
+  --fs-body: 30px;
+  --fs-caption: 23px;
+  --fs-badge: 24px;
+  --fs-stat: 133px;
+  --fs-num: 49px;
+  --fs-bignum: 490px;
+  --fs-quote: 44px;
+  --fs-mark: 200px;
+  --fs-icon: 40px;
+}
+
+@page {
+  size: 1200px 1500px;
+  margin: 0;
+}

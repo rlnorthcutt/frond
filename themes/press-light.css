@@ -1,0 +1,16 @@
+/*! frond — themes/press-light.css
+ *  Second pair, magenta spot. Same eight tokens, nothing else — this pair
+ *  exists to prove the contract holds on a palette that isn't cyan.
+ */
+
+:root,
+.t-press-light {
+  --bg: #f4f1ef;
+  --surface: #ffffff;
+  --ink: #1c1a1b;
+  --ink-muted: #6f6668;
+  --accent: #d6006c;
+  --accent-ink: #ffffff;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+}

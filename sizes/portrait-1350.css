@@ -1,0 +1,31 @@
+/*! frond — sizes/portrait-1350.css — 1080×1350 (default)
+ *  Load after base.css. This is the canvas base.css already assumes, restated
+ *  explicitly so it is a preset like the others — a project can switch back
+ *  to it after loading square.css or widescreen.css and get every token
+ *  reset, not just the canvas pair.
+ */
+
+:root {
+  --cv-w: 1080px;
+  --cv-h: 1350px;
+  --cv-pad: 72px;
+  --cv-gap: 32px;
+  --fs-cover: 52px;
+  --fs-title: 46px;
+  --fs-statement: 80px;
+  --fs-lead: 30px;
+  --fs-body: 27px;
+  --fs-caption: 21px;
+  --fs-badge: 22px;
+  --fs-stat: 120px;
+  --fs-num: 44px;
+  --fs-bignum: 440px;
+  --fs-quote: 40px;
+  --fs-mark: 180px;
+  --fs-icon: 36px;
+}
+
+@page {
+  size: 1080px 1350px;
+  margin: 0;
+}

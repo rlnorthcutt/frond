@@ -1,0 +1,16 @@
+/*! frond — themes/light.css
+ *  A theme sets ONLY the eight contract tokens. Nothing else.
+ *  Scoped to :root and .t-light so one page can show both themes side by side.
+ */
+
+:root,
+.t-light {
+  --bg: #f3f2f2;
+  --surface: #ffffff;
+  --ink: #201e1d;
+  --ink-muted: #6b6663;
+  --accent: #0088b0;
+  --accent-ink: #ffffff;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+}
