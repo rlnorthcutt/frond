@@ -27,11 +27,27 @@ Follows [Semantic Versioning](https://semver.org/).
   demand, same pattern as lattice's own `doc-assets.yml`. Decouples `docs/`'s copies of
   those companion libraries from frond's root `vendor/` (which stays a separate, pinned
   snapshot for the shipped library — see ONBOARDING.md).
-- `<dark-mode-toggle>` in the docs nav, toggling the docs chrome's own light/dark mode
-  (`docs/site.css` custom properties, `--docs-*`) — a separate axis from frond's own
-  four-way component theme picker; the two share no variables.
+- `<dark-mode-toggle>` in the docs header, toggling the docs chrome's own light/dark mode
+  via ivy's own theming — a separate axis from frond's own four-way component theme picker
+  (which now lives only on `docs/gallery.html`); the two share no variables.
+- `docs/index.html` — a real landing page (hero, "why frond", two layers, install, quick
+  start, canvas/tokens/components/printing/support/files, all in ivy's classless style with
+  lattice's grid utilities), matching ivy's and lattice's own homepages. The former
+  `docs/index.html` (the atom/molecule gallery) moved to `docs/gallery.html`.
 
 ### Changed
+- Rebuilt the entire docs chrome to match ivy's/lattice's own docs sites instead of a
+  bespoke design: header (logo, nav, GitHub icon, `<dark-mode-toggle>`), hero/page-title
+  typography, and the `.shell` on-page-nav layout now reuse ivy's classless elements and
+  lattice's grid utilities, with `docs/site.css` reduced to a lean brand-color override
+  (cyan) plus the handful of things ivy/lattice have no opinion on — same shape as lattice's
+  own `docs.css`. Dropped the bespoke `--docs-*` dark-mode token scheme entirely; the chrome
+  now gets dark mode for free from ivy's own `--color-*` tokens.
+- Archetype pages gained a `.subnav` sub-navigation strip (all 8 archetypes), matching ivy's
+  own `docs/example-*.html` pattern, replacing the full archetype list that used to be
+  crammed into the main header.
+- `scripts/docs-nav.js` reworked around this: `renderNav()` now returns
+  `{ headLink, header, subnav, script }` (was `{ headLink, navBar, script }`).
 - `scripts/sync-docs.js` no longer copies `vendor/` into `docs/vendor/` — that's now
   `doc-assets.yml`'s job (see above).
 - `scripts/docs-nav.js` now returns `{ headLink, navBar, script }` instead of one combined

@@ -6,18 +6,20 @@ Tracked against `PLAN.md`'s milestones. Not in priority order within a section.
 
 ## Before next release
 
-- [x] **Docs site (M3)** — `docs/index.html` (gallery), `docs/cheatsheet.html`,
-  `docs/demo.html`, `docs/archetypes/` (8 pages) built and self-contained under `docs/`
-  (Pages serves that folder only). frond's own CSS synced via `scripts/sync-docs.js`;
-  external companion libraries (ivy, lattice, stapler, dark-mode-toggle) fetched via
-  `.github/workflows/doc-assets.yml`, same pattern as lattice. Not yet verified in an actual
-  browser — see below.
+- [x] **Docs site (M3)** — `docs/index.html` (landing page, ivy/lattice-styled chrome),
+  `docs/gallery.html`, `docs/cheatsheet.html`, `docs/demo.html`, `docs/archetypes/`
+  (8 pages), self-contained under `docs/` (Pages serves that folder only). frond's own CSS
+  synced via `scripts/sync-docs.js`; external companion libraries (ivy, lattice, stapler,
+  dark-mode-toggle) fetched via `.github/workflows/doc-assets.yml`, same pattern as lattice.
+  Not yet verified in an actual browser — see below.
 - [ ] **Visual QA** — no browser tool was available while building the docs site; open
-  `docs/index.html`, `docs/cheatsheet.html`, `docs/demo.html`, and at least one archetype
-  locally (e.g. `python3 -m http.server` from the repo root) and check: all four component
-  themes, the docs-chrome dark-mode-toggle, every molecule preview frame (1080×1350 scaled
-  to 300×375 via `transform: scale()`), the texture strip, and the cheat sheet's copy
-  button.
+  `docs/index.html`, `docs/gallery.html`, `docs/cheatsheet.html`, `docs/demo.html`, and at
+  least one archetype locally (e.g. `python3 -m http.server` from the repo root) and check:
+  the header/hero/on-page-nav shell against ivy's and lattice's own docs sites, the
+  `<dark-mode-toggle>` in the header (toggles ivy's own light/dark, via `docs/site.css`'s
+  cyan brand override), the gallery's separate four-theme picker (component previews only),
+  every molecule preview frame (1080×1350 scaled to 300×375 via `transform: scale()`), the
+  texture strip, the archetypes sub-nav, and the cheat sheet's copy button.
 - [ ] **`docs/reference.pdf`** — regenerated component-reference PDF (PLAN's `docs/` tree),
   not built — needs an actual print pass, not just HTML.
 - [ ] **Hero screenshot** — `image.png` + the linked-to-Pages header block in README, once

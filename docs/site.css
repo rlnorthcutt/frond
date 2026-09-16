@@ -1,221 +1,122 @@
-/* frond docs — chrome shared by every docs page. Never affects the printed
-   PDF: everything here is hidden under @media print.
+/*!
+ * Frond docs — color scheme & documentation helpers.
+ * Same shape as ivy's/lattice's own docs.css: a brand color override plus
+ * the handful of things ivy.css + lattice.css have no opinion on. The docs
+ * chrome's light/dark mode is ivy's own (prefers-color-scheme /
+ * data-theme / <dark-mode-toggle>) — nothing bespoke here for that axis.
+ */
 
-   The tokens below control the docs CHROME's own light/dark mode (nav stays
-   a fixed dark bar regardless — see .docs-nav). This is a separate axis from
-   frond's own component theme picker (themes/*.css: --bg, --ink, etc, used
-   inside .cv-stage/.slide) — different variable names, so the two can never
-   collide, and switching one never affects the other. */
-
+/* ==========================================================================
+   Color scheme — cyan primary, matching frond's own default (light) theme
+   accent. Override ivy's -light / -dark palette tokens; applied tokens (no
+   suffix) are remapped automatically by ivy's theme logic.
+   ========================================================================== */
 :root {
-  --docs-bg: #c9c6c3;
-  --docs-ink: #201e1d;
-  --docs-ink-muted: #4a4542;
-  --docs-card-bg: #ffffff;
-  --docs-hairline: #eeeeee;
-  --docs-picker-bg: #ffffff;
-  --docs-picker-ring: #d8d3ce;
+  --color-primary-light:      #0088b0;
+  --color-primary-dark:       #45b8d8;
+  --color-primary-text-light: #ffffff;
+  --color-primary-text-dark:  #07222b;
+
+  --color-link-light: #0088b0;
+  --color-link-dark:  #45b8d8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --docs-bg: #18181a;
-    --docs-ink: #e9e6e2;
-    --docs-ink-muted: #a39d97;
-    --docs-card-bg: #242325;
-    --docs-hairline: #38363a;
-    --docs-picker-bg: #242325;
-    --docs-picker-ring: #3a383c;
-  }
-}
-:root[data-theme="dark"] {
-  --docs-bg: #18181a;
-  --docs-ink: #e9e6e2;
-  --docs-ink-muted: #a39d97;
-  --docs-card-bg: #242325;
-  --docs-hairline: #38363a;
-  --docs-picker-bg: #242325;
-  --docs-picker-ring: #3a383c;
+/* ==========================================================================
+   Site shell — sidebar on-page nav + content. Column layout is lattice's
+   own .grid (see markup); this only adds what lattice.css has no opinion on.
+   ========================================================================== */
+[id] { scroll-margin-top: 5.5rem; }
+.shell { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); align-items: start; }
+.shell article, .shell > div:last-child { max-width: none; margin: 0; padding: 0; }
+.shell > nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+.shell > nav a { color: var(--color-muted); text-decoration: none; }
+.shell > nav a:hover { color: var(--color-link); }
+@media (min-width: 64rem) {
+  .shell { grid-template-columns: 13rem minmax(0, 1fr); gap: calc(var(--m) * 3.5); }
+  .shell > nav { position: sticky; top: 5.5rem; font-size: var(--fs-sm); }
 }
 
-.docs-nav {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px 18px;
-  padding: 14px 24px;
-  background: #201e1d;
-  color: #f3f2f2;
-  font: 14px/1.4 -apple-system, system-ui, sans-serif;
-}
-.docs-nav a {
-  color: #f3f2f2;
-  text-decoration: none;
-  opacity: .78;
-}
-.docs-nav a:hover,
-.docs-nav a[aria-current="page"] {
-  opacity: 1;
-  text-decoration: underline;
-}
-.docs-nav__brand {
-  font-weight: 700;
-  letter-spacing: -.01em;
-  opacity: 1 !important;
-  text-decoration: none !important;
-  margin-right: 4px;
-}
-.docs-nav__sep {
-  opacity: .4;
-}
-.docs-nav__archetypes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 14px;
-  margin-left: auto;
-}
-.docs-nav dark-mode-toggle {
-  margin-left: 8px;
-}
+/* Archetypes sub-nav — same pattern as ivy's docs/example-*.html .subnav */
+.subnav { margin: 0 auto; padding: var(--space-sm) calc(var(--m) * 2.5) var(--space-sm) var(--m); }
+.subnav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--m); font-size: var(--fs-sm); }
+.subnav a { text-decoration: none; color: var(--color-muted); }
+.subnav a:hover { color: var(--color-link); }
+.subnav a[aria-current="page"] { color: var(--color-text); font-weight: 600; }
 
-@media print {
-  .docs-nav { display: none; }
-}
+/* ==========================================================================
+   Hero / page-title typography — matches ivy's/lattice's homepage.
+   ========================================================================== */
+.hero h1 { font-size: clamp(2.5rem, 6vw, 4.25rem); line-height: 1.03; letter-spacing: -.025em; margin: 0 0 var(--m); }
+.hero .lede { font-size: 1.15rem; color: var(--color-muted); max-width: 42rem; }
+.page-title { padding-top: var(--space-xl); }
+.page-title h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.05; letter-spacing: -.025em; margin: 0 0 var(--m); }
+.page-title .lede { font-size: 1.15rem; color: var(--color-muted); max-width: 42rem; margin: 0 0 var(--m); }
 
-/* ---- gallery / cheat sheet shell -------------------------------------- */
-body {
-  margin: 0;
-  background: var(--docs-bg);
-  font: 15px/1.5 -apple-system, system-ui, sans-serif;
-  color: var(--docs-ink);
-}
-.docs-main {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 48px 24px 96px;
-}
-.docs-hero h1 {
-  font: 700 40px/1.05 -apple-system, system-ui, sans-serif;
-  letter-spacing: -0.02em;
-  margin: 0 0 12px;
-}
-.docs-hero p {
-  max-width: 46em;
-  color: var(--docs-ink-muted);
-  margin: 0 0 24px;
-}
-.docs-hero__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 20px;
-  align-items: center;
-  font-size: 13px;
-  color: var(--docs-ink-muted);
-}
-.docs-hero__meta a { color: inherit; }
-
-.theme-picker {
-  display: inline-flex;
-  gap: 6px;
-  padding: 4px;
-  background: var(--docs-picker-bg);
-  border-radius: 999px;
-  box-shadow: inset 0 0 0 1px var(--docs-picker-ring);
-}
-.theme-picker button {
-  border: 0;
-  background: transparent;
-  padding: 7px 16px;
-  border-radius: 999px;
-  font: 600 13px/1 -apple-system, system-ui, sans-serif;
-  cursor: pointer;
-  color: var(--docs-ink-muted);
-}
-.theme-picker button[aria-pressed="true"] {
-  background: #201e1d;
-  color: #fff;
-}
-
-.docs-section { margin-top: 64px; }
-.docs-section > h2 {
-  font: 700 26px/1.1 -apple-system, system-ui, sans-serif;
-  letter-spacing: -0.01em;
-  margin: 0 0 6px;
-  color: var(--docs-ink);
-}
-.docs-section > p.docs-section__lede {
-  color: var(--docs-ink-muted);
-  max-width: 52em;
-  margin: 0 0 28px;
-}
-
+/* ==========================================================================
+   Gallery / cheat sheet — the parts ivy/lattice have no opinion on. Uses
+   ivy's own surface/border/muted tokens throughout, so dark mode is free.
+   ========================================================================== */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 28px;
+  gap: var(--space-xl);
+  margin: var(--m) 0;
+}
+.texture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--m);
+  margin: var(--m) 0;
 }
 
-.atom-card, .ground-card {
-  background: var(--docs-card-bg);
-  border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 26px -18px rgba(0,0,0,.35);
+.atom-card, .molecule-card, .ground-card, .texture-card, .cheat-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
   overflow: hidden;
 }
 .atom-card__head, .molecule-card__head {
-  padding: 16px 18px 12px;
+  padding: var(--space-sm) var(--m) calc(var(--space-sm) * .5);
 }
 .atom-card__id, .molecule-card__id {
   display: inline-block;
-  font: 700 11px/1 ui-monospace, monospace;
+  font: 700 .68rem/1 ui-monospace, monospace;
   letter-spacing: .04em;
   color: #fff;
-  background: #6b6663;
-  padding: 3px 7px;
-  border-radius: 5px;
-  margin-right: 8px;
+  background: var(--color-muted);
+  padding: .2rem .45rem;
+  border-radius: .3rem;
+  margin-right: .5rem;
   vertical-align: middle;
-}
-.atom-card__title, .molecule-card__title {
-  font: 600 15px/1.2 -apple-system, system-ui, sans-serif;
-  color: var(--docs-ink);
 }
 .atom-card__cls, .molecule-card__cls {
   display: block;
-  font: 12px/1.4 ui-monospace, monospace;
-  color: var(--docs-ink-muted);
-  margin-top: 4px;
+  font: .75rem/1.4 ui-monospace, monospace;
+  color: var(--color-muted);
+  margin-top: .25rem;
 }
 .atom-card__blurb, .molecule-card__blurb {
-  font-size: 13px;
-  color: var(--docs-ink-muted);
-  margin: 6px 0 0;
-  padding: 0 18px 14px;
+  font-size: .82rem;
+  color: var(--color-muted);
+  margin: .4rem 0 0;
+  padding: 0 var(--m) var(--space-sm);
 }
 .atom-card__blurb code, .molecule-card__blurb code {
-  font: 12px/1 ui-monospace, monospace;
-  background: var(--docs-hairline);
-  padding: .15em .35em;
-  border-radius: 4px;
+  font-size: .75rem;
+  background: var(--surface-2);
+  padding: .1em .35em;
+  border-radius: .25rem;
 }
 .atom-card__stage {
-  border-top: 1px solid var(--docs-hairline);
+  border-top: 1px solid var(--color-border);
   overflow: hidden;
 }
 .atom-card__stage .cv-stage {
   width: 100% !important;
-  padding: 24px;
-  gap: 16px;
+  padding: var(--space-sm);
+  gap: var(--space-sm);
 }
 
-.molecule-card {
-  background: var(--docs-card-bg);
-  border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 26px -18px rgba(0,0,0,.35);
-  overflow: hidden;
-}
 .m-frame {
   width: 100%;
   aspect-ratio: 1080 / 1350;
@@ -230,71 +131,51 @@ body {
   transform-origin: top left;
 }
 
-.ground-card .m-frame { aspect-ratio: 1080 / 1350; }
-
-.texture-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
-}
-.texture-card {
-  background: var(--docs-card-bg);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 26px -18px rgba(0,0,0,.35);
-}
 .texture-card .cv-stage {
   width: 100% !important;
-  min-height: 160px;
+  min-height: 10rem;
   justify-content: center;
 }
 .texture-card__label {
-  padding: 10px 16px;
-  font: 600 12px/1 ui-monospace, monospace;
-  color: var(--docs-ink-muted);
-  border-top: 1px solid var(--docs-hairline);
+  padding: .6rem var(--m);
+  font: 600 .72rem/1 ui-monospace, monospace;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border);
 }
 
-/* ---- cheat sheet -------------------------------------------------------- */
-.cheat-section { margin-top: 40px; }
 .cheat-item {
   position: relative;
-  background: var(--docs-card-bg);
-  border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 22px -16px rgba(0,0,0,.3);
-  margin-bottom: 18px;
-  overflow: hidden;
+  margin-bottom: var(--space-sm);
 }
 .cheat-item__head {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: .6rem;
   flex-wrap: wrap;
-  padding: 14px 18px 4px;
-  color: var(--docs-ink);
+  padding: var(--space-sm) var(--m) .2rem;
 }
 .cheat-item__variants {
-  padding: 0 18px 12px;
-  font: 12px/1.5 ui-monospace, monospace;
-  color: var(--docs-ink-muted);
+  padding: 0 var(--m) var(--space-sm);
+  font: .72rem/1.5 ui-monospace, monospace;
+  color: var(--color-muted);
 }
 .cheat-item pre {
   margin: 0;
-  padding: 16px 18px;
+  padding: var(--space-sm) var(--m);
   background: #1c1a19;
   color: #e8e5e2;
-  font: 13px/1.55 ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font: .8rem/1.55 ui-monospace, "SFMono-Regular", Menlo, monospace;
   overflow-x: auto;
 }
 .cheat-item__copy {
   position: absolute;
-  top: 12px;
-  right: 14px;
+  top: .7rem;
+  right: .8rem;
   border: 0;
   background: #3a3634;
   color: #fff;
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 6px;
+  font-size: .72rem;
+  padding: .35rem .6rem;
+  border-radius: .4rem;
   cursor: pointer;
 }

@@ -1,5 +1,7 @@
-// Theme picker for the gallery — swaps the single theme <link> and remembers
-// the choice, same pattern as ivy's docs/site.js palette picker.
+// Theme picker for the gallery — a button group (ivy.extra's data-variant
+// buttons) that swaps the single theme <link> and remembers the choice.
+// Separate from <dark-mode-toggle> in the header: that toggles the docs
+// chrome itself; this toggles which frond theme the component previews use.
 (function () {
   const THEMES = [
     ['light', 'Light'],
@@ -18,7 +20,9 @@
   function apply(id) {
     link.setAttribute('href', 'themes/' + id + '.css');
     for (const btn of picker.querySelectorAll('button')) {
-      btn.setAttribute('aria-pressed', String(btn.dataset.theme === id));
+      const isActive = btn.dataset.theme === id;
+      btn.setAttribute('aria-pressed', String(isActive));
+      btn.setAttribute('data-variant', isActive ? 'primary' : 'ghost');
     }
     try { localStorage.setItem('frond-docs-theme', id); } catch (e) {}
   }
@@ -26,9 +30,9 @@
   for (const [id, label] of THEMES) {
     const btn = document.createElement('button');
     btn.type = 'button';
+    btn.dataset.size = 'sm';
     btn.textContent = label;
     btn.dataset.theme = id;
-    btn.setAttribute('aria-pressed', String(id === active));
     btn.addEventListener('click', () => apply(id));
     picker.appendChild(btn);
   }

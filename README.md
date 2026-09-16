@@ -230,17 +230,20 @@ graphics **on**. `@page { size: 1080px 1350px }` (or your chosen preset) does th
 ## Examples
 
 `docs/` is the GitHub Pages site — every page is self-contained (own copy of the CSS,
-themes, and vendored libs, since Pages only serves `docs/`):
+themes, and vendored libs, since Pages only serves `docs/`), built on ivy + lattice for its
+own chrome, same as ivy's and lattice's own docs sites:
 
-* `docs/index.html` — gallery: every atom and molecule, rendered live, with a theme switcher.
+* `docs/index.html` — the landing page.
+* `docs/gallery.html` — every atom and molecule, rendered live, with a theme switcher.
 * `docs/cheatsheet.html` — copy-paste markup for every component.
 * `docs/demo.html` — a ten-slide carousel exercising one of each molecule.
 * `docs/archetypes/` — eight complete carousels, all on one subject, so the layouts can be
   compared without the copy getting in the way.
 
-Regenerate the gallery/cheat sheet from source with `node scripts/build-docs-pages.js` (data
-lives in `scripts/gen-gallery.js`) after running `scripts/build.js` and `scripts/sync-docs.js`
-— see [ONBOARDING.md](./ONBOARDING.md).
+Regenerate the landing page/gallery/cheat sheet from source with
+`node scripts/build-docs-pages.js` (data lives in `scripts/gen-gallery.js`, shared nav in
+`scripts/docs-nav.js`) after running `scripts/build.js` and `scripts/sync-docs.js` — see
+[ONBOARDING.md](./ONBOARDING.md).
 
 ---
 

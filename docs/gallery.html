@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery — frond</title>
+<meta name="description" content="Frond: every atom and molecule, rendered live, with a four-theme switcher.">
+<link rel="stylesheet" href="vendor/ivy.full.min.css">
+<link rel="stylesheet" href="vendor/lattice.full.min.css">
+<link rel="stylesheet" href="frond.full.css">
+<link id="theme-link" rel="stylesheet" href="themes/light.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header role="banner">
+  <div class="container d-flex items-center justify-between gap-3">
+    <a href="index.html" style="display:flex; align-items:center; gap:.5rem; text-decoration:none; color:var(--color-text); font-weight:600; letter-spacing:-.01em">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" style="color:var(--color-primary); flex:none"><rect x="3" y="7" width="14" height="14" rx="2"></rect><path d="M7 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2"></path></svg>
+      <span>Frond</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+        <li><a href="cheatsheet.html">Cheat sheet</a></li>
+        <li><a href="demo.html">Demo</a></li>
+        <li><a href="archetypes/how-to.html">Archetypes</a></li>
+        <li><a href="https://github.com/rlnorthcutt/frond" target="_blank" rel="noopener" aria-label="Frond on GitHub" title="Frond on GitHub" style="display:inline-flex; align-items:center"><svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.07-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path></svg></a></li>
+        <li><dark-mode-toggle></dark-mode-toggle></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+</svg>
+<main id="content">
+<div class="page-title">
+  <h1>Gallery</h1>
+  <p class="lede">Every atom and molecule, rendered live from real markup &mdash; switch themes to see the eight-token contract hold.</p>
+  <div class="d-flex items-center gap-3" style="flex-wrap:wrap">
+    <div class="btn-group" role="group" aria-label="Theme" id="theme-picker"></div>
+    <a href="frond.json">frond.json</a>
+    <a href="cheatsheet.html">Cheat sheet &rarr;</a>
+  </div>
+</div>
+
+<div class="shell">
+  <nav aria-label="On this page">
+    <p class="eyebrow">On this page</p>
+    <ul>
+      <li><a href="#atoms">Atoms</a></li>
+      <li><a href="#molecules">Molecules</a></li>
+      <li><a href="#grounds">Grounds</a></li>
+      <li><a href="#textures">Textures</a></li>
+    </ul>
+  </nav>
+
+  <div>
+  <article>
+
+  <section id="atoms">
+    <h2>Atoms</h2>
+    <p>Eighteen content primitives. Shown at their default size inside a <code>.cv-stage</code> &mdash; the same box a molecule's <code>.slide__body</code> provides.</p>
+    <div class="gallery-grid">
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A1</span><span class="atom-card__title">Title</span>
+    <span class="atom-card__cls">.c-title</span>
+  </div>
+  <p class="atom-card__blurb">Headline voice. <code>mark</code> inside a title picks up the default highlight.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><h2 class="c-title">Reach is rented. A <mark class="c-hl--underline">save</mark> is owned.</h2></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A2</span><span class="atom-card__title">Subtitle / body / caption</span>
+    <span class="atom-card__cls">.c-sub · .c-body · .c-caption</span>
+  </div>
+  <p class="atom-card__blurb">Three text weights, one family — sub for the cover dek, body for slide copy, caption for fine print.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><p class="c-sub">Nine slides on the difference between a post people scroll past and one they keep.</p>
+<p class="c-body">Every answer is the next token, chosen from a distribution over the vocabulary.</p>
+<p class="c-body c-body--muted">Impressions expire in a day. A saved carousel gets reopened for months.</p>
+<p class="c-caption">Fig. 1 — the eight tokens a theme sets.</p></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A3</span><span class="atom-card__title">Badge / kicker</span>
+    <span class="atom-card__cls">.c-badge</span>
+  </div>
+  <p class="atom-card__blurb">The small label at the top of a slide head.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><span class="c-badge">Playbook</span>
+<span class="c-badge c-badge--outline">Numbers</span>
+<span class="c-badge c-badge--ghost">The premise</span>
+<span class="c-badge c-badge--num">01</span></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A4</span><span class="atom-card__title">StatBox</span>
+    <span class="atom-card__cls">.c-stat</span>
+  </div>
+  <p class="atom-card__blurb">A big number with a label underneath.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><div class="c-stat">
+  <span class="c-stat__value">278%</span>
+  <span class="c-stat__label">more engagement than a plain video post</span>
+</div></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A5</span><span class="atom-card__title">CheckItem</span>
+    <span class="atom-card__cls">.c-check</span>
+  </div>
+  <p class="atom-card__blurb">Icon column + text, baseline aligned. Lives inside .m-checklist.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><ul class="m-checklist">
+  <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"/></svg></span><span>Cover headline reads in under two seconds</span></li>
+  <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"/></svg></span><span>More than four bullets anywhere</span></li>
+</ul></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A6</span><span class="atom-card__title">NumberedItem</span>
+    <span class="atom-card__cls">.c-num</span>
+  </div>
+  <p class="atom-card__blurb">Lives inside .m-list.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><ol class="m-list">
+  <li class="c-num"><span class="c-num__n">01</span><span class="c-num__text">A cover that promises something, not just names the topic.</span></li>
+  <li class="c-num c-num--circle"><span class="c-num__n">02</span><span class="c-num__text">Circle variant — quieter emphasis.</span></li>
+</ol></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A7</span><span class="atom-card__title">CTABox</span>
+    <span class="atom-card__cls">.c-cta</span>
+  </div>
+  <p class="atom-card__blurb">The ask, on the accent ground.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><div class="c-cta">
+  <p class="c-cta__title">Save slide 5</p>
+  <p class="c-cta__action">@rlnorthcutt · frond on GitHub</p>
+</div></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A8</span><span class="atom-card__title">QuoteMark / PullQuote</span>
+    <span class="atom-card__cls">.c-quote</span>
+  </div>
+  <p class="atom-card__blurb">A giant translucent quote glyph behind the text.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><blockquote class="c-quote">
+  <span class="c-quote__mark" aria-hidden="true">&ldquo;</span>
+  <p>Design is the art of deciding what to leave out, one thousand times.</p>
+  <footer><span class="c-avatar c-avatar--ring">RN</span><span>Ron Northcutt &middot; Product</span></footer>
+</blockquote></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A9</span><span class="atom-card__title">IconBullet</span>
+    <span class="atom-card__cls">.c-icon-bullet</span>
+  </div>
+  <p class="atom-card__blurb">A list where the icon carries the meaning, not a numeral.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><ul class="m-list">
+  <li class="c-icon-bullet"><span class="c-icon-bullet__i"><svg><use href="#i-check"/></svg></span><span>Fixed canvas — no responsive surprises</span></li>
+  <li class="c-icon-bullet"><span class="c-icon-bullet__i"><svg><use href="#i-arrow"/></svg></span><span>Closed vocabulary — eighteen atoms, sixteen molecules</span></li>
+</ul></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A10</span><span class="atom-card__title">Avatar</span>
+    <span class="atom-card__cls">.c-avatar</span>
+  </div>
+  <p class="atom-card__blurb">Initials-only circle used in the footer and on quote/profile slides.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><span class="c-avatar">RN</span>
+<span class="c-avatar c-avatar--lg c-avatar--ring">RN</span></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A11</span><span class="atom-card__title">Highlight</span>
+    <span class="atom-card__cls">.c-hl</span>
+  </div>
+  <p class="atom-card__blurb">The highlight mechanism inside a title or body — also works as a bare <code>mark</code>.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><p class="c-body">A <mark class="c-hl--underline">save</mark> is owned. A <mark class="c-hl--box">reach</mark> is rented.</p></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A12</span><span class="atom-card__title">BigNumeral</span>
+    <span class="atom-card__cls">.c-bignum</span>
+  </div>
+  <p class="atom-card__blurb">One digit, as large as the canvas allows. Powers .m-number.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><span class="c-bignum">1</span></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A13</span><span class="atom-card__title">ProcessStep</span>
+    <span class="atom-card__cls">.c-step</span>
+  </div>
+  <p class="atom-card__blurb">Lives inside .m-process.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><ol class="m-process">
+  <li class="c-step"><span class="c-step__n">1</span><span class="c-step__text">Write the last slide first — the ask sets the argument.</span></li>
+  <li class="c-step"><span class="c-step__n">2</span><span class="c-step__text">Write the cover second, as a promise you can keep.</span></li>
+</ol></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A14</span><span class="atom-card__title">Decoration</span>
+    <span class="atom-card__cls">.c-decor</span>
+  </div>
+  <p class="atom-card__blurb">Sits behind content (cv-stage/.slide are position:relative already). Clip to a band with --top / --bottom / --right.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><div class="c-decor c-decor--dots c-decor--top"></div>
+<p class="c-body">Decoration sits behind content, clipped to a band.</p></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A15</span><span class="atom-card__title">ImageFrame</span>
+    <span class="atom-card__cls">.c-img</span>
+  </div>
+  <p class="atom-card__blurb">Fixed aspect ratios so a swapped image never breaks the layout.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><figure class="c-img c-img--framed c-img--43">
+  <img src="placeholder.svg" alt="">
+  <figcaption>Fig. 2 — a framed 4:3 slot.</figcaption>
+</figure></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A16</span><span class="atom-card__title">DeviceMockup</span>
+    <span class="atom-card__cls">.c-device · .c-code</span>
+  </div>
+  <p class="atom-card__blurb">Browser, phone, or code frame.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><div class="c-device c-device--code">
+  <div class="c-device__bar"><span class="c-device__dot"></span><span class="c-device__dot"></span><span class="c-device__dot"></span><span class="c-device__url">prompt.txt</span></div>
+  <pre class="c-code"><code>You are a careful editor.
+Return exactly three bullets.</code></pre>
+</div></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A17</span><span class="atom-card__title">RepoCard</span>
+    <span class="atom-card__cls">.c-repo</span>
+  </div>
+  <p class="atom-card__blurb">A project listing — the one legitimate boxed item outside .c-stat--boxed.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><div class="c-repo">
+  <p class="c-repo__name"><span class="c-repo__owner">rlnorthcutt/</span>frond</p>
+  <p class="c-repo__desc">A CSS component library for fixed-canvas sheets, on ivy, lattice and stapler.</p>
+  <div class="c-repo__meta"><span><i class="c-repo__lang"></i>CSS</span><span>MIT</span></div>
+</div></div></div>
+</div>
+      <div class="atom-card">
+  <div class="atom-card__head">
+    <span class="atom-card__id">A18</span><span class="atom-card__title">DecisionGrid</span>
+    <span class="atom-card__cls">.c-decide</span>
+  </div>
+  <p class="atom-card__blurb">If / then rows. Lives inside .m-decide.</p>
+  <div class="atom-card__stage"><div class="cv-stage"><dl class="c-decide">
+  <div class="c-decide__row"><dt class="c-decide__if">You need current facts</dt><span class="c-decide__arrow">&rarr;</span><dd class="c-decide__then">Give it sources</dd></div>
+  <div class="c-decide__row"><dt class="c-decide__if">You need one exact format</dt><span class="c-decide__arrow">&rarr;</span><dd class="c-decide__then">Show one example</dd></div>
+</dl></div></div>
+</div>
+    </div>
+  </section>
+
+  <section id="molecules">
+    <h2>Molecules</h2>
+    <p>Sixteen full-slide layouts, each the <code>.slide</code> shell (M1) plus one body class. Previews are scaled 1080&times;1350 renders, not screenshots.</p>
+    <div class="gallery-grid">
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="01 Shell">
+  <header class="slide__head"><span class="c-badge">Shell</span></header>
+  <div class="slide__body">
+    <h2 class="c-title">Every molecule is this shell plus one body class.</h2>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M1</span><span class="molecule-card__title">Slide (the canvas shell)</span>
+    <span class="molecule-card__cls">.slide</span>
+  </div>
+  <p class="molecule-card__blurb">.slide__head, .slide__body, .c-foot — every molecule below sits inside this shell. Maps 1:1 to a stapler <s-page>.</p>
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="01 Cover">
+  <header class="slide__head"><span class="c-badge">Playbook</span></header>
+  <div class="slide__body m-cover">
+    <h1 class="c-title c-title--cover">Nobody saves your carousel. <mark class="c-hl--box">Here is why.</mark></h1>
+    <hr class="c-divider">
+    <p class="c-sub">Nine slides on the difference between a post people scroll past and one they keep.</p>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"/></svg></span>Swipe</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M2</span><span class="molecule-card__title">CoverSlide</span>
+    <span class="molecule-card__cls">.m-cover</span>
+  </div>
+  
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="04 List">
+  <header class="slide__head"><span class="c-badge">Four failures</span></header>
+  <div class="slide__body">
+    <h2 class="c-title">Where carousels lose the reader</h2>
+    <ol class="m-list">
+      <li class="c-num"><span class="c-num__n">01</span><span class="c-num__text">A cover that describes the topic instead of promising something.</span></li>
+      <li class="c-num"><span class="c-num__n">02</span><span class="c-num__text">Two ideas fighting on one slide, so neither lands.</span></li>
+      <li class="c-num"><span class="c-num__n">03</span><span class="c-num__text">Body type below 26px — unreadable in the feed.</span></li>
+    </ol>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M3</span><span class="molecule-card__title">ListSlide</span>
+    <span class="molecule-card__cls">.m-list</span>
+  </div>
+  <p class="molecule-card__blurb">Body class is optional — .m-list styles the &lt;ol&gt;/&lt;ul&gt; directly.</p>
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="05 Checklist">
+  <header class="slide__head"><span class="c-badge c-badge--outline">Audit</span></header>
+  <div class="slide__body">
+    <h2 class="c-title">Run this before you publish</h2>
+    <ul class="m-checklist">
+      <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"/></svg></span><span>Cover headline reads in under two seconds</span></li>
+      <li class="c-check c-check--yes"><span class="c-check__i"><svg><use href="#i-check"/></svg></span><span>One idea per slide, no exceptions</span></li>
+      <li class="c-check c-check--no"><span class="c-check__i"><svg><use href="#i-cross"/></svg></span><span>More than four bullets anywhere</span></li>
+    </ul>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M4</span><span class="molecule-card__title">ChecklistSlide</span>
+    <span class="molecule-card__cls">.m-checklist</span>
+  </div>
+  
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="03 Stats">
+  <header class="slide__head"><span class="c-badge c-badge--outline">Numbers</span></header>
+  <div class="slide__body">
+    <h2 class="c-title">What the format actually buys you</h2>
+    <div class="m-stats m-stats--3">
+      <div class="c-stat"><span class="c-stat__value">278%</span><span class="c-stat__label">more engagement than a plain video post</span></div>
+      <div class="c-stat c-stat--ink"><span class="c-stat__value">8.1s</span><span class="c-stat__label">median dwell time per slide sequence</span></div>
+      <div class="c-stat c-stat--ink"><span class="c-stat__value">3&times;</span><span class="c-stat__label">save rate versus a single image</span></div>
+    </div>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M5</span><span class="molecule-card__title">StatsSlide</span>
+    <span class="molecule-card__cls">.m-stats</span>
+  </div>
+  <p class="molecule-card__blurb">Modifiers: .m-stats--1/2/3/4 (column count) · .m-stats--rows (stacked rows instead).</p>
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="09 Quote">
+  <header class="slide__head"><span class="c-badge c-badge--ghost">Breather</span></header>
+  <div class="slide__body m-quote">
+    <blockquote class="c-quote">
+      <span class="c-quote__mark" aria-hidden="true">&ldquo;</span>
+      <p>Design is the art of deciding what to leave out, one thousand times.</p>
+      <footer><span class="c-avatar c-avatar--ring">RN</span><span>Ron Northcutt &middot; Product</span></footer>
+    </blockquote>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M6</span><span class="molecule-card__title">QuoteSlide</span>
+    <span class="molecule-card__cls">.m-quote</span>
+  </div>
+  
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide slide--accent" data-screen-label="10 CTA">
+  <header class="slide__head"><span class="c-badge">One ask</span></header>
+  <div class="slide__body m-cta">
+    <h2 class="c-title c-title--cover">Keep the checklist. <mark>Not the post.</mark></h2>
+    <div class="c-cta"><p class="c-cta__title">Save slide 5</p><p class="c-cta__action">@rlnorthcutt &middot; frond on GitHub</p></div>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"/></svg></span>Swipe</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M7</span><span class="molecule-card__title">CTASlide</span>
+    <span class="molecule-card__cls">.m-cta</span>
+  </div>
+  <p class="molecule-card__blurb">Usually paired with .slide--accent.</p>
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="02 Statement">
+  <header class="slide__head"><span class="c-badge c-badge--ghost">The premise</span></header>
+  <div class="slide__body m-statement">
+    <h2 class="c-title c-title--xl">Reach is rented. A <mark class="c-hl--underline">save</mark> is owned.</h2>
+    <p class="c-body c-body--muted">Impressions expire in a day. A saved carousel gets reopened for months.</p>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M8</span><span class="molecule-card__title">StatementSlide</span>
+    <span class="molecule-card__cls">.m-statement</span>
+  </div>
+  <p class="molecule-card__blurb">Modifier: .m-statement--center.</p>
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="06 Process">
+  <header class="slide__head"><span class="c-badge">Method</span></header>
+  <div class="slide__body">
+    <h2 class="c-title">Four passes, in order</h2>
+    <ol class="m-process">
+      <li class="c-step"><span class="c-step__n">1</span><span class="c-step__text">Write the last slide first — the ask sets the argument.</span></li>
+      <li class="c-step"><span class="c-step__n">2</span><span class="c-step__text">Write the cover second, as a promise you can keep.</span></li>
+      <li class="c-step"><span class="c-step__n">3</span><span class="c-step__text">Fill the middle with one idea per sheet.</span></li>
+    </ol>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M9</span><span class="molecule-card__title">ProcessSlide</span>
+    <span class="molecule-card__cls">.m-process</span>
+  </div>
+  <p class="molecule-card__blurb">Modifier: .m-process--h (horizontal, for column layouts).</p>
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="07 Comparison">
+  <header class="slide__head"><span class="c-badge c-badge--outline">Before / after</span></header>
+  <div class="slide__body">
+    <h2 class="c-title">Same content, two covers</h2>
+    <div class="m-compare m-compare--vs">
+      <div class="m-compare__col m-compare__col--muted"><span class="c-badge c-badge--outline">Before</span><p class="c-body">&ldquo;A guide to LinkedIn carousels&rdquo;</p></div>
+      <span class="m-compare__vs">vs</span>
+      <div class="m-compare__col"><span class="c-badge">After</span><p class="c-body">&ldquo;Nobody saves your carousel. Here is why.&rdquo;</p></div>
+    </div>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M10</span><span class="molecule-card__title">CompareSlide</span>
+    <span class="molecule-card__cls">.m-compare</span>
+  </div>
+  <p class="molecule-card__blurb">Modifiers: .m-compare--vs (two columns + "vs") · .m-compare--boxed.</p>
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="08 Pillars">
+  <header class="slide__head"><span class="c-badge">Framework</span></header>
+  <div class="slide__body">
+    <h2 class="c-title">Three things a saved slide has</h2>
+    <div class="m-pillars m-pillars--3">
+      <article class="m-pillar"><span class="m-pillar__i">&#10022;</span><h3 class="m-pillar__title">A number</h3><p class="m-pillar__desc">Something specific enough to quote in a meeting.</p></article>
+      <article class="m-pillar"><span class="m-pillar__i">&#9670;</span><h3 class="m-pillar__title">A rule</h3><p class="m-pillar__desc">A line the reader can apply tomorrow without you.</p></article>
+      <article class="m-pillar"><span class="m-pillar__i">&#9679;</span><h3 class="m-pillar__title">A checklist</h3><p class="m-pillar__desc">The reason people screenshot slides in the first place.</p></article>
+    </div>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M11</span><span class="molecule-card__title">PillarsSlide</span>
+    <span class="molecule-card__cls">.m-pillars</span>
+  </div>
+  <p class="molecule-card__blurb">Modifiers: .m-pillars--2/3/4 · .m-pillars--bento (first card spans full width).</p>
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="12 Split">
+  <header class="slide__head"><span class="c-badge">Two-up</span></header>
+  <div class="slide__body m-split">
+    <div class="m-split__text">
+      <h2 class="c-title">Text one side, visual the other.</h2>
+      <p class="c-body c-body--muted">.m-split__media keeps its own aspect ratio, so a late image swap never reflows the text.</p>
+    </div>
+    <div class="m-split__media"><img src="placeholder.svg" alt=""></div>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M12</span><span class="molecule-card__title">SplitSlide</span>
+    <span class="molecule-card__cls">.m-split</span>
+  </div>
+  <p class="molecule-card__blurb">Modifiers: .m-split--flip (media left) · .m-split--wide-text / --wide-img · .m-split--overlay (full-bleed image, text on a gradient).</p>
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="13 Number">
+  <header class="slide__head"><span class="c-badge">Data story</span></header>
+  <div class="slide__body">
+    <span class="c-bignum">1</span>
+    <h2 class="c-title c-title--sm">idea per slide — the whole rule.</h2>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M13</span><span class="molecule-card__title">NumberSlide</span>
+    <span class="molecule-card__cls">.m-number</span>
+  </div>
+  <p class="molecule-card__blurb">One giant digit. Modifier: .m-number--ghost.</p>
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="14 Profile">
+  <header class="slide__head"><span class="c-badge c-badge--outline">Who fixed it</span></header>
+  <div class="slide__body m-profile">
+    <div class="m-profile__id">
+      <span class="c-avatar c-avatar--lg c-avatar--ring">RN</span>
+      <span><span class="m-profile__name">Ron Northcutt</span><br><span class="m-profile__role">Product &middot; open source tooling</span></span>
+    </div>
+    <p class="m-profile__bio">Fifteen years shipping developer tools. Currently building small CSS libraries that do one thing.</p>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M14</span><span class="molecule-card__title">ProfileSlide</span>
+    <span class="molecule-card__cls">.m-profile</span>
+  </div>
+  
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="15 Decide">
+  <header class="slide__head"><span class="c-badge">Cheat sheet</span></header>
+  <div class="slide__body m-decide">
+    <h2 class="c-title c-title--sm">Which move, when</h2>
+    <dl class="c-decide">
+      <div class="c-decide__row"><dt class="c-decide__if">You need current facts</dt><span class="c-decide__arrow">&rarr;</span><dd class="c-decide__then">Give it sources</dd></div>
+      <div class="c-decide__row"><dt class="c-decide__if">You need one exact format</dt><span class="c-decide__arrow">&rarr;</span><dd class="c-decide__then">Show one example</dd></div>
+    </dl>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M15</span><span class="molecule-card__title">DecideSlide</span>
+    <span class="molecule-card__cls">.m-decide</span>
+  </div>
+  <p class="molecule-card__blurb">Layout wrapper for the .c-decide atom.</p>
+</div>
+      <div class="molecule-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide" data-screen-label="16 Mockup">
+  <header class="slide__head"><span class="c-badge c-badge--outline">Before / after</span></header>
+  <div class="slide__body m-mockup">
+    <div class="c-device c-device--code">
+      <div class="c-device__bar"><span class="c-device__dot"></span><span class="c-device__dot"></span><span class="c-device__dot"></span><span class="c-device__url">prompt.txt</span></div>
+      <pre class="c-code"><code>You are a careful editor.
+Return exactly three bullets.</code></pre>
+    </div>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-foot__handle">@rlnorthcutt</span></div><span class="c-pagenum">3 / 8</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__id">M16</span><span class="molecule-card__title">MockupSlide</span>
+    <span class="molecule-card__cls">.m-mockup</span>
+  </div>
+  <p class="molecule-card__blurb">A device frame as the visual.</p>
+</div>
+    </div>
+  </section>
+
+  <section id="grounds">
+    <h2>Grounds</h2>
+    <p>Ground-level modifiers on <code>.slide</code>. Neither introduces a color outside the eight theme tokens. <code>.slide--light</code> / <code>.slide--dark</code> are planned &mdash; see TODO.md.</p>
+    <div class="gallery-grid">
+      <div class="ground-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide slide--accent" data-screen-label="01 Cover">
+  <header class="slide__head"><span class="c-badge">Playbook</span></header>
+  <div class="slide__body m-cover">
+    <h1 class="c-title c-title--cover">Nobody saves your carousel. <mark class="c-hl--box">Here is why.</mark></h1>
+    <hr class="c-divider">
+    <p class="c-sub">Nine slides on the difference between a post people scroll past and one they keep.</p>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"/></svg></span>Swipe</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__title">Accent ground</span>
+    <span class="molecule-card__cls">.slide--accent</span>
+  </div>
+  <p class="molecule-card__blurb">Inverts onto the accent color — used for the CTA. Re-points atoms explicitly rather than remapping --accent.</p>
+</div>
+      <div class="ground-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide slide--surface" data-screen-label="01 Cover">
+  <header class="slide__head"><span class="c-badge">Playbook</span></header>
+  <div class="slide__body m-cover">
+    <h1 class="c-title c-title--cover">Nobody saves your carousel. <mark class="c-hl--box">Here is why.</mark></h1>
+    <hr class="c-divider">
+    <p class="c-sub">Nine slides on the difference between a post people scroll past and one they keep.</p>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"/></svg></span>Swipe</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__title">Surface ground</span>
+    <span class="molecule-card__cls">.slide--surface</span>
+  </div>
+  <p class="molecule-card__blurb">Sits the slide on the card surface instead of the page background.</p>
+</div>
+    </div>
+  </section>
+
+  <section id="textures">
+    <h2>Textures</h2>
+    <p>A14 <code>.c-decor</code>'s four background textures, plus "none" (the default &mdash; no <code>.c-decor</code> element at all).</p>
+    <div class="texture-grid">
+      <div class="texture-card">
+  <div class="cv-stage" style="position:relative">
+    <div class="c-decor c-decor--dots c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.c-decor--dots</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage" style="position:relative">
+    <div class="c-decor c-decor--lines c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.c-decor--lines</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage" style="position:relative">
+    <div class="c-decor c-decor--glow c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.c-decor--glow</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage" style="position:relative">
+    <div class="c-decor c-decor--mesh c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.c-decor--mesh</div>
+</div>
+    </div>
+  </section>
+
+  </article>
+  </div>
+</div>
+</main>
+<footer class="text-center">
+  <p class="muted">Frond &middot; MIT License &middot; <a href="https://github.com/rlnorthcutt/frond" target="_blank" rel="noopener">GitHub &#8599;</a></p>
+</footer>
+<script src="site.js"></script>
+<script type="module" src="dark-mode-toggle.min.js"></script>
+
+</body>
+</html>

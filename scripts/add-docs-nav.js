@@ -1,12 +1,14 @@
 #!/usr/bin/env node
-/* One-time-per-template pass: inject the shared docs/site.css link + nav bar
- * + dark-mode-toggle into demo.html and the ported archetype pages. Must be
- * run immediately after scripts/port-docs-templates.js, which overwrites
- * those files from scratch and knows nothing about the nav.
+/* One-time-per-template pass: inject the shared docs/site.css link + header
+ * + (on archetype pages) the archetypes sub-nav + dark-mode-toggle into
+ * demo.html and the ported archetype pages. Must be run immediately after
+ * scripts/port-docs-templates.js, which overwrites those files from scratch
+ * and knows nothing about the nav.
  *
  * Idempotent by replacement, not by skipping: every injected block is
- * wrapped in an HTML comment marker, so re-running this after a docs-nav.js
- * change updates the markup in place instead of leaving stale content.
+ * wrapped in an HTML comment marker, so re-running this after a
+ * scripts/docs-nav.js change updates the markup in place instead of leaving
+ * stale content.
  */
 const fs = require('fs');
 const path = require('path');
@@ -29,25 +31,25 @@ function replaceOrInsert(html, marker, block, anchor, position) {
 function inject(filePath, nav) {
   let html = fs.readFileSync(filePath, 'utf8');
   html = replaceOrInsert(html, 'head', nav.headLink, '</head>', 'before');
-  html = replaceOrInsert(html, 'bar', nav.navBar, '<body>', 'after');
+  html = replaceOrInsert(html, 'header', nav.header, '<body>', 'after');
+  if (nav.subnav) html = replaceOrInsert(html, 'subnav', nav.subnav, `<!-- /docs-nav:header -->`, 'after');
   html = replaceOrInsert(html, 'script', nav.script, '</body>', 'before');
   fs.writeFileSync(filePath, html);
 }
 
-// demo.html — root of docs/, full archetype list one dir down
+// demo.html — root of docs/, no archetypes sub-nav
 inject(path.join(docs, 'demo.html'), renderNav({
   base: '',
   current: 'demo',
-  archetypeBase: 'archetypes/',
 }));
 
-// archetypes/*.html — one level down, full sibling list in the same dir
+// archetypes/*.html — one level down, gets the archetypes sub-nav
 for (const [file] of ARCHETYPES) {
   inject(path.join(docs, 'archetypes', file), renderNav({
     base: '../',
-    current: file,
-    archetypeBase: '',
+    current: 'archetypes',
+    archetypeFile: file,
   }));
 }
 
-console.log('Injected docs nav into demo.html and archetypes/*.html');
+console.log('Injected docs header (+ sub-nav on archetypes) into demo.html and archetypes/*.html');

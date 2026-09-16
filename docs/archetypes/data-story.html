@@ -18,17 +18,40 @@
 <!-- /docs-nav:head -->
 </head>
 <body>
-<!-- docs-nav:bar -->
-<nav class="docs-nav" aria-label="Docs">
-  <a class="docs-nav__brand" href="../index.html">frond</a>
-  <a href="../index.html">Gallery</a>
-  <a href="../cheatsheet.html">Cheat sheet</a>
-  <a href="../demo.html">Demo</a>
-  <span class="docs-nav__sep">&middot;</span>
-  <span class="docs-nav__archetypes"><a href="how-to.html">How-to</a><a href="listicle.html">Listicle</a><a href="checklist.html">Checklist</a><a href="myth-vs-fact.html">Myth vs fact</a><a href="before-after.html">Before/after</a><a href="data-story.html" aria-current="page">Data story</a><a href="problem-solution.html">Problem/solution</a><a href="case-study.html">Case study</a></span>
-  <dark-mode-toggle aria-label="Toggle docs dark mode"></dark-mode-toggle>
+<!-- docs-nav:header -->
+<header role="banner">
+  <div class="container d-flex items-center justify-between gap-3">
+    <a href="../index.html" style="display:flex; align-items:center; gap:.5rem; text-decoration:none; color:var(--color-text); font-weight:600; letter-spacing:-.01em">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" style="color:var(--color-primary); flex:none"><rect x="3" y="7" width="14" height="14" rx="2"></rect><path d="M7 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2"></path></svg>
+      <span>Frond</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="../gallery.html">Gallery</a></li>
+        <li><a href="../cheatsheet.html">Cheat sheet</a></li>
+        <li><a href="../demo.html">Demo</a></li>
+        <li><a href="../archetypes/how-to.html" aria-current="page">Archetypes</a></li>
+        <li><a href="https://github.com/rlnorthcutt/frond" target="_blank" rel="noopener" aria-label="Frond on GitHub" title="Frond on GitHub" style="display:inline-flex; align-items:center"><svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.07-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path></svg></a></li>
+        <li><dark-mode-toggle></dark-mode-toggle></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- /docs-nav:header -->
+<!-- docs-nav:subnav -->
+<nav class="subnav" aria-label="Archetypes">
+  <ul>
+    <li><a href="how-to.html">How-to</a></li>
+    <li><a href="listicle.html">Listicle</a></li>
+    <li><a href="checklist.html">Checklist</a></li>
+    <li><a href="myth-vs-fact.html">Myth vs fact</a></li>
+    <li><a href="before-after.html">Before/after</a></li>
+    <li><a href="data-story.html" aria-current="page">Data story</a></li>
+    <li><a href="problem-solution.html">Problem/solution</a></li>
+    <li><a href="case-study.html">Case study</a></li>
+  </ul>
 </nav>
-<!-- /docs-nav:bar -->
+<!-- /docs-nav:subnav -->
 
 <svg width="0" height="0" aria-hidden="true" style="position:absolute">
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></symbol>
