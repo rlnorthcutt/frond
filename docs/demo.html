@@ -20,9 +20,12 @@
   stapled-doc { --sp-gap: 40px; }
   @media print { body { background: #fff; padding: 0; } }
 </style>
+<!-- docs-nav:head -->
 <link rel="stylesheet" href="site.css">
+<!-- /docs-nav:head -->
 </head>
 <body>
+<!-- docs-nav:bar -->
 <nav class="docs-nav" aria-label="Docs">
   <a class="docs-nav__brand" href="index.html">frond</a>
   <a href="index.html">Gallery</a>
@@ -30,7 +33,9 @@
   <a href="demo.html" aria-current="page">Demo</a>
   <span class="docs-nav__sep">&middot;</span>
   <span class="docs-nav__archetypes"><a href="archetypes/how-to.html">How-to</a><a href="archetypes/listicle.html">Listicle</a><a href="archetypes/checklist.html">Checklist</a><a href="archetypes/myth-vs-fact.html">Myth vs fact</a><a href="archetypes/before-after.html">Before/after</a><a href="archetypes/data-story.html">Data story</a><a href="archetypes/problem-solution.html">Problem/solution</a><a href="archetypes/case-study.html">Case study</a></span>
+  <dark-mode-toggle aria-label="Toggle docs dark mode"></dark-mode-toggle>
 </nav>
+<!-- /docs-nav:bar -->
 
 <!-- inline icon sprite: no icon font, survives print -->
 <svg width="0" height="0" aria-hidden="true" style="position:absolute">
@@ -311,5 +316,8 @@
 
 </stapled-doc>
 
+<!-- docs-nav:script -->
+<script type="module" src="dark-mode-toggle.min.js"></script>
+<!-- /docs-nav:script -->
 </body>
 </html>

@@ -1,5 +1,42 @@
 /* frond docs — chrome shared by every docs page. Never affects the printed
-   PDF: everything here is hidden under @media print. */
+   PDF: everything here is hidden under @media print.
+
+   The tokens below control the docs CHROME's own light/dark mode (nav stays
+   a fixed dark bar regardless — see .docs-nav). This is a separate axis from
+   frond's own component theme picker (themes/*.css: --bg, --ink, etc, used
+   inside .cv-stage/.slide) — different variable names, so the two can never
+   collide, and switching one never affects the other. */
+
+:root {
+  --docs-bg: #c9c6c3;
+  --docs-ink: #201e1d;
+  --docs-ink-muted: #4a4542;
+  --docs-card-bg: #ffffff;
+  --docs-hairline: #eeeeee;
+  --docs-picker-bg: #ffffff;
+  --docs-picker-ring: #d8d3ce;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --docs-bg: #18181a;
+    --docs-ink: #e9e6e2;
+    --docs-ink-muted: #a39d97;
+    --docs-card-bg: #242325;
+    --docs-hairline: #38363a;
+    --docs-picker-bg: #242325;
+    --docs-picker-ring: #3a383c;
+  }
+}
+:root[data-theme="dark"] {
+  --docs-bg: #18181a;
+  --docs-ink: #e9e6e2;
+  --docs-ink-muted: #a39d97;
+  --docs-card-bg: #242325;
+  --docs-hairline: #38363a;
+  --docs-picker-bg: #242325;
+  --docs-picker-ring: #3a383c;
+}
 
 .docs-nav {
   position: sticky;
@@ -40,6 +77,9 @@
   gap: 6px 14px;
   margin-left: auto;
 }
+.docs-nav dark-mode-toggle {
+  margin-left: 8px;
+}
 
 @media print {
   .docs-nav { display: none; }
@@ -48,9 +88,9 @@
 /* ---- gallery / cheat sheet shell -------------------------------------- */
 body {
   margin: 0;
-  background: #c9c6c3;
+  background: var(--docs-bg);
   font: 15px/1.5 -apple-system, system-ui, sans-serif;
-  color: #201e1d;
+  color: var(--docs-ink);
 }
 .docs-main {
   max-width: 1120px;
@@ -64,7 +104,7 @@ body {
 }
 .docs-hero p {
   max-width: 46em;
-  color: #4a4542;
+  color: var(--docs-ink-muted);
   margin: 0 0 24px;
 }
 .docs-hero__meta {
@@ -73,7 +113,7 @@ body {
   gap: 10px 20px;
   align-items: center;
   font-size: 13px;
-  color: #4a4542;
+  color: var(--docs-ink-muted);
 }
 .docs-hero__meta a { color: inherit; }
 
@@ -81,9 +121,9 @@ body {
   display: inline-flex;
   gap: 6px;
   padding: 4px;
-  background: #fff;
+  background: var(--docs-picker-bg);
   border-radius: 999px;
-  box-shadow: inset 0 0 0 1px #d8d3ce;
+  box-shadow: inset 0 0 0 1px var(--docs-picker-ring);
 }
 .theme-picker button {
   border: 0;
@@ -92,7 +132,7 @@ body {
   border-radius: 999px;
   font: 600 13px/1 -apple-system, system-ui, sans-serif;
   cursor: pointer;
-  color: #4a4542;
+  color: var(--docs-ink-muted);
 }
 .theme-picker button[aria-pressed="true"] {
   background: #201e1d;
@@ -104,9 +144,10 @@ body {
   font: 700 26px/1.1 -apple-system, system-ui, sans-serif;
   letter-spacing: -0.01em;
   margin: 0 0 6px;
+  color: var(--docs-ink);
 }
 .docs-section > p.docs-section__lede {
-  color: #4a4542;
+  color: var(--docs-ink-muted);
   max-width: 52em;
   margin: 0 0 28px;
 }
@@ -118,7 +159,7 @@ body {
 }
 
 .atom-card, .ground-card {
-  background: #fff;
+  background: var(--docs-card-bg);
   border-radius: 12px;
   box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 26px -18px rgba(0,0,0,.35);
   overflow: hidden;
@@ -139,21 +180,28 @@ body {
 }
 .atom-card__title, .molecule-card__title {
   font: 600 15px/1.2 -apple-system, system-ui, sans-serif;
+  color: var(--docs-ink);
 }
 .atom-card__cls, .molecule-card__cls {
   display: block;
   font: 12px/1.4 ui-monospace, monospace;
-  color: #8a8481;
+  color: var(--docs-ink-muted);
   margin-top: 4px;
 }
 .atom-card__blurb, .molecule-card__blurb {
   font-size: 13px;
-  color: #4a4542;
+  color: var(--docs-ink-muted);
   margin: 6px 0 0;
   padding: 0 18px 14px;
 }
+.atom-card__blurb code, .molecule-card__blurb code {
+  font: 12px/1 ui-monospace, monospace;
+  background: var(--docs-hairline);
+  padding: .15em .35em;
+  border-radius: 4px;
+}
 .atom-card__stage {
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--docs-hairline);
   overflow: hidden;
 }
 .atom-card__stage .cv-stage {
@@ -163,7 +211,7 @@ body {
 }
 
 .molecule-card {
-  background: #fff;
+  background: var(--docs-card-bg);
   border-radius: 12px;
   box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 26px -18px rgba(0,0,0,.35);
   overflow: hidden;
@@ -190,7 +238,7 @@ body {
   gap: 20px;
 }
 .texture-card {
-  background: #fff;
+  background: var(--docs-card-bg);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 26px -18px rgba(0,0,0,.35);
@@ -203,15 +251,15 @@ body {
 .texture-card__label {
   padding: 10px 16px;
   font: 600 12px/1 ui-monospace, monospace;
-  color: #4a4542;
-  border-top: 1px solid #eee;
+  color: var(--docs-ink-muted);
+  border-top: 1px solid var(--docs-hairline);
 }
 
 /* ---- cheat sheet -------------------------------------------------------- */
 .cheat-section { margin-top: 40px; }
 .cheat-item {
   position: relative;
-  background: #fff;
+  background: var(--docs-card-bg);
   border-radius: 10px;
   box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 22px -16px rgba(0,0,0,.3);
   margin-bottom: 18px;
@@ -223,11 +271,12 @@ body {
   gap: 10px;
   flex-wrap: wrap;
   padding: 14px 18px 4px;
+  color: var(--docs-ink);
 }
 .cheat-item__variants {
   padding: 0 18px 12px;
   font: 12px/1.5 ui-monospace, monospace;
-  color: #6b6663;
+  color: var(--docs-ink-muted);
 }
 .cheat-item pre {
   margin: 0;

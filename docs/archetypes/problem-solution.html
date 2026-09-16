@@ -13,9 +13,12 @@
   main { max-width: none; padding: 0; }
   @media print { body { background: #fff; padding: 0; } }
 </style>
+<!-- docs-nav:head -->
 <link rel="stylesheet" href="../site.css">
+<!-- /docs-nav:head -->
 </head>
 <body>
+<!-- docs-nav:bar -->
 <nav class="docs-nav" aria-label="Docs">
   <a class="docs-nav__brand" href="../index.html">frond</a>
   <a href="../index.html">Gallery</a>
@@ -23,7 +26,9 @@
   <a href="../demo.html">Demo</a>
   <span class="docs-nav__sep">&middot;</span>
   <span class="docs-nav__archetypes"><a href="how-to.html">How-to</a><a href="listicle.html">Listicle</a><a href="checklist.html">Checklist</a><a href="myth-vs-fact.html">Myth vs fact</a><a href="before-after.html">Before/after</a><a href="data-story.html">Data story</a><a href="problem-solution.html" aria-current="page">Problem/solution</a><a href="case-study.html">Case study</a></span>
+  <dark-mode-toggle aria-label="Toggle docs dark mode"></dark-mode-toggle>
 </nav>
+<!-- /docs-nav:bar -->
 
 <svg width="0" height="0" aria-hidden="true" style="position:absolute">
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></symbol>
@@ -177,5 +182,8 @@
 
 </stapled-doc>
 
+<!-- docs-nav:script -->
+<script type="module" src="../dark-mode-toggle.min.js"></script>
+<!-- /docs-nav:script -->
 </body>
 </html>

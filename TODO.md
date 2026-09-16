@@ -8,13 +8,16 @@ Tracked against `PLAN.md`'s milestones. Not in priority order within a section.
 
 - [x] **Docs site (M3)** — `docs/index.html` (gallery), `docs/cheatsheet.html`,
   `docs/demo.html`, `docs/archetypes/` (8 pages) built and self-contained under `docs/`
-  (Pages serves that folder only, so it carries its own copy of the CSS/themes/vendor —
-  see `scripts/sync-docs.js`). Not yet verified in an actual browser — see below.
+  (Pages serves that folder only). frond's own CSS synced via `scripts/sync-docs.js`;
+  external companion libraries (ivy, lattice, stapler, dark-mode-toggle) fetched via
+  `.github/workflows/doc-assets.yml`, same pattern as lattice. Not yet verified in an actual
+  browser — see below.
 - [ ] **Visual QA** — no browser tool was available while building the docs site; open
   `docs/index.html`, `docs/cheatsheet.html`, `docs/demo.html`, and at least one archetype
-  locally (e.g. `python3 -m http.server` from the repo root) and check: all four themes,
-  every molecule preview frame (1080×1350 scaled to 300×375 via `transform: scale()`), the
-  texture strip, and the copy button on the cheat sheet.
+  locally (e.g. `python3 -m http.server` from the repo root) and check: all four component
+  themes, the docs-chrome dark-mode-toggle, every molecule preview frame (1080×1350 scaled
+  to 300×375 via `transform: scale()`), the texture strip, and the cheat sheet's copy
+  button.
 - [ ] **`docs/reference.pdf`** — regenerated component-reference PDF (PLAN's `docs/` tree),
   not built — needs an actual print pass, not just HTML.
 - [ ] **Hero screenshot** — `image.png` + the linked-to-Pages header block in README, once

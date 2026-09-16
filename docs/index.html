@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="frond.full.css">
 <link id="theme-link" rel="stylesheet" href="themes/light.css">
 <link rel="stylesheet" href="site.css">
+
+</head>
+<body>
 <nav class="docs-nav" aria-label="Docs">
   <a class="docs-nav__brand" href="index.html">frond</a>
   <a href="index.html" aria-current="page">Gallery</a>
@@ -17,10 +20,8 @@
   <a href="demo.html">Demo</a>
   <span class="docs-nav__sep">&middot;</span>
   <a href="archetypes/how-to.html">Archetypes</a>
+  <dark-mode-toggle aria-label="Toggle docs dark mode"></dark-mode-toggle>
 </nav>
-
-</head>
-<body>
 <svg width="0" height="0" aria-hidden="true" style="position:absolute">
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
   <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
@@ -594,6 +595,7 @@ Return exactly three bullets.</code></pre>
   </section>
 </main>
 <script src="site.js"></script>
+<script type="module" src="dark-mode-toggle.min.js"></script>
 
 </body>
 </html>

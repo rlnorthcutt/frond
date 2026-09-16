@@ -1,8 +1,15 @@
 #!/usr/bin/env node
 /* GitHub Pages serves docs/ only, so every asset a docs page loads has to
- * live inside docs/ — this copies the built CSS, themes, sizes, and vendor
- * libs in. Same reasoning as ivy's "copy minified full to docs" CI step.
- * Run after scripts/build.js.
+ * live inside docs/ — this copies frond's own build output (the CSS,
+ * frond.json, themes, sizes) in. Run after scripts/build.js.
+ *
+ * docs/vendor/{ivy,lattice,stapler} and docs/dark-mode-toggle.min.js are
+ * NOT copied here — those are external companion libraries, fetched fresh
+ * from their own repos by .github/workflows/doc-assets.yml (same pattern as
+ * lattice's docs/ivy.full.min.css). frond's own root vendor/ stays a
+ * separate, deliberately pinned snapshot used by the shipped library itself
+ * (PLAN.md: "no network at render time" for the actual product) — the two
+ * are unrelated copies with different freshness goals.
  */
 const fs = require('fs');
 const path = require('path');
@@ -24,8 +31,4 @@ for (const dir of ['themes', 'sizes']) {
   }
 }
 
-for (const f of ['ivy.full.min.css', 'lattice.full.min.css', 'stapler.min.js']) {
-  copy(path.join(root, 'vendor', f), path.join(root, 'docs', 'vendor', f));
-}
-
-console.log('Synced frond.full.css, frond.json, themes/, sizes/, and vendor/ into docs/');
+console.log('Synced frond.full.css, frond.json, themes/, and sizes/ into docs/');

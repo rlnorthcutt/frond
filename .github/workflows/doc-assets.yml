@@ -1,0 +1,54 @@
+name: 🏗️ Build Documentation Assets
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Optional reason for triggering the manual build'
+        required: false
+        default: 'Manual trigger'
+
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+
+permissions:
+  contents: write
+
+jobs:
+  fetch_external_assets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Fetch External Assets
+        run: |
+          echo "Downloading ivy.full.min.css..."
+          curl -fsSL -o docs/vendor/ivy.full.min.css \
+            https://raw.githubusercontent.com/rlnorthcutt/ivy/refs/heads/main/dist/ivy.full.min.css
+
+          echo "Downloading lattice.full.min.css..."
+          curl -fsSL -o docs/vendor/lattice.full.min.css \
+            https://raw.githubusercontent.com/rlnorthcutt/lattice/refs/heads/main/dist/lattice.full.min.css
+
+          echo "Downloading stapler.min.js..."
+          curl -fsSL -o docs/vendor/stapler.min.js \
+            https://raw.githubusercontent.com/rlnorthcutt/stapler/refs/heads/main/dist/stapler.min.js
+
+          echo "Downloading dark-mode-toggle.min.js..."
+          curl -fsSL -o docs/dark-mode-toggle.min.js \
+            https://raw.githubusercontent.com/rlnorthcutt/dark-mode-toggle/refs/heads/main/dist/dark-mode-toggle.min.js
+
+      - name: 💾 Commit External Assets
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'build(docs): Refresh external assets (ivy, lattice, stapler, dark-mode-toggle)'
+          file_pattern: |
+            docs/vendor/ivy.full.min.css
+            docs/vendor/lattice.full.min.css
+            docs/vendor/stapler.min.js
+            docs/dark-mode-toggle.min.js

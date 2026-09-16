@@ -37,13 +37,26 @@ would.
   `frond.full.css`). Empty except for `.hold` until the workflow runs.
 - **`docs/`** — the GitHub Pages site: `index.html` (gallery), `cheatsheet.html`,
   `demo.html`, `archetypes/` (8 pages). Self-contained on purpose — Pages serves `docs/`
-  only, so it holds its own synced copy of `frond.full.css`, `themes/`, `sizes/`, and
-  `vendor/` (via `scripts/sync-docs.js`), never a `../` reference back to the repo root.
-  The gallery and cheat sheet are generated from `scripts/gen-gallery.js` (one shared data
-  set, so the two pages' markup can't drift apart) by `scripts/build-docs-pages.js`.
-  `demo.html` and `archetypes/` were ported once from `mockups/` via
-  `scripts/port-docs-templates.js` + `scripts/add-docs-nav.js` — those two are one-shot
-  tools, not part of the regular build.
+  only, so nothing in it ever points back to the repo root with `../`. Two separate things
+  keep it that way, matching ivy/lattice's split:
+  - `scripts/sync-docs.js` copies **frond's own** build output in (`frond.full.css`,
+    `frond.json`, `themes/`, `sizes/`) — run after `scripts/build.js`.
+  - `.github/workflows/doc-assets.yml` fetches **external** companion libraries straight
+    from their own repos' `main` branch into `docs/vendor/{ivy,lattice,stapler}` and
+    `docs/dark-mode-toggle.min.js` — the same pattern lattice already uses for its own
+    docs. This is CI-only (`workflow_dispatch` + push-on-workflow-change, same triggers as
+    lattice's), not part of the local build — root `vendor/` (the copies the *shipped*
+    library's install instructions point at) is a separate, deliberately pinned snapshot
+    and is untouched by this workflow.
+  - The gallery and cheat sheet are generated from `scripts/gen-gallery.js` (one shared data
+    set, so the two pages' markup can't drift apart) by `scripts/build-docs-pages.js`.
+  - `demo.html` and `archetypes/` were ported once from `mockups/` via
+    `scripts/port-docs-templates.js`, immediately followed by `scripts/add-docs-nav.js`
+    (which must run right after — `port-docs-templates.js` overwrites those files from
+    `mockups/` from scratch and knows nothing about the nav). Both are one-shot tools, not
+    part of the regular build. `add-docs-nav.js` is safe to rerun any time the shared nav in
+    `scripts/docs-nav.js` changes — it replaces its own marked block (`<!-- docs-nav:* -->`)
+    in place rather than skipping already-injected files.
 - **`mockups/`** — the prototype this repo was ported from (HTML/CSS/templates + the
   `_gen.js` generator for the eight archetypes). Kept on disk, not committed to this repo,
   as reference material for building `docs/` — see TODO.md.
@@ -73,9 +86,11 @@ print must render identically.
 2. Read `PLAN.md` for the why behind the scope, the milestone list, and open questions.
 3. Edit `src/*.css`, then run, in order: `node scripts/build.js` (rebuilds `frond.css`,
    `frond.frame.css`, `dist/frond.full.css`) → `node scripts/sync-docs.js` (copies that CSS
-   plus `themes/`/`sizes/`/`vendor/` into `docs/`) → `node scripts/build-docs-pages.js`
+   plus `frond.json`/`themes/`/`sizes/` into `docs/`) → `node scripts/build-docs-pages.js`
    (regenerates `docs/index.html` and `docs/cheatsheet.html` from `scripts/gen-gallery.js`
-   if you touched a component's markup there too). Commit the results.
+   if you touched a component's markup there too). Commit the results. `docs/vendor/` and
+   `docs/dark-mode-toggle.min.js` are not part of this — they're refreshed by the
+   `doc-assets.yml` CI workflow, not local edits.
 4. Check `frond.json` for the full class/variant vocabulary rather than grepping the CSS.
 5. Check `TODO.md` before starting anything — it tracks what's left against `PLAN.md`'s
    milestones (M2 grounds, M4 CI overflow check, M5 v1.0.0), plus a visual-QA pass on

@@ -1,7 +1,12 @@
 #!/usr/bin/env node
-/* One-time pass: inject the shared docs/site.css link + nav bar into
- * demo.html and the ported archetype pages. Idempotent — running it again
- * on an already-navved file is a no-op (guarded by the docs-nav marker).
+/* One-time-per-template pass: inject the shared docs/site.css link + nav bar
+ * + dark-mode-toggle into demo.html and the ported archetype pages. Must be
+ * run immediately after scripts/port-docs-templates.js, which overwrites
+ * those files from scratch and knows nothing about the nav.
+ *
+ * Idempotent by replacement, not by skipping: every injected block is
+ * wrapped in an HTML comment marker, so re-running this after a docs-nav.js
+ * change updates the markup in place instead of leaving stale content.
  */
 const fs = require('fs');
 const path = require('path');
@@ -10,12 +15,22 @@ const { renderNav, ARCHETYPES } = require('./docs-nav');
 const root = path.join(__dirname, '..');
 const docs = path.join(root, 'docs');
 
-function inject(filePath, navHtml) {
+function replaceOrInsert(html, marker, block, anchor, position) {
+  const start = `<!-- docs-nav:${marker} -->`;
+  const end = `<!-- /docs-nav:${marker} -->`;
+  const wrapped = `${start}\n${block}\n${end}`;
+  const re = new RegExp(`${start}[\\s\\S]*?${end}`);
+  if (re.test(html)) return html.replace(re, wrapped);
+  return position === 'after'
+    ? html.replace(anchor, anchor + '\n' + wrapped)
+    : html.replace(anchor, wrapped + '\n' + anchor);
+}
+
+function inject(filePath, nav) {
   let html = fs.readFileSync(filePath, 'utf8');
-  if (html.includes('docs-nav')) return; // already injected
-  const [linkLine, ...navLines] = navHtml.split('\n');
-  html = html.replace('</head>', linkLine + '\n</head>');
-  html = html.replace('<body>', '<body>\n' + navLines.join('\n'));
+  html = replaceOrInsert(html, 'head', nav.headLink, '</head>', 'before');
+  html = replaceOrInsert(html, 'bar', nav.navBar, '<body>', 'after');
+  html = replaceOrInsert(html, 'script', nav.script, '</body>', 'before');
   fs.writeFileSync(filePath, html);
 }
 

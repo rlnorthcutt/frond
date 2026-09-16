@@ -13,6 +13,7 @@ const HEAD_CSS = `<link rel="stylesheet" href="vendor/ivy.full.min.css">
 <link id="theme-link" rel="stylesheet" href="themes/light.css">`;
 
 function page({ title, description, current, bodyClass, extraHead = '', content, extraScripts = '' }) {
+  const nav = renderNav({ base: '', current, archetypeBase: null });
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -21,13 +22,15 @@ function page({ title, description, current, bodyClass, extraHead = '', content,
 <title>${title}</title>
 <meta name="description" content="${esc(description)}">
 ${HEAD_CSS}
-${renderNav({ base: '', current, archetypeBase: null })}
+${nav.headLink}
 ${extraHead}
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
+${nav.navBar}
 ${ICON_SPRITE}
 ${content}
 <script src="site.js"></script>
+${nav.script}
 ${extraScripts}
 </body>
 </html>
