@@ -8,6 +8,12 @@ Follows [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Added
+- **`.m-split__media--list`**: modifier for `.m-split`'s media column so it can hold a
+  stacked list (several `.c-quote--bar`, say) instead of the one image/mockup it's sized for
+  by default — the bare column's `flex-direction: row` fights multiple children and clips
+  them off the sheet. Verified against a real render (see TODO.md): 3 short items fit, a 4th
+  sentence-length item overflows the fixed 1350px sheet — documented as a hard limit, not
+  solved with more CSS. Worked example in README's Components section.
 - **`.c-brand`** (frame.css): a persistent per-slide text mark (domain, handle) as a real
   furniture piece instead of a hand-rolled class per deck. `.c-brand--corner` bottom-left
   anchors it — the one corner `.c-logo--corner` (top-right) and `.c-pagenum--corner`

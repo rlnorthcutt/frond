@@ -307,7 +307,7 @@ const MOLECULES = [
   },
   {
     id: 'M12', cls: 'm-split', title: 'SplitSlide',
-    blurb: 'Modifiers: .m-split--flip (media left) · .m-split--wide-text / --wide-img · .m-split--overlay (full-bleed image, text on a gradient).',
+    blurb: 'Modifiers: .m-split--flip (media left) · .m-split--wide-text / --wide-img · .m-split--overlay (full-bleed image, text on a gradient). For a stacked list (e.g. quotes) instead of one image, add `.m-split__media--list` to the media column, not the root — 3 short items max, it\'s a fixed sheet.',
     slide: slide({ badge: { text: 'Two-up' }, bodyCls: 'm-split', bodyHtml: `<div class="m-split__text">
       <h2 class="c-title">Text one side, visual the other.</h2>
       <p class="c-body c-body--muted">.m-split__media keeps its own aspect ratio, so a late image swap never reflows the text.</p>

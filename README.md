@@ -279,6 +279,26 @@ M1 is the canvas itself: `.slide__head`, `.slide__body`, `.c-foot`. Each molecul
 to a stapler `<s-page>`. The full machine-readable index — every class, every variant — is
 in [`frond.json`](./frond.json).
 
+**M12 `.m-split` with a list instead of an image:** `.m-split__media` defaults to fitting one
+child (an image, a device mockup) — its `flex-direction: row` fights a stack of several items
+and clips them off the sheet. For a stacked list (several quotes, say), add
+`.m-split__media--list` to the media column itself, not to `.m-split`:
+
+```html
+<div class="slide__body m-split m-split--wide-text">
+  <div class="m-split__text">…</div>
+  <div class="m-split__media m-split__media--list">
+    <blockquote class="c-quote c-quote--bar"><p>…</p><footer>…</footer></blockquote>
+    <blockquote class="c-quote c-quote--bar"><p>…</p><footer>…</footer></blockquote>
+    <blockquote class="c-quote c-quote--bar"><p>…</p><footer>…</footer></blockquote>
+  </div>
+</div>
+```
+
+Verified against a real render: 3 short quotes fit comfortably, 3 sentence-length quotes are
+near the sheet's vertical limit, and a 4th will overflow — it's a fixed 1350px-tall sheet, not
+a scrolling page, so keep a media list to 3 short items or split the content across two slides.
+
 ---
 
 ## Icons

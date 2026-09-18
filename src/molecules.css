@@ -371,6 +371,15 @@ s-page-body { display: block; padding: 0; }
 .m-split__text .c-body { max-width: 100%; }
 .m-split__media { min-width: 0; align-self: stretch; display: flex; }
 .m-split__media > * { width: 100%; }
+/* .m-split__media assumes ONE child (image, device mockup) by default — its
+   default flex-direction: row fights `> * { width: 100% }` and clips a
+   second/third child off the sheet. For a stacked list of items (e.g.
+   several .c-quote--bar) instead of a single visual, add this modifier to
+   .m-split__media itself, not to .m-split. Verified against a render:
+   3 short items fit comfortably; 3 sentence-length quotes are near the
+   sheet's vertical limit and 4 will overflow — keep it to 3 short ones, or
+   split across two slides. */
+.m-split__media--list { display: flex; flex-direction: column; gap: 44px; }
 /* image on the left instead */
 .m-split--flip .m-split__text { order: 2; }
 .m-split--flip .m-split__media { order: 1; }

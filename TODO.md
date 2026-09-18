@@ -85,14 +85,22 @@ browser render available:
 - [x] **Brand-footer pattern hand-rolled per deck** — added `.c-brand`/`.c-brand--corner`
   to frame.css (bottom-left, the one corner `.c-logo--corner`/`.c-pagenum--corner` don't
   already claim), plus a worked example in README. See CHANGELOG.md.
-- [ ] **Split-with-list pattern undocumented** — "text left, stack of quotes right" needed
-  `m-split--wide-text`, but `m-split` still reserves the media column, which looks broken
-  when it's empty. Working pattern: a flex column of `.c-quote--bar` at 44px gaps with icon
-  footers. Worth a docs worked example, or a real `m-split--list` variant. Needs an actual
-  render to validate — this is layout/spacing, not a token-math bug like Issue 1.
+- [x] **Split-with-list pattern undocumented** — tested against a real render (external
+  harness, 2026-09-18): repro confirmed (`.m-split__media`'s default `flex-direction: row`
+  clips a stacked list off the sheet), Candidate B (`.m-split__media--list { display: flex;
+  flex-direction: column; gap: 44px; }`) won over an inline-styled wrapper — same geometry,
+  but names the pattern and the 44px gap is now a deliberate, documented choice rather than
+  copied by hand each time. Caveat, now documented in README: 3 short quotes fit, a 4th
+  sentence-length one overflows the fixed 1350px sheet — that's a hard limit of the format,
+  not something more CSS should paper over.
+  The same test also re-found the Issue-1-class contrast bug on `.c-quote footer` — that
+  was already fixed in this pass (`.slide--accent`'s muted group), just not yet pushed when
+  the harness tested, so it was testing pre-fix CSS. No new fix needed there, but a reminder
+  that this repo's local commits need pushing before an external harness's next run reflects
+  them.
 - [ ] **`m-cta` fights full-width CTA boxes** — centering/width/padding all needed inline
   overrides to align with footer margins and host a screenshot. Worth a worked example or
-  `m-cta` modifiers. Same caveat: needs a real render, not just reading the CSS.
+  `m-cta` modifiers. Still needs the same real-render pass as above (in progress).
 
 ## Future enhancements
 
