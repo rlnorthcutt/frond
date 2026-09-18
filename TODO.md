@@ -68,6 +68,33 @@ Tracked against `PLAN.md`'s milestones. Not in priority order within a section.
 
 - [ ] Tag, CHANGELOG entry, Pages live, repo topics set.
 
+## User feedback backlog (2026-09-18)
+
+From a real deck build. Issue 1 (accent-ground contrast) is fixed — see `PLAN.md`'s theme
+contract and `src/molecules.css`'s `.slide--accent` muted rule. The rest are open:
+
+- [ ] **No data-table component** — a payoff slide wanted a table (row per item, several
+  columns); `c-decide` (A18) is strictly two-column. Hand-rolled `.kind-table` with inline
+  CSS as a workaround, which breaks the closed-vocabulary promise (PLAN.md §5/§9). Adding a
+  `c-table` atom (or a grid variant of `c-decide`) means growing past "frozen at 18 atoms and
+  16 molecules as of v0.2" — a vocabulary-size decision, not just a CSS fix, so raise with
+  the maintainer before building it.
+- [ ] **Icon sprite is undocumented infrastructure** — the demo sprite (`i-check`, `i-cross`,
+  `i-arrow`) is "copy verbatim from demo.html"; nothing in `frond.json` or the docs says what
+  symbols exist or how an author registers a custom one for `m-pillar__i` / `c-icon-bullet`.
+  Needs a small named icon set plus a docs section (or explicit sign-off that custom inline
+  SVG is the intended path and just needs saying so).
+- [ ] **Split-with-list pattern undocumented** — "text left, stack of quotes right" needed
+  `m-split--wide-text`, but `m-split` still reserves the media column, which looks broken
+  when it's empty. Working pattern: a flex column of `.c-quote--bar` at 44px gaps with icon
+  footers. Worth a docs worked example, or a real `m-split--list` variant.
+- [ ] **Brand-footer pattern hand-rolled per deck** — "domain bottom-left on every slide"
+  needed a custom `.brand-mark` class each time. Worth a documented footer pattern, or a
+  `c-foot__brand` addition to frame.css.
+- [ ] **`m-cta` fights full-width CTA boxes** — centering/width/padding all needed inline
+  overrides to align with footer margins and host a screenshot. Worth a worked example or
+  `m-cta` modifiers.
+
 ## Future enhancements
 
 - [ ] Per-slide theme overrides via `.t-*` on a `.slide` — already possible, undocumented.

@@ -88,6 +88,14 @@ A theme sets these and nothing else.
 `--accent-soft` and `--hairline` are derived on `.slide` and `.cv-stage`. Never set them in
 a theme.
 
+**Contrast rule:** `--accent` vs `--accent-ink` must clear 4.5:1 (WCAG AA, body text) —
+`.slide--accent` sets full-size body copy (`.c-title`, `.c-body`, `.c-quote p`, …) directly
+in `--accent-ink` on an `--accent` ground, so the pair has to carry body text on its own, not
+just large text/UI at 3:1. There's no headroom to spare for a lighter "muted" derivative on
+top of that pair — `.slide--accent`'s muted classes therefore point straight at
+`--accent-ink` rather than mixing toward `--accent`, and a theme should not assume it can
+mix either. A theme that ships an `--accent`/`--accent-ink` pair below 4.5:1 is non-conformant.
+
 **Themes are reference implementations, not a palette library.** As with ivy, the expected
 path is that users write their own override file. The four shipped themes exist to prove the
 eight-token contract holds on more than one palette — which is why two of them are magenta.

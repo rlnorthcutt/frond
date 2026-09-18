@@ -180,6 +180,12 @@ A theme sets **eight tokens and nothing else**:
 | `--font-display`  | headlines                                      |
 | `--font-body`     | body copy                                      |
 
+`--accent` and `--accent-ink` must clear **4.5:1 contrast** (WCAG AA, body text) — `.slide--accent`
+sets full body copy in `--accent-ink` on an `--accent` ground, and its muted classes point
+straight at `--accent-ink` rather than mixing toward `--accent`, since that pair has no
+contrast headroom to spare for a lighter derivative. A theme whose accent pair falls short of
+4.5:1 is non-conformant.
+
 Four themes ship: `themes/light.css` and `themes/dark.css` (cyan spot), and
 `themes/press-light.css` / `themes/press-dark.css` (magenta). The second pair exists to
 prove the eight-token contract holds on a palette that isn't cyan — which is why it's

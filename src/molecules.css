@@ -71,7 +71,12 @@ s-page-body { display: block; padding: 0; }
 }
 .slide--accent :is(.c-sub, .c-caption, .c-body--muted, .c-foot__handle,
   .c-pagenum, .c-stat__label, .m-pillar__desc, .c-quote footer) {
-  color: color-mix(in oklab, var(--accent-ink) 72%, var(--accent));
+  /* Plain --accent-ink, not the usual 72%-mixed muted formula: that formula
+     assumes an --ink/--bg pair with contrast well above 4.5:1 to spare, so
+     mixing toward the ground still clears AA. --accent/--accent-ink is only
+     contracted to clear 4.5:1 exactly (see PLAN.md's theme contract) — any
+     mix toward --accent from there can and does fall back below it. */
+  color: var(--accent-ink);
 }
 .slide--accent :is(.c-badge, .c-cta, .c-swipe__arrow, .c-step__n) {
   background: var(--accent-ink);
@@ -81,6 +86,14 @@ s-page-body { display: block; padding: 0; }
 .slide--accent :is(.c-divider, .c-progress__dot--on) { background: var(--accent-ink); }
 .slide--accent .c-cta__action { color: var(--accent); }
 .slide--accent :is(.c-hl, mark) { color: var(--accent-ink); font-style: italic; }
+/* A <mark>/.c-hl nested inside one of the already-inverted chips above must
+   not be re-forced to --accent-ink by the rule above (same specificity,
+   source order would let it win) — that reads as accent-ink-on-accent-ink,
+   i.e. invisible text. Restore inherited color/style instead. */
+.slide--accent :is(.c-badge, .c-cta, .c-swipe__arrow, .c-step__n) :is(.c-hl, mark) {
+  color: inherit;
+  font-style: inherit;
+}
 .slide--accent :is(.c-hl--box, mark.c-hl--box) {
   background: var(--accent-ink);
   color: var(--accent);
