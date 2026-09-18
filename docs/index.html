@@ -143,7 +143,13 @@
 
   <section id="install">
     <h2>Installation</h2>
-    <p>Load order matters: ivy/lattice before frond, <code>frond.css</code> before <code>frond.frame.css</code>, theme and size last.</p>
+    <p><strong>CDN, for authoring</strong> &mdash; no download, no build step. jsDelivr serves straight from the repo, but a final render still needs Option 2 below; see <a href="#printing">Printing</a>.</p>
+    <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rlnorthcutt/ivy/dist/ivy.full.min.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rlnorthcutt/lattice/dist/lattice.full.min.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rlnorthcutt/frond/dist/frond.full.min.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rlnorthcutt/frond/themes/light.css"&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/rlnorthcutt/stapler/dist/stapler.min.js"&gt;&lt;/script&gt;</code></pre>
+    <p><strong>Vendored, for rendering</strong> &mdash; load order matters: ivy/lattice before frond, <code>frond.css</code> before <code>frond.frame.css</code>, theme and size last. No network dependencies in the render pipeline.</p>
     <pre><code>&lt;link rel="stylesheet" href="vendor/ivy.full.min.css"&gt;
 &lt;link rel="stylesheet" href="vendor/lattice.full.min.css"&gt;
 &lt;link rel="stylesheet" href="frond.css"&gt;
