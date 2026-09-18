@@ -31,7 +31,11 @@ Tracked against `PLAN.md`'s milestones. Not in priority order within a section.
 - [ ] **`frond.json` generation** — still hand-authored from the CSS; `scripts/gen-gallery.js`
   is the closer-to-source list now (it drives both docs pages) — worth generating
   `frond.json` from that same data instead of maintaining it a third time.
-- [ ] **CDN / jsDelivr** — publish so `<link>` installs need nothing local (PLAN M5).
+- [x] **CDN / jsDelivr** — no publish step needed; jsDelivr's `/gh/` mode already serves any
+  public GitHub repo directly (verified: `cdn.jsdelivr.net/gh/rlnorthcutt/frond/dist/
+  frond.full.min.css` returns 200 now that the repo is pushed). Documented in README as
+  Option 1 (authoring only — Option 2, vendored, stays the recommended path for an actual
+  render, per PLAN's "no network at render time" rule).
 
 ## Grounds (M2) — done
 

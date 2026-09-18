@@ -46,6 +46,23 @@ number, or progress bar, so the furniture layer is genuinely optional.
 
 ## Install
 
+### Option 1 — CDN, for authoring
+
+No download, no build step — jsDelivr serves straight from this repo:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rlnorthcutt/ivy/dist/ivy.full.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rlnorthcutt/lattice/dist/lattice.full.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rlnorthcutt/frond/dist/frond.full.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rlnorthcutt/frond/themes/light.css" />
+<script src="https://cdn.jsdelivr.net/gh/rlnorthcutt/stapler/dist/stapler.min.js"></script>
+```
+
+Fine for drafting; **not** for a final render. See [Printing](#printing) — a reproducible PDF
+needs zero network dependencies, which means vendored files (Option 2), not a CDN.
+
+### Option 2 — Vendored, for rendering
+
 ```html
 <!-- 1. base stack -->
 <link rel="stylesheet" href="vendor/ivy.full.min.css" />

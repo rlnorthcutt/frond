@@ -16,6 +16,9 @@ Follows [Semantic Versioning](https://semver.org/).
 - Ground × texture matrix in the gallery (`docs/gallery.html#matrix`) — all 3 grounds ×
   5 textures (including "none") = 15 combinations, generated from `scripts/gen-gallery.js`.
 - `frond.json`'s `grounds` list now includes `light` and `dark`.
+- CDN install option in README (jsDelivr's `/gh/` mode, no publish step required — verified
+  live against the pushed repo) — authoring only, vendored files stay the documented path
+  for an actual render.
 - Initial port from the prototype: `src/` (base, atoms, molecules, frame), four themes,
   four size presets (`portrait-1350`, `square`, `portrait-1200`, `widescreen`), vendored
   ivy/lattice/stapler in `vendor/`.
