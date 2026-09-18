@@ -71,7 +71,7 @@ s-page-body { display: block; padding: 0; }
   color: var(--accent-ink);
 }
 .slide--accent :is(.c-sub, .c-caption, .c-body--muted, .c-foot__handle,
-  .c-pagenum, .c-stat__label, .m-pillar__desc, .c-quote footer,
+  .c-pagenum, .c-brand, .c-stat__label, .m-pillar__desc, .c-quote footer,
   .c-table thead th) {
   /* Plain --accent-ink, not the usual 72%-mixed muted formula: that formula
      assumes an --ink/--bg pair with contrast well above 4.5:1 to spare, so

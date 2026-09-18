@@ -1,6 +1,6 @@
 # rlnorthcutt/frond
 
-**A CSS component library for fixed-canvas sheets.** Eighteen atoms and sixteen slide
+**A CSS component library for fixed-canvas sheets.** Nineteen atoms and sixteen slide
 layouts on a 1080×1350 canvas, on top of ivy and lattice, rendered to PDF by stapler.
 
 **This repo is a CSS library and its documentation. Nothing else.** No skills, no agent
@@ -29,7 +29,7 @@ The test: frond describes what the components **are**. Anything describing how t
 | ivy | frond |
 |---|---|
 | `ivy.css` — core classless defaults | `frond.css` — canvas, tokens, print setup, atoms, molecules |
-| `ivy.extra.css` — optional polish | `frond.frame.css` — page furniture: footer, page number, logo, swipe, divider, progress |
+| `ivy.extra.css` — optional polish | `frond.frame.css` — page furniture: footer, page number, logo, brand mark, swipe, divider, progress |
 | `themes/` | `themes/` — light, dark, press-light, press-dark |
 | — | `sizes/` — canvas presets |
 | `dist/` built by CI | same: `frond.min.css`, `frond.frame.min.css`, `frond.full.min.css`, `frond.full.css` |
@@ -163,7 +163,8 @@ consumers can read it instead of scraping the CSS or hardcoding class names.
   "molecules": { "M2": { "class": "m-cover" } },
   "grounds":   ["light", "dark", "accent"],
   "textures":  ["none", "dots", "lines", "glow", "mesh"],
-  "sizes":     ["portrait-1350", "square", "portrait-1200", "og", "widescreen"]
+  "sizes":     ["portrait-1350", "square", "portrait-1200", "og", "widescreen"],
+  "icons":     { "required": { "i-check": ".c-check__i" }, "open": ["c-icon-bullet__i"] }
 }
 ```
 

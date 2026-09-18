@@ -25,7 +25,7 @@ function inlineCode(s) {
 }
 
 // ---------------------------------------------------------------------------
-// Atoms — A1–A18
+// Atoms — A1–A19
 // ---------------------------------------------------------------------------
 const ATOMS = [
   {
@@ -104,7 +104,7 @@ const ATOMS = [
     variants: '',
     html: `<ul class="m-list">
   <li class="c-icon-bullet"><span class="c-icon-bullet__i"><svg><use href="#i-check"/></svg></span><span>Fixed canvas — no responsive surprises</span></li>
-  <li class="c-icon-bullet"><span class="c-icon-bullet__i"><svg><use href="#i-arrow"/></svg></span><span>Closed vocabulary — eighteen atoms, sixteen molecules</span></li>
+  <li class="c-icon-bullet"><span class="c-icon-bullet__i"><svg><use href="#i-arrow"/></svg></span><span>Closed vocabulary — nineteen atoms, sixteen molecules</span></li>
 </ul>`,
   },
   {

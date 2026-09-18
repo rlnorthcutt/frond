@@ -7,13 +7,13 @@
 
 # Frond
 
-**A CSS component library for fixed-canvas sheets.** Eighteen content atoms and sixteen
+**A CSS component library for fixed-canvas sheets.** Nineteen content atoms and sixteen
 slide layouts on a 1080×1350 canvas, rendered to PDF by
 [stapler](https://github.com/rlnorthcutt/stapler).
 
 * **Fixed canvas.** Every sheet is a known size in px — no responsive layout, no surprises
   between screen and print.
-* **Closed vocabulary.** Eighteen atoms, sixteen molecules. Nothing else — that's the whole
+* **Closed vocabulary.** Nineteen atoms, sixteen molecules. Nothing else — that's the whole
   library, by design.
 * **Eight-token theming.** A theme sets eight custom properties and nothing else.
 * **Built on ivy + lattice.** Frond only builds what they don't: canvas, atoms, molecules,
@@ -30,7 +30,7 @@ Frond ships in two layers, same split as ivy's core/extra:
 
 | File               | Purpose                                                                 |
 | ------------------ | ------------------------------------------------------------------------ |
-| `frond.css`        | **Core:** canvas, tokens, print setup, the eighteen atoms, the sixteen molecules. |
+| `frond.css`        | **Core:** canvas, tokens, print setup, the nineteen atoms, the sixteen molecules. |
 | `frond.frame.css`  | **Frame:** page furniture — footer, page number, logo, swipe, divider, progress. |
 
 Authored as four files in `src/` (`base.css`, `atoms.css`, `molecules.css`, `frame.css`) and
@@ -123,18 +123,41 @@ Or link the pre-combined bundle instead of `frond.css` + `frond.frame.css`:
 
 * Canvas tokens, fixed px type scale, print setup (`print-color-adjust`, pinned
   `color-scheme`, the `@page` rule).
-* Eighteen atoms — title, body copy, badges, stats, checks, numerals, CTA, quote, icon
+* Nineteen atoms — title, body copy, badges, stats, checks, numerals, CTA, quote, icon
   bullets, avatar, highlight, big numeral, process step, decoration, image, device/code
-  frame, repo card, decision row.
+  frame, repo card, decision row, data table.
 * Sixteen molecules — the slide shell plus fifteen body layouts (cover, list, checklist,
   stats, quote, CTA, statement, process, compare, pillars, split, number, profile, decide,
   mockup).
 
 ### Frame (`frond.frame.css`)
 
-* Page furniture applied at slide level — footer, author, page number, logo, swipe
-  affordance, divider, progress bar. Every piece is its own node, so "turning it off" is
-  simply omitting it — no state classes needed.
+* Page furniture applied at slide level — footer, author, page number, logo, brand mark,
+  swipe affordance, divider, progress bar. Every piece is its own node, so "turning it off"
+  is simply omitting it — no state classes needed.
+
+A persistent mark on every slide of a carousel — a domain, a handle — is `.c-brand`, not a
+custom class per deck. Corner-anchor it directly on `.slide` so it doesn't compete with
+`.c-foot`'s own layout, or drop it into `.c-foot` itself if the footer already has the room:
+
+```html
+<section class="slide">
+  …
+  <span class="c-brand c-brand--corner">omnideck.dev</span>
+</section>
+```
+
+```html
+<footer class="c-foot">
+  <span class="c-foot__author">…</span>
+  <span class="c-brand">omnideck.dev</span>
+  <span class="c-pagenum">3 / 8</span>
+</footer>
+```
+
+`.c-logo--corner` (top-right) and `.c-pagenum--corner` (bottom-right) anchor to the other two
+corners — `.c-brand--corner` takes the one they leave free, bottom-left, so a full corner set
+never collides.
 
 ---
 
@@ -256,8 +279,45 @@ M1 is the canvas itself: `.slide__head`, `.slide__body`, `.c-foot`. Each molecul
 to a stapler `<s-page>`. The full machine-readable index — every class, every variant — is
 in [`frond.json`](./frond.json).
 
-Icons are inline SVG (`<use href="#i-check">` from a sprite) — no icon font, so they survive
-print without a font-loading race.
+---
+
+## Icons
+
+Icons are inline SVG referenced by `<use>` from a sprite, not an icon font — no font-loading
+race to survive at print time, and `stroke="currentColor"` means each icon inherits whatever
+color the atom around it sets, same as any other text.
+
+Two atoms have a **hard dependency** on three named symbols — without them in your page,
+`.c-check` and `.c-swipe__arrow` render an empty box:
+
+| Symbol | Used by | Where |
+| --- | --- | --- |
+| `#i-check` | `.c-check--yes .c-check__i` | A5 CheckItem |
+| `#i-cross` | `.c-check--no .c-check__i` | A5 CheckItem |
+| `#i-arrow` | `.c-swipe__arrow` | `.c-foot`'s swipe hint (frame.css) |
+
+Paste this sprite once per page, right after `<body>` (it's inert — zero visible footprint,
+`<use>` elsewhere pulls from it):
+
+```html
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+</svg>
+```
+
+That's the same markup `docs/demo.html` and every `docs/archetypes/*` page use, generated
+from one source (`scripts/gen-gallery.js`'s `ICON_SPRITE`) — copy it from here rather than
+scraping a docs page, so it can't drift.
+
+`.c-icon-bullet__i` (A9) and `.m-pillar__i` (M11) are open slots instead — no required
+symbol, any emoji or inline SVG works, and the atom's own CSS (`width/height: var(--fs-icon)`,
+`display: block`) sizes whatever you put in them with no layout shift. If you're building
+more than one or two custom icons, register them in your own local `<symbol>` sprite (same
+`<use href="#your-id">` pattern) rather than inlining full `<svg>` markup at every call site —
+keep 24×24 viewBoxes and `stroke="currentColor"`/`fill="currentColor"` so they theme the same
+way the built-in three do.
 
 ---
 
@@ -298,7 +358,7 @@ which builds the pagination and drives print.
 
 ## Philosophy
 
-* **Fixed canvas, closed vocabulary.** Eighteen atoms, sixteen molecules — the test for
+* **Fixed canvas, closed vocabulary.** Nineteen atoms, sixteen molecules — the test for
   anything new is whether it describes what a component **is**, not how to use it well.
 * **Small layers.** ivy + lattice → frond core → frond frame → your theme.
 * **No lock-in, no runtime.** Pure CSS; stapler handles pagination, Chrome handles print.
@@ -319,6 +379,6 @@ PRs welcome! Please:
 * Keep diffs focused and maintain the tight single-line formatting.
 * Preserve license banners (`/*! … */`) so they survive minification.
 * Never add a colour outside the eight tokens, and never add a component outside the
-  eighteen atoms / sixteen molecules — extend a molecule's variants instead.
+  nineteen atoms / sixteen molecules — extend a molecule's variants instead.
 * Test changes in every theme, and confirm nothing overflows 1080×1350 (or your target size)
   at the safe margin.

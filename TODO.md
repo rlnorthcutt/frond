@@ -71,27 +71,28 @@ Tracked against `PLAN.md`'s milestones. Not in priority order within a section.
 ## User feedback backlog (2026-09-18)
 
 From a real deck build. Issue 1 (accent-ground contrast) is fixed — see `PLAN.md`'s theme
-contract and `src/molecules.css`'s `.slide--accent` muted rule. The rest are open:
+contract and `src/molecules.css`'s `.slide--accent` muted rule. Two more closed below; the
+layout ones (`m-split`, `m-cta`) are open, deliberately left for a pass with an actual
+browser render available:
 
 - [x] **No data-table component** — added `.c-table` (A19), a real `<table>`-based atom.
   See CHANGELOG.md. Follow-up noticed while building it: `.c-decide` (A18) has never had
   `.slide--accent` repoints either (no entry in `molecules.css`'s `.slide--accent` block) —
   `.c-table` got them in this pass, `.c-decide` still doesn't. Worth closing that gap too.
-- [ ] **Icon sprite is undocumented infrastructure** — the demo sprite (`i-check`, `i-cross`,
-  `i-arrow`) is "copy verbatim from demo.html"; nothing in `frond.json` or the docs says what
-  symbols exist or how an author registers a custom one for `m-pillar__i` / `c-icon-bullet`.
-  Needs a small named icon set plus a docs section (or explicit sign-off that custom inline
-  SVG is the intended path and just needs saying so).
+- [x] **Icon sprite is undocumented infrastructure** — README gained an "Icons" section
+  (the three required symbols, the canonical sprite, and open-slot guidance for
+  `c-icon-bullet__i`/`m-pillar__i`); `frond.json` gained an `icons` key. See CHANGELOG.md.
+- [x] **Brand-footer pattern hand-rolled per deck** — added `.c-brand`/`.c-brand--corner`
+  to frame.css (bottom-left, the one corner `.c-logo--corner`/`.c-pagenum--corner` don't
+  already claim), plus a worked example in README. See CHANGELOG.md.
 - [ ] **Split-with-list pattern undocumented** — "text left, stack of quotes right" needed
   `m-split--wide-text`, but `m-split` still reserves the media column, which looks broken
   when it's empty. Working pattern: a flex column of `.c-quote--bar` at 44px gaps with icon
-  footers. Worth a docs worked example, or a real `m-split--list` variant.
-- [ ] **Brand-footer pattern hand-rolled per deck** — "domain bottom-left on every slide"
-  needed a custom `.brand-mark` class each time. Worth a documented footer pattern, or a
-  `c-foot__brand` addition to frame.css.
+  footers. Worth a docs worked example, or a real `m-split--list` variant. Needs an actual
+  render to validate — this is layout/spacing, not a token-math bug like Issue 1.
 - [ ] **`m-cta` fights full-width CTA boxes** — centering/width/padding all needed inline
   overrides to align with footer margins and host a screenshot. Worth a worked example or
-  `m-cta` modifiers.
+  `m-cta` modifiers. Same caveat: needs a real render, not just reading the CSS.
 
 ## Future enhancements
 

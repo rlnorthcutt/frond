@@ -127,7 +127,7 @@ const galleryContent = `<div class="page-title">
 
   <section id="atoms">
     <h2>Atoms</h2>
-    <p>Eighteen content primitives. Shown at their default size inside a <code>.cv-stage</code> &mdash; the same box a molecule's <code>.slide__body</code> provides.</p>
+    <p>Nineteen content primitives. Shown at their default size inside a <code>.cv-stage</code> &mdash; the same box a molecule's <code>.slide__body</code> provides.</p>
     <div class="gallery-grid">
       ${ATOMS.map(atomCard).join('\n      ')}
     </div>
@@ -225,9 +225,9 @@ const heroSource = heroSlide
 
 const indexContent = `<section class="hero py-5 grid md-col-2 gap-5 items-center" id="top">
   <div>
-    <p class="kicker">v0.2.0 &mdash; MIT License</p>
+    <p class="kicker">v0.3.0 &mdash; MIT License</p>
     <h1>Fixed-canvas sheets,<br>already designed.</h1>
-    <p class="lede">Eighteen content atoms and sixteen slide layouts on a 1080&times;1350 canvas, on top of <a href="https://github.com/rlnorthcutt/ivy">ivy</a>, <a href="https://github.com/rlnorthcutt/lattice">lattice</a>, and <a href="https://github.com/rlnorthcutt/stapler">stapler</a>. A closed vocabulary, not a framework &mdash; the whole library is these thirty-four components.</p>
+    <p class="lede">Nineteen content atoms and sixteen slide layouts on a 1080&times;1350 canvas, on top of <a href="https://github.com/rlnorthcutt/ivy">ivy</a>, <a href="https://github.com/rlnorthcutt/lattice">lattice</a>, and <a href="https://github.com/rlnorthcutt/stapler">stapler</a>. A closed vocabulary, not a framework &mdash; the whole library is these thirty-five components.</p>
     <div class="btn-group">
       <a role="button" data-variant="primary" href="#install">Get started</a>
       <a role="button" data-variant="outline" href="gallery.html">See the gallery</a>
@@ -274,7 +274,7 @@ const indexContent = `<section class="hero py-5 grid md-col-2 gap-5 items-center
 
   <section id="why">
     <h2>Why frond</h2>
-    <p>Most LinkedIn-carousel CSS is either a framework's worth of options, or one project's hand-rolled slides copy-pasted into the next. Frond is neither: a closed vocabulary &mdash; eighteen atoms, sixteen molecules &mdash; on a fixed pixel canvas, so a slide that looks right on screen looks identical in the printed PDF. Nothing here reasons about your content; frond describes what a component <em>is</em>, not how to use it well.</p>
+    <p>Most LinkedIn-carousel CSS is either a framework's worth of options, or one project's hand-rolled slides copy-pasted into the next. Frond is neither: a closed vocabulary &mdash; nineteen atoms, sixteen molecules &mdash; on a fixed pixel canvas, so a slide that looks right on screen looks identical in the printed PDF. Nothing here reasons about your content; frond describes what a component <em>is</em>, not how to use it well.</p>
     <div class="grid col-1 sm-col-2 gap-3">
       <div class="callout" data-tone="info">
         <strong>Fixed canvas</strong>
@@ -282,7 +282,7 @@ const indexContent = `<section class="hero py-5 grid md-col-2 gap-5 items-center
       </div>
       <div class="callout" data-tone="info">
         <strong>Closed vocabulary</strong>
-        <p>Eighteen atoms, sixteen molecules. Nothing else &mdash; that's the whole library, by design.</p>
+        <p>Nineteen atoms, sixteen molecules. Nothing else &mdash; that's the whole library, by design.</p>
       </div>
       <div class="callout" data-tone="info">
         <strong>Eight-token theming</strong>
@@ -301,7 +301,7 @@ const indexContent = `<section class="hero py-5 grid md-col-2 gap-5 items-center
     <div class="grid col-1 sm-col-2 gap-3">
       <div class="card">
         <header><h3>Core &mdash; <code>frond.css</code></h3></header>
-        <p>Canvas, tokens, print setup, the eighteen atoms, the sixteen molecules.</p>
+        <p>Canvas, tokens, print setup, the nineteen atoms, the sixteen molecules.</p>
         <footer><a href="gallery.html">Browse the gallery &rarr;</a></footer>
       </div>
       <div class="card">
@@ -385,7 +385,7 @@ const indexContent = `<section class="hero py-5 grid md-col-2 gap-5 items-center
 
   <section id="components">
     <h2>Components</h2>
-    <p>Eighteen atoms, sixteen molecules, frozen. The full A1&ndash;A18 / M1&ndash;M16 index, rendered live with a theme switcher, is on the <a href="gallery.html">gallery</a>. Copy-paste markup for every one of them is on the <a href="cheatsheet.html">cheat sheet</a>. A machine-readable index is <a href="frond.json">frond.json</a>.</p>
+    <p>Nineteen atoms, sixteen molecules, closed by default. The full A1&ndash;A19 / M1&ndash;M16 index, rendered live with a theme switcher, is on the <a href="gallery.html">gallery</a>. Copy-paste markup for every one of them is on the <a href="cheatsheet.html">cheat sheet</a>. A machine-readable index is <a href="frond.json">frond.json</a>.</p>
     <p>See it assembled into real carousels: a <a href="demo.html">ten-slide demo</a> exercising one of each molecule, and <a href="archetypes/how-to.html">eight archetypes</a> &mdash; complete carousels, all on one subject, so the layouts can be compared without the copy getting in the way.</p>
   </section>
 
@@ -438,7 +438,7 @@ const indexExtraScripts = `<script>
 
 fs.writeFileSync(path.join(docs, 'index.html'), page({
   title: 'Frond — a CSS library for fixed-canvas carousel sheets',
-  description: 'Frond: eighteen content atoms and sixteen slide layouts on a 1080x1350 canvas, built on ivy, lattice, and stapler.',
+  description: 'Frond: nineteen content atoms and sixteen slide layouts on a 1080x1350 canvas, built on ivy, lattice, and stapler.',
   current: 'index',
   content: indexContent,
   extraScripts: indexExtraScripts,

@@ -8,6 +8,17 @@ Follows [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Added
+- **`.c-brand`** (frame.css): a persistent per-slide text mark (domain, handle) as a real
+  furniture piece instead of a hand-rolled class per deck. `.c-brand--corner` bottom-left
+  anchors it — the one corner `.c-logo--corner` (top-right) and `.c-pagenum--corner`
+  (bottom-right) leave free. Accent-ground repoint included. Documented with a worked
+  example in README's "core vs frame" section.
+- **Icons documented**: README gained an "Icons" section spelling out the three sprite
+  symbols (`i-check`, `i-cross`, `i-arrow`) that `.c-check` and `.c-swipe__arrow` hard-depend
+  on, with the canonical copy-paste sprite (previously "copy verbatim from demo.html" — now
+  one citable source), plus guidance for registering custom icons in the open
+  `.c-icon-bullet__i` / `.m-pillar__i` slots. `frond.json` gained an `icons` key
+  (`required`/`open`) so this is machine-readable too.
 - **A19 `.c-table`**: a real `<table>`-based data table (rows × N columns, native column
   sizing — no `.m-stats`-style count modifier needed). Closes a real gap surfaced by a
   feedback pass: `.c-decide` is strictly two-column and had no substitute for genuinely
@@ -52,6 +63,9 @@ Follows [Semantic Versioning](https://semver.org/).
   `docs/index.html` (the atom/molecule gallery) moved to `docs/gallery.html`.
 
 ### Fixed
+- Stale "eighteen atoms" / `A1–A18` prose left over from adding A19 `.c-table` — README,
+  PLAN.md, and the generated docs pages (`docs/index.html`, `docs/gallery.html`) all now say
+  nineteen / `A1–A19` / thirty-five components.
 - Accent-ground contrast: `themes/light.css` and `src/base.css`'s `--accent` darkened
   (`#0088b0` → `#00789c`) so it clears WCAG AA's 4.5:1 body-text threshold against
   `--accent-ink` (was 4.08:1). `.slide--accent`'s muted-text classes (`.c-sub`, `.c-caption`,

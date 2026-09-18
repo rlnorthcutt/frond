@@ -41,5 +41,13 @@
   },
   "grounds":  ["light", "dark", "accent", "surface"],
   "textures": ["none", "dots", "lines", "glow", "mesh"],
-  "sizes":    ["portrait-1350", "square", "portrait-1200", "widescreen"]
+  "sizes":    ["portrait-1350", "square", "portrait-1200", "widescreen"],
+  "icons": {
+    "required": {
+      "i-check": ".c-check--yes .c-check__i (A5)",
+      "i-cross": ".c-check--no .c-check__i (A5)",
+      "i-arrow": ".c-swipe__arrow (frame.css)"
+    },
+    "open": ["c-icon-bullet__i", "m-pillar__i"]
+  }
 }
