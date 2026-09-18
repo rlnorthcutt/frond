@@ -7,6 +7,12 @@
  *    <span class="c-swipe">…</span>
  *    <span class="c-pagenum">3 / 8</span>
  *  </footer>
+ *
+ *  A persistent mark (a domain, a handle) on every slide of a carousel is a
+ *  .c-brand, not a one-off custom class — put it wherever .c-foot puts it on
+ *  your own layout, or corner-anchor it directly on .slide:
+ *
+ *  <span class="c-brand c-brand--corner">omnideck.dev</span>
  */
 
 .c-foot {
@@ -71,6 +77,23 @@
   position: absolute;
   right: var(--cv-pad);
   top: var(--cv-pad);
+  z-index: 2;
+}
+
+/* --- BrandMark — persistent text mark (domain, handle), one per deck ---- */
+.c-brand {
+  font-family: var(--font-body);
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  color: var(--ink-muted);
+  flex: none;
+}
+/* bottom-left: the one corner .c-logo--corner (top-right) and
+   .c-pagenum--corner (bottom-right) don't already claim. */
+.c-brand--corner {
+  position: absolute;
+  left: var(--cv-pad);
+  bottom: var(--cv-pad);
   z-index: 2;
 }
 

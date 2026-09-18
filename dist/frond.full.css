@@ -46,7 +46,7 @@
   --surface: #ffffff;
   --ink: #201e1d;
   --ink-muted: #6b6663;
-  --accent: #0088b0;
+  --accent: #00789c; /* darkened from #0088b0: needs >=4.5:1 vs --accent-ink, was 4.08:1 */
   --accent-ink: #ffffff;
   --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
@@ -138,7 +138,7 @@ stapled-doc {
   white-space: nowrap;
 }
 
-/*! frond — atoms.css (A1–A18)
+/*! frond — atoms.css (A1–A19)
  *  Content atoms. Each is self-contained: no assumptions about its parent
  *  beyond the theme tokens being in scope.
  */
@@ -446,6 +446,10 @@ stapled-doc {
   border-radius: 0;
 }
 .c-cta--plain .c-cta__action { color: var(--accent); opacity: 1; }
+/* full-width panel instead of a shrink-wrapped box — verified against a real
+   render to compose cleanly with --outline and --plain, with and without an
+   image inside, at both the default canvas and sizes/square.css. */
+.c-cta--full { align-self: stretch; width: 100%; }
 
 /* ==========================================================================
    A8 — QuoteMark / PullQuote
@@ -926,6 +930,37 @@ stapled-doc {
   color: var(--ink-muted);
 }
 
+/* ==========================================================================
+   A19 — DataTable — rows × N columns. A real <table>, not a grid of divs:
+   base.css already resets table's margin, and native column sizing means no
+   column-count modifier is needed the way .m-stats needs one per count.
+   ========================================================================== */
+.c-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 26px;
+  line-height: 1.28;
+}
+.c-table :is(th, td) {
+  text-align: left;
+  padding: 22px 26px 22px 0;
+  border-top: 1px solid var(--hairline);
+  color: var(--ink);
+  font-weight: 400;
+}
+.c-table :is(th, td):last-child { padding-right: 0; }
+.c-table tbody tr:last-child :is(th, td) { border-bottom: 1px solid var(--hairline); }
+.c-table thead th {
+  padding-top: 0;
+  padding-bottom: 14px;
+  border-top: none;
+  font-size: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
 /*! frond — molecules.css (M1–M16)
  *  Complete slide bodies. Molecules compose atoms; they never restyle them.
  *  Layout uses lattice's .grid + .col-N where a grid is needed.
@@ -994,12 +1029,19 @@ s-page-body { display: block; padding: 0; }
   --hairline: color-mix(in oklab, var(--accent-ink) 30%, var(--accent));
 }
 .slide--accent :is(.c-title, .c-body, .c-stat__value, .c-bignum, .c-num__n,
-  .c-quote p, .c-foot__name, .m-pillar__title, .c-cta__title, .c-swipe) {
+  .c-quote p, .c-foot__name, .m-pillar__title, .c-swipe,
+  .c-table tbody :is(th, td)) {
   color: var(--accent-ink);
 }
 .slide--accent :is(.c-sub, .c-caption, .c-body--muted, .c-foot__handle,
-  .c-pagenum, .c-stat__label, .m-pillar__desc, .c-quote footer) {
-  color: color-mix(in oklab, var(--accent-ink) 72%, var(--accent));
+  .c-pagenum, .c-brand, .c-stat__label, .m-pillar__desc, .c-quote footer,
+  .c-table thead th) {
+  /* Plain --accent-ink, not the usual 72%-mixed muted formula: that formula
+     assumes an --ink/--bg pair with contrast well above 4.5:1 to spare, so
+     mixing toward the ground still clears AA. --accent/--accent-ink is only
+     contracted to clear 4.5:1 exactly (see PLAN.md's theme contract) — any
+     mix toward --accent from there can and does fall back below it. */
+  color: var(--accent-ink);
 }
 .slide--accent :is(.c-badge, .c-cta, .c-swipe__arrow, .c-step__n) {
   background: var(--accent-ink);
@@ -1007,8 +1049,21 @@ s-page-body { display: block; padding: 0; }
   box-shadow: none;
 }
 .slide--accent :is(.c-divider, .c-progress__dot--on) { background: var(--accent-ink); }
-.slide--accent .c-cta__action { color: var(--accent); }
+/* .c-cta__title used to be forced to --accent-ink by the full-color group
+   above, same as .c-cta's own background here — accent-ink text on an
+   accent-ink box, invisible. It's always inside .c-cta, which already
+   flips to accent-ink bg / accent text just above; point it there instead
+   of forcing a color that only makes sense outside the box. */
+.slide--accent :is(.c-cta__title, .c-cta__action) { color: var(--accent); }
 .slide--accent :is(.c-hl, mark) { color: var(--accent-ink); font-style: italic; }
+/* A <mark>/.c-hl nested inside one of the already-inverted chips above must
+   not be re-forced to --accent-ink by the rule above (same specificity,
+   source order would let it win) — that reads as accent-ink-on-accent-ink,
+   i.e. invisible text. Restore inherited color/style instead. */
+.slide--accent :is(.c-badge, .c-cta, .c-swipe__arrow, .c-step__n) :is(.c-hl, mark) {
+  color: inherit;
+  font-style: inherit;
+}
 .slide--accent :is(.c-hl--box, mark.c-hl--box) {
   background: var(--accent-ink);
   color: var(--accent);
@@ -1133,6 +1188,9 @@ s-page-body { display: block; padding: 0; }
 }
 .m-cta .c-title { max-width: 16em; }
 .m-cta .c-cta { align-self: flex-start; }
+/* centered variant, for a full-width .c-cta--full panel rather than the
+   default left-anchored small box */
+.m-cta--center { align-items: center; text-align: center; }
 
 /* ==========================================================================
    M8 — StatementSlide — one big idea
@@ -1284,6 +1342,15 @@ s-page-body { display: block; padding: 0; }
 .m-split__text .c-body { max-width: 100%; }
 .m-split__media { min-width: 0; align-self: stretch; display: flex; }
 .m-split__media > * { width: 100%; }
+/* .m-split__media assumes ONE child (image, device mockup) by default — its
+   default flex-direction: row fights `> * { width: 100% }` and clips a
+   second/third child off the sheet. For a stacked list of items (e.g.
+   several .c-quote--bar) instead of a single visual, add this modifier to
+   .m-split__media itself, not to .m-split. Verified against a render:
+   3 short items fit comfortably; 3 sentence-length quotes are near the
+   sheet's vertical limit and 4 will overflow — keep it to 3 short ones, or
+   split across two slides. */
+.m-split__media--list { display: flex; flex-direction: column; gap: 44px; }
 /* image on the left instead */
 .m-split--flip .m-split__text { order: 2; }
 .m-split--flip .m-split__media { order: 1; }
@@ -1398,6 +1465,12 @@ s-page-body { display: block; padding: 0; }
  *    <span class="c-swipe">…</span>
  *    <span class="c-pagenum">3 / 8</span>
  *  </footer>
+ *
+ *  A persistent mark (a domain, a handle) on every slide of a carousel is a
+ *  .c-brand, not a one-off custom class — put it wherever .c-foot puts it on
+ *  your own layout, or corner-anchor it directly on .slide:
+ *
+ *  <span class="c-brand c-brand--corner">omnideck.dev</span>
  */
 
 .c-foot {
@@ -1462,6 +1535,23 @@ s-page-body { display: block; padding: 0; }
   position: absolute;
   right: var(--cv-pad);
   top: var(--cv-pad);
+  z-index: 2;
+}
+
+/* --- BrandMark — persistent text mark (domain, handle), one per deck ---- */
+.c-brand {
+  font-family: var(--font-body);
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  color: var(--ink-muted);
+  flex: none;
+}
+/* bottom-left: the one corner .c-logo--corner (top-right) and
+   .c-pagenum--corner (bottom-right) don't already claim. */
+.c-brand--corner {
+  position: absolute;
+  left: var(--cv-pad);
+  bottom: var(--cv-pad);
   z-index: 2;
 }
 
