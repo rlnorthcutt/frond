@@ -265,7 +265,7 @@ const MOLECULES = [
   },
   {
     id: 'M7', cls: 'm-cta', title: 'CTASlide',
-    blurb: 'Usually paired with .slide--accent.',
+    blurb: 'Usually paired with .slide--accent. Modifiers: .m-cta--center + .c-cta--full for a full-width panel instead of the default left-anchored small box.',
     slide: slide({ cls: 'slide--accent', badge: { text: 'One ask' }, bodyCls: 'm-cta', bodyHtml: `<h2 class="c-title c-title--cover">Keep the checklist. <mark>Not the post.</mark></h2>
     <div class="c-cta"><p class="c-cta__title">Save slide 5</p><p class="c-cta__action">@rlnorthcutt &middot; frond on GitHub</p></div>`, foot: COVER_FOOT, label: '10 CTA' }),
   },

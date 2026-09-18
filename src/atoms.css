@@ -306,6 +306,10 @@
   border-radius: 0;
 }
 .c-cta--plain .c-cta__action { color: var(--accent); opacity: 1; }
+/* full-width panel instead of a shrink-wrapped box — verified against a real
+   render to compose cleanly with --outline and --plain, with and without an
+   image inside, at both the default canvas and sizes/square.css. */
+.c-cta--full { align-self: stretch; width: 100%; }
 
 /* ==========================================================================
    A8 — QuoteMark / PullQuote

@@ -8,6 +8,13 @@ Follows [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Added
+- **`.m-cta--center` + `.c-cta--full`**: full-width CTA panel, as an alternative to the
+  default left-anchored shrink-wrapped `.c-cta` box. Verified against a real render: composes
+  cleanly with `.c-cta--outline`/`.c-cta--plain`, with and without an image inside, at both
+  the default canvas and `sizes/square.css` (box edges land on `--cv-pad` exactly, same as
+  `.c-foot` below it, at both sizes — nothing hardcoded to one canvas). A `.c-cta--bleed`
+  (edge-to-edge band) was also prototyped and works, but wasn't the better match for "full
+  width panel" and isn't shipped. Worked example in README's Components section.
 - **`.m-split__media--list`**: modifier for `.m-split`'s media column so it can hold a
   stacked list (several `.c-quote--bar`, say) instead of the one image/mockup it's sized for
   by default — the bare column's `flex-direction: row` fights multiple children and clips
@@ -69,6 +76,13 @@ Follows [Semantic Versioning](https://semver.org/).
   `docs/index.html` (the atom/molecule gallery) moved to `docs/gallery.html`.
 
 ### Fixed
+- `.c-cta__title` invisible on `.slide--accent` (accent-ink text forced by the generic
+  full-color group, on top of `.c-cta`'s own accent-ink background — the same bug class as
+  the `<mark>`-in-chip fix above, just not caught in that pass because `.c-cta__title` was
+  bundled into the generic group instead of recognized as always living inside the `.c-cta`
+  chip). Found by an external render test against the shipped M7 gallery example, which
+  reproduced it. Now points at `--accent` alongside `.c-cta__action`, which was already
+  correct.
 - Stale "eighteen atoms" / `A1–A18` prose left over from adding A19 `.c-table` — README,
   PLAN.md, and the generated docs pages (`docs/index.html`, `docs/gallery.html`) all now say
   nineteen / `A1–A19` / thirty-five components.

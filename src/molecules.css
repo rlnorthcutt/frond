@@ -66,7 +66,7 @@ s-page-body { display: block; padding: 0; }
   --hairline: color-mix(in oklab, var(--accent-ink) 30%, var(--accent));
 }
 .slide--accent :is(.c-title, .c-body, .c-stat__value, .c-bignum, .c-num__n,
-  .c-quote p, .c-foot__name, .m-pillar__title, .c-cta__title, .c-swipe,
+  .c-quote p, .c-foot__name, .m-pillar__title, .c-swipe,
   .c-table tbody :is(th, td)) {
   color: var(--accent-ink);
 }
@@ -86,7 +86,12 @@ s-page-body { display: block; padding: 0; }
   box-shadow: none;
 }
 .slide--accent :is(.c-divider, .c-progress__dot--on) { background: var(--accent-ink); }
-.slide--accent .c-cta__action { color: var(--accent); }
+/* .c-cta__title used to be forced to --accent-ink by the full-color group
+   above, same as .c-cta's own background here — accent-ink text on an
+   accent-ink box, invisible. It's always inside .c-cta, which already
+   flips to accent-ink bg / accent text just above; point it there instead
+   of forcing a color that only makes sense outside the box. */
+.slide--accent :is(.c-cta__title, .c-cta__action) { color: var(--accent); }
 .slide--accent :is(.c-hl, mark) { color: var(--accent-ink); font-style: italic; }
 /* A <mark>/.c-hl nested inside one of the already-inverted chips above must
    not be re-forced to --accent-ink by the rule above (same specificity,
@@ -220,6 +225,9 @@ s-page-body { display: block; padding: 0; }
 }
 .m-cta .c-title { max-width: 16em; }
 .m-cta .c-cta { align-self: flex-start; }
+/* centered variant, for a full-width .c-cta--full panel rather than the
+   default left-anchored small box */
+.m-cta--center { align-items: center; text-align: center; }
 
 /* ==========================================================================
    M8 — StatementSlide — one big idea

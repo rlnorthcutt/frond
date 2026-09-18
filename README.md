@@ -299,6 +299,26 @@ Verified against a real render: 3 short quotes fit comfortably, 3 sentence-lengt
 near the sheet's vertical limit, and a 4th will overflow — it's a fixed 1350px-tall sheet, not
 a scrolling page, so keep a media list to 3 short items or split the content across two slides.
 
+**M7 `.m-cta` as a full-width panel:** the default `.c-cta` box shrink-wraps to its content and
+left-anchors (`align-self: flex-start`) — right for a small "one ask" box, not for a full-width
+promotional panel (e.g. hosting a screenshot). Add `.m-cta--center` to the molecule and
+`.c-cta--full` to the box itself:
+
+```html
+<div class="slide__body m-cta m-cta--center">
+  <h2 class="c-title c-title--cover">Try the CDN install</h2>
+  <div class="c-cta c-cta--full">
+    <p class="c-cta__title">jsDelivr, one line</p>
+    <p class="c-cta__action">No build step required</p>
+  </div>
+</div>
+```
+
+Verified against a real render at the default canvas and `sizes/square.css`: composes cleanly
+with `.c-cta--outline` and `.c-cta--plain`, with or without an image inside, and the box's
+outer edges land exactly on `--cv-pad`, same as `.c-foot` below it — both inherit the same
+token, so nothing bespoke is needed to line them up.
+
 ---
 
 ## Icons

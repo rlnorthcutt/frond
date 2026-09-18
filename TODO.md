@@ -70,10 +70,11 @@ Tracked against `PLAN.md`'s milestones. Not in priority order within a section.
 
 ## User feedback backlog (2026-09-18)
 
-From a real deck build. Issue 1 (accent-ground contrast) is fixed — see `PLAN.md`'s theme
-contract and `src/molecules.css`'s `.slide--accent` muted rule. Two more closed below; the
-layout ones (`m-split`, `m-cta`) are open, deliberately left for a pass with an actual
-browser render available:
+From a real deck build. All six items are now closed. The two layout ones (`m-split`,
+`m-cta`) were deliberately left until an external harness could test them against a real
+render — each of those passes also re-found (or in `m-cta`'s case, newly found) an
+accent-ground contrast bug of the same class as Issue 1, confirming that class of bug is
+worth specifically re-checking whenever a new atom/molecule touches `.slide--accent`:
 
 - [x] **No data-table component** — added `.c-table` (A19), a real `<table>`-based atom.
   See CHANGELOG.md. Follow-up noticed while building it: `.c-decide` (A18) has never had
@@ -98,9 +99,23 @@ browser render available:
   the harness tested, so it was testing pre-fix CSS. No new fix needed there, but a reminder
   that this repo's local commits need pushing before an external harness's next run reflects
   them.
-- [ ] **`m-cta` fights full-width CTA boxes** — centering/width/padding all needed inline
-  overrides to align with footer margins and host a screenshot. Worth a worked example or
-  `m-cta` modifiers. Still needs the same real-render pass as above (in progress).
+- [x] **`m-cta` fights full-width CTA boxes** — tested against a real render (external
+  harness, 2026-09-18): the reported "footer misalignment" wasn't real (pixel-scanned box
+  and footer edges land exactly on `--cv-pad` at both portrait-1350 and square — a vision
+  pass misread a dark box against the blue ground). The real failure was only visible
+  *without* an image inside: the box shrink-wraps to ~344px and left-anchors instead of
+  reading as a full-width panel. `.m-cta--center` + `.c-cta--full` fixes it, verified to
+  compose with `--outline`/`--plain`, with/without an image, at both canvas sizes. A
+  `.c-cta--bleed` (edge-to-edge band) alternative was also tested and works but wasn't the
+  better match for "full-width panel," so it isn't shipped.
+  Same test found a real, previously-uncaught bug: `.c-cta__title` was invisible on
+  `.slide--accent` (forced to `--accent-ink` by the generic full-color group, same as its
+  own container's `--accent-ink` background) — reproduces on the shipped M7 gallery example.
+  Fixed alongside the two new classes.
+  Deferred, not blocking: long title/action text at the full-width measure reads sparse
+  ("a small island in a large dark sea" per the vision pass) — a `max-width`/`margin-inline`
+  constraint on the inner text was suggested but not verified; worth a follow-up render pass
+  before shipping it.
 
 ## Future enhancements
 
