@@ -180,6 +180,19 @@ Return exactly three bullets.</code></pre>
   <div class="c-decide__row"><dt class="c-decide__if">You need one exact format</dt><span class="c-decide__arrow">&rarr;</span><dd class="c-decide__then">Show one example</dd></div>
 </dl>`,
   },
+  {
+    id: 'A19', cls: 'c-table', title: 'DataTable',
+    blurb: 'A real HTML table — rows by N columns, native column sizing. For genuinely tabular content `.c-decide` is too narrow (two columns) for.',
+    variants: '',
+    html: `<table class="c-table">
+  <thead><tr><th>Layer</th><th>Owns</th><th>Ships as</th></tr></thead>
+  <tbody>
+    <tr><td>ivy</td><td>Classless defaults</td><td>ivy.full.min.css</td></tr>
+    <tr><td>lattice</td><td>Grid utilities</td><td>lattice.full.min.css</td></tr>
+    <tr><td>frond</td><td>Slides &amp; canvas</td><td>frond.full.min.css</td></tr>
+  </tbody>
+</table>`,
+  },
 ];
 
 // ---------------------------------------------------------------------------

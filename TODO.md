@@ -73,12 +73,10 @@ Tracked against `PLAN.md`'s milestones. Not in priority order within a section.
 From a real deck build. Issue 1 (accent-ground contrast) is fixed — see `PLAN.md`'s theme
 contract and `src/molecules.css`'s `.slide--accent` muted rule. The rest are open:
 
-- [ ] **No data-table component** — a payoff slide wanted a table (row per item, several
-  columns); `c-decide` (A18) is strictly two-column. Hand-rolled `.kind-table` with inline
-  CSS as a workaround, which breaks the closed-vocabulary promise (PLAN.md §5/§9). Adding a
-  `c-table` atom (or a grid variant of `c-decide`) means growing past "frozen at 18 atoms and
-  16 molecules as of v0.2" — a vocabulary-size decision, not just a CSS fix, so raise with
-  the maintainer before building it.
+- [x] **No data-table component** — added `.c-table` (A19), a real `<table>`-based atom.
+  See CHANGELOG.md. Follow-up noticed while building it: `.c-decide` (A18) has never had
+  `.slide--accent` repoints either (no entry in `molecules.css`'s `.slide--accent` block) —
+  `.c-table` got them in this pass, `.c-decide` still doesn't. Worth closing that gap too.
 - [ ] **Icon sprite is undocumented infrastructure** — the demo sprite (`i-check`, `i-cross`,
   `i-arrow`) is "copy verbatim from demo.html"; nothing in `frond.json` or the docs says what
   symbols exist or how an author registers a custom one for `m-pillar__i` / `c-icon-bullet`.

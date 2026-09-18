@@ -1,5 +1,5 @@
 {
-  "frond": "0.2.0",
+  "frond": "0.3.0",
   "atoms": {
     "A1":  { "class": "c-title",       "variants": ["cover", "sm", "xl"] },
     "A2":  { "classes": ["c-sub", "c-body", "c-caption"], "variants": { "c-body": ["muted"] } },
@@ -18,7 +18,8 @@
     "A15": { "class": "c-img",         "variants": ["11", "43", "169", "bleed", "framed", "rounded"] },
     "A16": { "classes": ["c-device", "c-code"], "variants": { "c-device": ["code", "flush", "phone"] } },
     "A17": { "class": "c-repo",        "variants": [] },
-    "A18": { "class": "c-decide",      "variants": [] }
+    "A18": { "class": "c-decide",      "variants": [] },
+    "A19": { "class": "c-table",       "variants": [] }
   },
   "molecules": {
     "M1":  { "class": "slide",        "variants": ["accent", "surface", "start", "between", "end"] },

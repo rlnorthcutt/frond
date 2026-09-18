@@ -1,4 +1,4 @@
-/*! frond — atoms.css (A1–A18)
+/*! frond — atoms.css (A1–A19)
  *  Content atoms. Each is self-contained: no assumptions about its parent
  *  beyond the theme tokens being in scope.
  */
@@ -780,6 +780,37 @@
   column-gap: 26px;
   padding-bottom: 14px;
   font-family: var(--font-body);
+  font-size: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   A19 — DataTable — rows × N columns. A real <table>, not a grid of divs:
+   base.css already resets table's margin, and native column sizing means no
+   column-count modifier is needed the way .m-stats needs one per count.
+   ========================================================================== */
+.c-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 26px;
+  line-height: 1.28;
+}
+.c-table :is(th, td) {
+  text-align: left;
+  padding: 22px 26px 22px 0;
+  border-top: 1px solid var(--hairline);
+  color: var(--ink);
+  font-weight: 400;
+}
+.c-table :is(th, td):last-child { padding-right: 0; }
+.c-table tbody tr:last-child :is(th, td) { border-bottom: 1px solid var(--hairline); }
+.c-table thead th {
+  padding-top: 0;
+  padding-bottom: 14px;
+  border-top: none;
   font-size: 21px;
   letter-spacing: 0.1em;
   text-transform: uppercase;

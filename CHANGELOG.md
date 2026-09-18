@@ -8,6 +8,11 @@ Follows [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Added
+- **A19 `.c-table`**: a real `<table>`-based data table (rows × N columns, native column
+  sizing — no `.m-stats`-style count modifier needed). Closes a real gap surfaced by a
+  feedback pass: `.c-decide` is strictly two-column and had no substitute for genuinely
+  tabular content. Accent-ground repoints added alongside it in the same pass as the fix
+  below.
 - **Grounds M2**: `.slide--light` / `.slide--dark`, completing the closed ground axis
   (`light` / `dark` / `accent`) from PLAN.md. Each swaps the `--bg`/`--ink` pair; implemented
   per theme file (each theme only needs the one that's the opposite of its own default
@@ -46,6 +51,17 @@ Follows [Semantic Versioning](https://semver.org/).
   lattice's grid utilities), matching ivy's and lattice's own homepages. The former
   `docs/index.html` (the atom/molecule gallery) moved to `docs/gallery.html`.
 
+### Fixed
+- Accent-ground contrast: `themes/light.css` and `src/base.css`'s `--accent` darkened
+  (`#0088b0` → `#00789c`) so it clears WCAG AA's 4.5:1 body-text threshold against
+  `--accent-ink` (was 4.08:1). `.slide--accent`'s muted-text classes (`.c-sub`, `.c-caption`,
+  etc.) no longer color-mix 72% toward `--accent` — that formula assumes headroom the
+  accent/accent-ink pair doesn't have, and was landing muted text as low as ~2.6:1
+  regardless of the base pair. Also fixed `<mark>`/`.c-hl` going invisible (accent-ink text on
+  an accent-ink chip) when nested inside an already-inverted `.c-badge`/`.c-cta`/etc. Added
+  an explicit 4.5:1 contrast rule to the theme contract in PLAN.md/README so future themes
+  have something to test against.
+
 ### Changed
 - Rebuilt the entire docs chrome to match ivy's/lattice's own docs sites instead of a
   bespoke design: header (logo, nav, GitHub icon, `<dark-mode-toggle>`), hero/page-title
@@ -72,7 +88,7 @@ Follows [Semantic Versioning](https://semver.org/).
   etc. unchanged) — "chrome" collided with the renderer (Chrome) in every install
   instruction.
 - Stale `A1–A15` / `M1–M13` file-banner comments in `atoms.css` / `molecules.css` corrected
-  to `A1–A18` / `M1–M16` to match the actual (already-complete) vocabulary.
+  to `A1–A19` / `M1–M16` to match the actual vocabulary (A19 `.c-table` added since).
 - Default font stack no longer references "Source Serif 4" (a Google Font with no local
   `@font-face`, so it silently fell back to Georgia/Palatino for anyone without it
   installed) — `--font-display` / `--font-body` now default straight to the

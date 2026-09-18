@@ -131,14 +131,17 @@ which would create a custom-property cycle.
 
 ## 5 · Vocabulary
 
-Frozen at 18 atoms and 16 molecules as of v0.2. The A/M numbering is complete and correct —
+18 atoms and 16 molecules as of v0.2; A19 `.c-table` added in v0.3 to close a real gap (a
+tabular payoff slide had no atom to reach for beside the two-column `.c-decide`). The
+vocabulary is closed by default, not literally frozen — a new atom is a deliberate,
+justified addition, not a place to bend on scope. The A/M numbering is complete and correct —
 only the old `A1–A15` / `M1–M13` file comments are stale. Keep the IDs: they are the
 unambiguous way to name a component.
 
 **Atoms** — A1 `.c-title` · A2 `.c-sub`/`.c-body`/`.c-caption` · A3 `.c-badge` · A4 `.c-stat` ·
 A5 `.c-check` · A6 `.c-num` · A7 `.c-cta` · A8 `.c-quote` · A9 `.c-icon-bullet` ·
 A10 `.c-avatar` · A11 `.c-hl` · A12 `.c-bignum` · A13 `.c-step` · A14 `.c-decor` ·
-A15 `.c-img` · A16 `.c-device`/`.c-code` · A17 `.c-repo` · A18 `.c-decide`
+A15 `.c-img` · A16 `.c-device`/`.c-code` · A17 `.c-repo` · A18 `.c-decide` · A19 `.c-table`
 
 **Molecules** — M1 `.slide` · M2 `.m-cover` · M3 `.m-list` · M4 `.m-checklist` · M5 `.m-stats` ·
 M6 `.m-quote` · M7 `.m-cta` · M8 `.m-statement` · M9 `.m-process` · M10 `.m-compare` ·

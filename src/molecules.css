@@ -66,11 +66,13 @@ s-page-body { display: block; padding: 0; }
   --hairline: color-mix(in oklab, var(--accent-ink) 30%, var(--accent));
 }
 .slide--accent :is(.c-title, .c-body, .c-stat__value, .c-bignum, .c-num__n,
-  .c-quote p, .c-foot__name, .m-pillar__title, .c-cta__title, .c-swipe) {
+  .c-quote p, .c-foot__name, .m-pillar__title, .c-cta__title, .c-swipe,
+  .c-table tbody :is(th, td)) {
   color: var(--accent-ink);
 }
 .slide--accent :is(.c-sub, .c-caption, .c-body--muted, .c-foot__handle,
-  .c-pagenum, .c-stat__label, .m-pillar__desc, .c-quote footer) {
+  .c-pagenum, .c-stat__label, .m-pillar__desc, .c-quote footer,
+  .c-table thead th) {
   /* Plain --accent-ink, not the usual 72%-mixed muted formula: that formula
      assumes an --ink/--bg pair with contrast well above 4.5:1 to spare, so
      mixing toward the ground still clears AA. --accent/--accent-ink is only
