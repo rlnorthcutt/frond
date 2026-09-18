@@ -94,6 +94,14 @@ s-page-body { display: block; padding: 0; }
 .slide--accent .m-pillar { background: color-mix(in oklab, var(--accent-ink) 14%, var(--accent)); }
 .slide--surface { background: var(--surface); }
 
+/* .slide--light / .slide--dark (M2) are NOT defined here. Unlike --accent,
+   --bg/--ink have no other entanglements, so their ground override reads
+   from a frozen copy of the pair rather than needing a per-atom repoint —
+   but CSS has no way to know which of --bg/--ink is "the light one"
+   without theme-specific knowledge, so each theme file implements
+   whichever of the two is the opposite of its own default ground.
+   See themes/light.css. */
+
 /* dev aid: outlines the slide box and flags overflow while authoring */
 .cv-debug .slide { outline: 1px solid color-mix(in oklab, red 60%, transparent); }
 .cv-debug .slide__body { outline: 1px dashed color-mix(in oklab, blue 40%, transparent); }

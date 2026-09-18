@@ -54,6 +54,7 @@
       <li><a href="#molecules">Molecules</a></li>
       <li><a href="#grounds">Grounds</a></li>
       <li><a href="#textures">Textures</a></li>
+      <li><a href="#matrix">Ground &times; texture</a></li>
     </ul>
   </nav>
 
@@ -543,8 +544,40 @@ Return exactly three bullets.</code></pre>
 
   <section id="grounds">
     <h2>Grounds</h2>
-    <p>Ground-level modifiers on <code>.slide</code>. Neither introduces a color outside the eight theme tokens. <code>.slide--light</code> / <code>.slide--dark</code> are planned &mdash; see TODO.md.</p>
+    <p>Ground-level modifiers on <code>.slide</code>. <code>.slide--light</code> and <code>.slide--dark</code> swap the <code>--bg</code>/<code>--ink</code> pair (theme-relative, so which one is the visible change depends on the active theme &mdash; try the picker above); <code>.slide--accent</code> re-points atoms onto the accent color explicitly, since <code>--accent</code> can't be safely swapped the same way. None introduces a color outside the eight theme tokens.</p>
     <div class="gallery-grid">
+      <div class="ground-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide slide--light" data-screen-label="01 Cover">
+  <header class="slide__head"><span class="c-badge">Playbook</span></header>
+  <div class="slide__body m-cover">
+    <h1 class="c-title c-title--cover">Nobody saves your carousel. <mark class="c-hl--box">Here is why.</mark></h1>
+    <hr class="c-divider">
+    <p class="c-sub">Nine slides on the difference between a post people scroll past and one they keep.</p>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"/></svg></span>Swipe</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__title">Light ground</span>
+    <span class="molecule-card__cls">.slide--light</span>
+  </div>
+  <p class="molecule-card__blurb">Swaps to a light ground regardless of the active theme. Under a light theme this is the unmodified default — switch the picker above to Dark or Press Dark to see it actually invert.</p>
+</div>
+      <div class="ground-card">
+  <div class="m-frame"><div class="m-frame__inner"><section class="slide slide--dark" data-screen-label="01 Cover">
+  <header class="slide__head"><span class="c-badge">Playbook</span></header>
+  <div class="slide__body m-cover">
+    <h1 class="c-title c-title--cover">Nobody saves your carousel. <mark class="c-hl--box">Here is why.</mark></h1>
+    <hr class="c-divider">
+    <p class="c-sub">Nine slides on the difference between a post people scroll past and one they keep.</p>
+  </div>
+  <footer class="c-foot"><div class="c-foot__author"><span class="c-avatar">RN</span><span class="c-foot__id"><span class="c-foot__name">Ron Northcutt</span><span class="c-foot__handle">@rlnorthcutt</span></span></div><span class="c-swipe"><span class="c-swipe__arrow"><svg width="22" height="22"><use href="#i-arrow"/></svg></span>Swipe</span></footer>
+</section></div></div>
+  <div class="molecule-card__head">
+    <span class="molecule-card__title">Dark ground</span>
+    <span class="molecule-card__cls">.slide--dark</span>
+  </div>
+  <p class="molecule-card__blurb">Swaps to a dark ground regardless of the active theme. Under a dark theme this is the unmodified default — switch the picker above to Light or Press Light to see it actually invert.</p>
+</div>
       <div class="ground-card">
   <div class="m-frame"><div class="m-frame__inner"><section class="slide slide--accent" data-screen-label="01 Cover">
   <header class="slide__head"><span class="c-badge">Playbook</span></header>
@@ -575,7 +608,7 @@ Return exactly three bullets.</code></pre>
     <span class="molecule-card__title">Surface ground</span>
     <span class="molecule-card__cls">.slide--surface</span>
   </div>
-  <p class="molecule-card__blurb">Sits the slide on the card surface instead of the page background.</p>
+  <p class="molecule-card__blurb">Sits the slide on the card surface instead of the page background. Not part of the closed light/dark/accent axis — an extra.</p>
 </div>
     </div>
   </section>
@@ -611,6 +644,118 @@ Return exactly three bullets.</code></pre>
     <p class="c-body" style="position:relative">The quick fox.</p>
   </div>
   <div class="texture-card__label">.c-decor--mesh</div>
+</div>
+    </div>
+  </section>
+
+  <section id="matrix">
+    <h2>Ground &times; texture</h2>
+    <p>The closed ground axis (<code>light</code> / <code>dark</code> / <code>accent</code> &mdash; <code>.slide--surface</code> isn't part of it) crossed with all five textures, including none. Fifteen combinations, no color outside the eight tokens in any of them.</p>
+    <div class="texture-grid">
+      <div class="texture-card">
+  <div class="cv-stage slide--light" style="position:relative; min-height:7rem">
+    
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--light &middot; none</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--light" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--dots c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--light &middot; .c-decor--dots</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--light" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--lines c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--light &middot; .c-decor--lines</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--light" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--glow c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--light &middot; .c-decor--glow</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--light" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--mesh c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--light &middot; .c-decor--mesh</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--dark" style="position:relative; min-height:7rem">
+    
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--dark &middot; none</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--dark" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--dots c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--dark &middot; .c-decor--dots</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--dark" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--lines c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--dark &middot; .c-decor--lines</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--dark" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--glow c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--dark &middot; .c-decor--glow</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--dark" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--mesh c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--dark &middot; .c-decor--mesh</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--accent" style="position:relative; min-height:7rem">
+    
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--accent &middot; none</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--accent" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--dots c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--accent &middot; .c-decor--dots</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--accent" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--lines c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--accent &middot; .c-decor--lines</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--accent" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--glow c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--accent &middot; .c-decor--glow</div>
+</div>
+      <div class="texture-card">
+  <div class="cv-stage slide--accent" style="position:relative; min-height:7rem">
+    <div class="c-decor c-decor--mesh c-decor--top"></div>
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.slide--accent &middot; .c-decor--mesh</div>
 </div>
     </div>
   </section>

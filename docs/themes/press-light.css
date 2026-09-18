@@ -13,4 +13,16 @@
   --accent-ink: #ffffff;
   --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+
+  /* Frozen copies of this theme's own --bg/--ink, read by .slide--dark
+     below — see themes/light.css's .slide--dark comment for why. */
+  --gnd-bg: #f4f1ef;
+  --gnd-ink: #1c1a1b;
+}
+
+/* Ground: dark override (M2) — see themes/light.css's .slide--dark comment. */
+.slide--dark {
+  --bg: var(--gnd-ink);
+  --ink: var(--gnd-bg);
+  --ink-muted: color-mix(in oklab, var(--gnd-bg) 72%, var(--gnd-ink));
 }

@@ -8,6 +8,14 @@ Follows [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 ### Added
+- **Grounds M2**: `.slide--light` / `.slide--dark`, completing the closed ground axis
+  (`light` / `dark` / `accent`) from PLAN.md. Each swaps the `--bg`/`--ink` pair; implemented
+  per theme file (each theme only needs the one that's the opposite of its own default
+  ground) since CSS can't tell which of the two is "the light one" on its own. `--ink-muted`
+  re-derives alongside them. No color outside the eight tokens in any of it.
+- Ground × texture matrix in the gallery (`docs/gallery.html#matrix`) — all 3 grounds ×
+  5 textures (including "none") = 15 combinations, generated from `scripts/gen-gallery.js`.
+- `frond.json`'s `grounds` list now includes `light` and `dark`.
 - Initial port from the prototype: `src/` (base, atoms, molecules, frame), four themes,
   four size presets (`portrait-1350`, `square`, `portrait-1200`, `widescreen`), vendored
   ivy/lattice/stapler in `vendor/`.

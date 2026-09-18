@@ -13,4 +13,18 @@
   --accent-ink: #07222b;
   --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+
+  /* Frozen copies of this theme's own --bg/--ink, read by .slide--light
+     below — see themes/light.css's .slide--dark comment for why. */
+  --gnd-bg: #171514;
+  --gnd-ink: #f3f2f2;
+}
+
+/* Ground: light override (M2) — the opposite case of themes/light.css's
+   .slide--dark; see that file's comment for the full explanation. This
+   theme's own ground is already dark, so .slide--dark needs no rule. */
+.slide--light {
+  --bg: var(--gnd-ink);
+  --ink: var(--gnd-bg);
+  --ink-muted: color-mix(in oklab, var(--gnd-bg) 72%, var(--gnd-ink));
 }

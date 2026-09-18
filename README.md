@@ -186,16 +186,33 @@ wrapper and the eight tokens map onto ivy's `--color-*`.
 
 ## Grounds
 
+The closed ground axis: `.slide--light`, `.slide--dark`, `.slide--accent`. None introduces a
+colour outside the eight tokens above.
+
+`.slide--light` / `.slide--dark` swap the `--bg`/`--ink` pair — a real swap, not a new
+colour, so which one actually changes anything depends on the theme you've loaded: under a
+light theme, `.slide--light` is the unmodified default and `.slide--dark` is the one that
+does something; under a dark theme it's the other way round. Because `--bg`/`--ink` have no
+other entanglements, each theme file implements only the swap it needs (a light theme only
+needs `.slide--dark`, a dark theme only needs `.slide--light`) by reading from a frozen copy
+of its own pair — reassigning `--bg`/`--ink` from each other directly would create a
+custom-property cycle, which CSS resolves by making both compute to invalid, not by
+swapping them. `--ink-muted` is re-derived alongside them at the same 72%/28% ratio
+`.slide--accent` uses below.
+
 `.slide--accent` inverts a slide onto the accent ground, for a CTA slide. It re-points atoms
-explicitly rather than remapping `--accent`, which would create a custom-property cycle.
-`.slide--surface` sits a slide on the card surface instead of the page ground. Neither
-introduces a colour outside the eight tokens above.
+explicitly rather than remapping `--accent`, for the same cycle reason — but `--accent` is
+also used independently of ground elsewhere (badges, stat values), so a full repoint is the
+correct fix there, not just a workaround.
+
+`.slide--surface` sits a slide on the card surface instead of the page ground — an extra,
+not part of the closed three-value axis above.
+
+See every ground crossed with every texture (15 combinations, `.c-decor`'s four textures
+plus none) on the [gallery](./docs/gallery.html)'s Ground × texture section.
 
 `.slide--start`, `--between` and `--end` control vertical rhythm inside `.slide__body`
 (centred by default) — these aren't grounds, just alignment.
-
-A closed ground × texture matrix (`.slide--light` / `--dark` / `--accent`, crossed with the
-four `.c-decor` textures) is planned for a future release — see [TODO.md](./TODO.md).
 
 ---
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
-const { ATOMS, MOLECULES, GROUNDS, ICON_SPRITE, esc, inlineCode } = require('./gen-gallery');
+const { ATOMS, MOLECULES, GROUNDS, TEXTURES, MATRIX_GROUNDS, ICON_SPRITE, esc, inlineCode } = require('./gen-gallery');
 const { renderNav } = require('./docs-nav');
 
 const root = path.join(__dirname, '..');
@@ -79,7 +79,6 @@ function groundCard(g) {
 </div>`;
 }
 
-const TEXTURES = ['dots', 'lines', 'glow', 'mesh'];
 function textureCard(t) {
   return `<div class="texture-card">
   <div class="cv-stage" style="position:relative">
@@ -87,6 +86,17 @@ function textureCard(t) {
     <p class="c-body" style="position:relative">The quick fox.</p>
   </div>
   <div class="texture-card__label">.c-decor--${t}</div>
+</div>`;
+}
+
+function matrixCard(groundCls, texture) {
+  const decor = texture === 'none' ? '' : `<div class="c-decor c-decor--${texture} c-decor--top"></div>`;
+  return `<div class="texture-card">
+  <div class="cv-stage ${groundCls}" style="position:relative; min-height:7rem">
+    ${decor}
+    <p class="c-body" style="position:relative">The quick fox.</p>
+  </div>
+  <div class="texture-card__label">.${groundCls} &middot; ${texture === 'none' ? 'none' : '.c-decor--' + texture}</div>
 </div>`;
 }
 
@@ -108,6 +118,7 @@ const galleryContent = `<div class="page-title">
       <li><a href="#molecules">Molecules</a></li>
       <li><a href="#grounds">Grounds</a></li>
       <li><a href="#textures">Textures</a></li>
+      <li><a href="#matrix">Ground &times; texture</a></li>
     </ul>
   </nav>
 
@@ -132,7 +143,7 @@ const galleryContent = `<div class="page-title">
 
   <section id="grounds">
     <h2>Grounds</h2>
-    <p>Ground-level modifiers on <code>.slide</code>. Neither introduces a color outside the eight theme tokens. <code>.slide--light</code> / <code>.slide--dark</code> are planned &mdash; see TODO.md.</p>
+    <p>Ground-level modifiers on <code>.slide</code>. <code>.slide--light</code> and <code>.slide--dark</code> swap the <code>--bg</code>/<code>--ink</code> pair (theme-relative, so which one is the visible change depends on the active theme &mdash; try the picker above); <code>.slide--accent</code> re-points atoms onto the accent color explicitly, since <code>--accent</code> can't be safely swapped the same way. None introduces a color outside the eight theme tokens.</p>
     <div class="gallery-grid">
       ${GROUNDS.map(groundCard).join('\n      ')}
     </div>
@@ -143,6 +154,14 @@ const galleryContent = `<div class="page-title">
     <p>A14 <code>.c-decor</code>'s four background textures, plus "none" (the default &mdash; no <code>.c-decor</code> element at all).</p>
     <div class="texture-grid">
       ${TEXTURES.map(textureCard).join('\n      ')}
+    </div>
+  </section>
+
+  <section id="matrix">
+    <h2>Ground &times; texture</h2>
+    <p>The closed ground axis (<code>light</code> / <code>dark</code> / <code>accent</code> &mdash; <code>.slide--surface</code> isn't part of it) crossed with all five textures, including none. Fifteen combinations, no color outside the eight tokens in any of them.</p>
+    <div class="texture-grid">
+      ${MATRIX_GROUNDS.flatMap((g) => ['none', ...TEXTURES].map((t) => matrixCard(g, t))).join('\n      ')}
     </div>
   </section>
 

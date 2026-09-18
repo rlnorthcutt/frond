@@ -38,7 +38,7 @@
     "M15": { "class": "m-decide",     "variants": [] },
     "M16": { "class": "m-mockup",     "variants": [] }
   },
-  "grounds":  ["accent", "surface"],
+  "grounds":  ["light", "dark", "accent", "surface"],
   "textures": ["none", "dots", "lines", "glow", "mesh"],
   "sizes":    ["portrait-1350", "square", "portrait-1200", "widescreen"]
 }

@@ -337,8 +337,13 @@ Return exactly three bullets.</code></pre>
 ];
 
 const GROUNDS = [
+  { cls: 'slide--light', title: 'Light ground', blurb: 'Swaps to a light ground regardless of the active theme. Under a light theme this is the unmodified default — switch the picker above to Dark or Press Dark to see it actually invert.' },
+  { cls: 'slide--dark', title: 'Dark ground', blurb: 'Swaps to a dark ground regardless of the active theme. Under a dark theme this is the unmodified default — switch the picker above to Light or Press Light to see it actually invert.' },
   { cls: 'slide--accent', title: 'Accent ground', blurb: 'Inverts onto the accent color — used for the CTA. Re-points atoms explicitly rather than remapping --accent.' },
-  { cls: 'slide--surface', title: 'Surface ground', blurb: 'Sits the slide on the card surface instead of the page background.' },
+  { cls: 'slide--surface', title: 'Surface ground', blurb: 'Sits the slide on the card surface instead of the page background. Not part of the closed light/dark/accent axis — an extra.' },
 ];
 
-module.exports = { ATOMS, MOLECULES, GROUNDS, ICON_SPRITE, esc, inlineCode };
+const TEXTURES = ['dots', 'lines', 'glow', 'mesh'];
+const MATRIX_GROUNDS = ['slide--light', 'slide--dark', 'slide--accent'];
+
+module.exports = { ATOMS, MOLECULES, GROUNDS, TEXTURES, MATRIX_GROUNDS, ICON_SPRITE, esc, inlineCode };

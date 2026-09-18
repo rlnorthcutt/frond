@@ -1,6 +1,7 @@
 /*! frond — themes/light.css
- *  A theme sets ONLY the eight contract tokens. Nothing else.
- *  Scoped to :root and .t-light so one page can show both themes side by side.
+ *  A theme sets the eight contract tokens. Nothing else is required for the
+ *  component vocabulary itself. Scoped to :root and .t-light so one page
+ *  can show both themes side by side.
  */
 
 :root,
@@ -13,4 +14,37 @@
   --accent-ink: #ffffff;
   --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+
+  /* Frozen copies of this theme's own --bg/--ink, read by .slide--dark
+     below. Not part of the eight-token contract — see that rule's comment
+     for why they need to exist at all. Keep them equal to --bg/--ink above. */
+  --gnd-bg: #f3f2f2;
+  --gnd-ink: #201e1d;
+}
+
+/* Ground: dark override (M2). This theme's own ground is already light, so
+   .slide--light needs no rule — it's the unmodified default. .slide--dark
+   is the only ground class a light theme has to implement; a dark theme
+   implements the opposite one instead (see themes/dark.css). CSS can't
+   tell which of --bg/--ink is "the light one" on its own, so this one
+   small block is theme-specific — everything else in the eight-token
+   contract is not.
+
+   Reads from --gnd-bg/--gnd-ink (frozen above), NOT from --bg/--ink
+   directly. `--bg: var(--ink); --ink: var(--bg);` looks like a swap but
+   isn't one: CSS custom properties don't resolve sequentially, so both
+   declarations end up referencing each other's value on this same element
+   — a genuine reference cycle — and a cyclic custom property computes to
+   invalid (not "the old value") on every property in the cycle, per spec.
+   Reading from a copy this rule never reassigns avoids that.
+
+   --ink-muted is re-derived at the same 72%/28% ratio .slide--accent
+   already uses for its muted-text repoint in molecules.css. --hairline and
+   --accent-soft need no override here — both already read var(--ink)/
+   var(--bg) and recompute automatically from whatever wins the cascade. A
+   theme that skips this block just leaves .slide--dark a silent no-op. */
+.slide--dark {
+  --bg: var(--gnd-ink);
+  --ink: var(--gnd-bg);
+  --ink-muted: color-mix(in oklab, var(--gnd-bg) 72%, var(--gnd-ink));
 }
