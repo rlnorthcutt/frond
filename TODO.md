@@ -11,19 +11,31 @@ Tracked against `PLAN.md`'s milestones. Not in priority order within a section.
   (8 pages), self-contained under `docs/` (Pages serves that folder only). frond's own CSS
   synced via `scripts/sync-docs.js`; external companion libraries (ivy, lattice, stapler,
   dark-mode-toggle) fetched via `.github/workflows/doc-assets.yml`, same pattern as lattice.
-  Not yet verified in an actual browser — see below.
-- [ ] **Visual QA** — no browser tool was available while building the docs site; open
-  `docs/index.html`, `docs/gallery.html`, `docs/cheatsheet.html`, `docs/demo.html`, and at
-  least one archetype locally (e.g. `python3 -m http.server` from the repo root) and check:
-  the header/hero/on-page-nav shell against ivy's and lattice's own docs sites, the
-  `<dark-mode-toggle>` in the header (toggles ivy's own light/dark, via `docs/site.css`'s
-  cyan brand override), the gallery's separate four-theme picker (component previews only),
-  every molecule preview frame (1080×1350 scaled to 300×375 via `transform: scale()`), the
-  texture strip, the archetypes sub-nav, the cheat sheet's copy button, and — highest
-  priority, since it was implemented without a browser — the Grounds and Ground × texture
-  sections: switch the theme picker and confirm `.slide--light`/`.slide--dark` actually
-  invert (not just "look unchanged," which is also what a silently-broken cyclic custom
-  property would look like).
+  Verified in an actual browser — see Visual QA below.
+- [x] **Visual QA** — tested against the live docs site (external harness, 2026-09-18),
+  served over HTTP with all vendored assets already in place. Per section:
+  - Theme-picker/ground mechanism: confirmed live across all four themes (`.slide--dark`'s
+    resolved color differs all four times). `.slide--light` does *not* visibly differ between
+    `light`/`dark` or `press-light`/`press-dark` — not a broken swap, a deliberate palette
+    choice (`themes/dark.css`'s `--ink` and `themes/light.css`'s `--bg` are the same hex on
+    purpose). Now documented in README's Grounds section, including the methodology trap:
+    this card's pixel-identical result before/after a theme swap looks exactly like the
+    silently-broken-cycle failure mode this check exists to catch, so don't test with
+    `.slide--light` alone — cross-check `.slide--dark` or the computed custom properties.
+  - Ground × texture matrix: found and fixed a real bug — `.c-decor--glow`/`--mesh` were
+    invisible on `.slide--accent` (accent-tinted gradient over an accent background is a
+    no-op blend). See CHANGELOG.md.
+  - Preview-frame scaling: found and fixed a real (cosmetic) bug — `.gallery-grid`'s
+    `minmax(300px, 1fr)` columns could stretch `.m-frame` wider than the hardcoded
+    300×375 scale baked into `.m-frame__inner`, showing as a black letterboxed gutter.
+    Pinned to a fixed `300px` column. See CHANGELOG.md.
+  - Header/hero parity, `<dark-mode-toggle>`/theme-picker independence, archetypes subnav,
+    cheat-sheet copy button: all pass, no issues found.
+  - Testing-methodology notes worth keeping for the CI headless-Chrome check below: a vision
+    model confabulated a plausible-sounding but wrong explanation for an ambiguous
+    screenshot (pixel/DOM measurement caught it) — don't trust vision-only "no visible
+    change" checks. Also, a synthetic `el.click()` on `<dark-mode-toggle>` (a custom element)
+    did nothing in Playwright; a real coordinate-based mouse click was required.
 - [ ] **`docs/reference.pdf`** — regenerated component-reference PDF (PLAN's `docs/` tree),
   not built — needs an actual print pass, not just HTML.
 - [ ] **Hero screenshot** — `image.png` + the linked-to-Pages header block in README, once
@@ -49,10 +61,8 @@ Tracked against `PLAN.md`'s milestones. Not in priority order within a section.
   before touching this again, the wrong-but-plausible-looking version is a real trap.
 - [x] Ground × texture matrix (3 grounds × 5 textures incl. "none" = 15) added to the
   gallery (`#matrix` section).
-- [ ] **Verify in an actual browser** — this entire ground mechanism was implemented and
-  reasoned through without one (see Visual QA below); the cycle bug was caught by re-deriving
-  the CSS custom-property cascade model by hand, not by seeing it fail. High priority to
-  actually check before calling M2 done-done.
+- [x] **Verify in an actual browser** — done, see Visual QA above: the mechanism is
+  confirmed live across all four shipped themes.
 
 ## Sizes
 

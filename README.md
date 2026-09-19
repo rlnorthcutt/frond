@@ -257,6 +257,17 @@ not part of the closed three-value axis above.
 See every ground crossed with every texture (15 combinations, `.c-decor`'s four textures
 plus none) on the [gallery](./docs/gallery.html)'s Ground × texture section.
 
+Verified against a real render across all four shipped themes: the mechanism is confirmed
+live — `.slide--dark`'s resolved color differs across all four (each theme's own ink tone).
+`.slide--light`'s does **not** differ between `light`/`dark` or between `press-light`/
+`press-dark` — not a broken swap, just that `themes/dark.css`'s `--ink` and `themes/light.css`'s
+`--bg` are the same deliberately-chosen hex (same for the press pair), so the two themes'
+"light" tone happens to coincide. If you're testing this mechanism yourself, don't rely on
+`.slide--light` alone: pixel-identical results before/after a theme swap look exactly like a
+silently-broken cyclic custom property (see the M2 comment above) even though nothing's
+wrong here — cross-check against `.slide--dark`, which does vary per theme, or inspect the
+computed custom properties directly.
+
 `.slide--start`, `--between` and `--end` control vertical rhythm inside `.slide__body`
 (centred by default) — these aren't grounds, just alignment.
 

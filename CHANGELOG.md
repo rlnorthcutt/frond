@@ -76,6 +76,20 @@ Follows [Semantic Versioning](https://semver.org/).
   `docs/index.html` (the atom/molecule gallery) moved to `docs/gallery.html`.
 
 ### Fixed
+- `.c-decor--glow`/`.c-decor--mesh` invisible on `.slide--accent`: both tint their gradient
+  toward `--accent`, which is a no-op when the ground they're painted on is already
+  `--accent` (alpha-blending a color over an identical-hue backdrop doesn't change it) —
+  confirmed by pixel-sampling identical color with and without the decoration present, in an
+  external render test of the full docs site. Re-points just the `--accent`-tinted gradient
+  stops to `--accent-ink` on `.slide--accent`; `--decor--mesh`'s other (`--ink`-tinted) stop
+  was already a different hue from the ground and didn't need it. Same bug family as the
+  `.c-cta__title`/`<mark>`/`.c-quote footer` fixes above.
+- `docs/site.css`'s `.gallery-grid` used `minmax(300px, 1fr)` columns, but `.m-frame__inner`
+  (the scaled slide preview inside each card) is a fixed 1080×1350 box at a hardcoded
+  `scale(0.2778)` = exactly 300×375 — whenever a row didn't divide evenly, the `1fr` stretched
+  `.m-frame` wider than that, and since the inner box doesn't grow with it, the extra space
+  rendered as a black letterboxed gutter on every affected card. Pinned the column width to a
+  fixed `300px` to match.
 - `.c-cta__title` invisible on `.slide--accent` (accent-ink text forced by the generic
   full-color group, on top of `.c-cta`'s own accent-ink background — the same bug class as
   the `<mark>`-in-chip fix above, just not caught in that pass because `.c-cta__title` was

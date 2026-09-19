@@ -58,7 +58,13 @@
    ========================================================================== */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* fixed 300px, not minmax(300px, 1fr): .m-frame__inner below is a fixed
+     1080x1350 box at a hardcoded scale(0.2778) = exactly 300x375. A 1fr
+     track stretches .m-frame wider than that whenever the row doesn't
+     divide evenly, and since .m-frame__inner doesn't grow with it, the
+     extra space renders as a black letterboxed gutter (confirmed by
+     render test) rather than an intentional look. */
+  grid-template-columns: repeat(auto-fill, 300px);
   gap: var(--space-xl);
   margin: var(--m) 0;
 }

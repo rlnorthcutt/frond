@@ -112,6 +112,25 @@ s-page-body { display: block; padding: 0; }
   background-image: linear-gradient(var(--accent-ink), var(--accent-ink));
 }
 .slide--accent .m-pillar { background: color-mix(in oklab, var(--accent-ink) 14%, var(--accent)); }
+/* .c-decor--glow/--mesh tint their gradient toward --accent, same as every
+   other ground — but .slide--accent's own background IS --accent, so
+   alpha-blending an --accent-tinted stop over an --accent backdrop is a
+   no-op: the decoration becomes literally invisible (confirmed by pixel
+   sampling — identical color with and without it). Re-point just the
+   accent-tinted stops to --accent-ink; --decor--mesh's second (--ink)
+   stop is a different hue from the ground already and doesn't need this. */
+.slide--accent .c-decor--glow {
+  background-image: radial-gradient(
+    52% 40% at 88% 6%,
+    color-mix(in oklab, var(--accent-ink) 40%, transparent),
+    transparent 70%
+  );
+}
+.slide--accent .c-decor--mesh {
+  background-image:
+    radial-gradient(40% 34% at 6% 96%, color-mix(in oklab, var(--accent-ink) 34%, transparent), transparent 70%),
+    radial-gradient(46% 38% at 96% 4%, color-mix(in oklab, var(--ink) 20%, transparent), transparent 70%);
+}
 .slide--surface { background: var(--surface); }
 
 /* .slide--light / .slide--dark (M2) are NOT defined here. Unlike --accent,
