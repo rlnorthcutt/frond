@@ -76,6 +76,12 @@ Follows [Semantic Versioning](https://semver.org/).
   `docs/index.html` (the atom/molecule gallery) moved to `docs/gallery.html`.
 
 ### Fixed
+- `.c-decide` (A18) had never had `.slide--accent` repoints — flagged as a follow-up when
+  `.c-table` got them and `.c-decide` didn't. `.c-decide__arrow` was the worst of it: colored
+  `var(--accent)` directly on a `.slide--accent` background that *is* `--accent` — the same
+  invisible-blend bug as `.c-decor--glow`/`--mesh` below, just on a glyph instead of a
+  gradient. `.c-decide__then`/`__arrow` now point at `--accent-ink` (full-color group),
+  `.c-decide__if`/`__head` at the same (muted group, no color-mix, per the Issue 1 fix).
 - `.c-decor--glow`/`.c-decor--mesh` invisible on `.slide--accent`: both tint their gradient
   toward `--accent`, which is a no-op when the ground they're painted on is already
   `--accent` (alpha-blending a color over an identical-hue backdrop doesn't change it) —

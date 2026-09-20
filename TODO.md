@@ -87,9 +87,11 @@ accent-ground contrast bug of the same class as Issue 1, confirming that class o
 worth specifically re-checking whenever a new atom/molecule touches `.slide--accent`:
 
 - [x] **No data-table component** — added `.c-table` (A19), a real `<table>`-based atom.
-  See CHANGELOG.md. Follow-up noticed while building it: `.c-decide` (A18) has never had
-  `.slide--accent` repoints either (no entry in `molecules.css`'s `.slide--accent` block) —
-  `.c-table` got them in this pass, `.c-decide` still doesn't. Worth closing that gap too.
+  See CHANGELOG.md. Follow-up noticed while building it, and now closed too: `.c-decide`
+  (A18) had never had `.slide--accent` repoints either — fixed directly (known bug class,
+  known fix, no discovery needed) rather than re-running a full harness test. See
+  CHANGELOG.md. Pending: a harness verification pass to confirm it renders/contrasts
+  correctly, same as the other four fixes in this class.
 - [x] **Icon sprite is undocumented infrastructure** — README gained an "Icons" section
   (the three required symbols, the canonical sprite, and open-slot guidance for
   `c-icon-bullet__i`/`m-pillar__i`); `frond.json` gained an `icons` key. See CHANGELOG.md.
