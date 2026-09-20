@@ -1030,12 +1030,12 @@ s-page-body { display: block; padding: 0; }
 }
 .slide--accent :is(.c-title, .c-body, .c-stat__value, .c-bignum, .c-num__n,
   .c-quote p, .c-foot__name, .m-pillar__title, .c-swipe,
-  .c-table tbody :is(th, td)) {
+  .c-table tbody :is(th, td), .c-decide__then, .c-decide__arrow) {
   color: var(--accent-ink);
 }
 .slide--accent :is(.c-sub, .c-caption, .c-body--muted, .c-foot__handle,
   .c-pagenum, .c-brand, .c-stat__label, .m-pillar__desc, .c-quote footer,
-  .c-table thead th) {
+  .c-table thead th, .c-decide__if, .c-decide__head) {
   /* Plain --accent-ink, not the usual 72%-mixed muted formula: that formula
      assumes an --ink/--bg pair with contrast well above 4.5:1 to spare, so
      mixing toward the ground still clears AA. --accent/--accent-ink is only
