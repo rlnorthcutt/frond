@@ -14,7 +14,13 @@ Follows [Semantic Versioning](https://semver.org/).
   the default canvas and `sizes/square.css` (box edges land on `--cv-pad` exactly, same as
   `.c-foot` below it, at both sizes — nothing hardcoded to one canvas). A `.c-cta--bleed`
   (edge-to-edge band) was also prototyped and works, but wasn't the better match for "full
-  width panel" and isn't shipped. Worked example in README's Components section.
+  width panel" and isn't shipped. `.c-cta--full`'s title/action text is capped at
+  `max-width: 700px; margin-inline: auto` — measured against a real render: uncapped, short
+  text occupies only ~24% of the box's own width ("small island in a large sea," per the
+  vision pass), and long text can orphan a single word onto its own line; 700px produced
+  balanced wraps in both cases. A `ch`-based cap was tried and rejected — `.c-cta__title`/
+  `__action` are different font sizes, so it didn't constrain them consistently. Worked
+  example in README's Components section.
 - **`.m-split__media--list`**: modifier for `.m-split`'s media column so it can hold a
   stacked list (several `.c-quote--bar`, say) instead of the one image/mockup it's sized for
   by default — the bare column's `flex-direction: row` fights multiple children and clips

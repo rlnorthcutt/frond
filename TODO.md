@@ -89,9 +89,12 @@ worth specifically re-checking whenever a new atom/molecule touches `.slide--acc
 - [x] **No data-table component** — added `.c-table` (A19), a real `<table>`-based atom.
   See CHANGELOG.md. Follow-up noticed while building it, and now closed too: `.c-decide`
   (A18) had never had `.slide--accent` repoints either — fixed directly (known bug class,
-  known fix, no discovery needed) rather than re-running a full harness test. See
-  CHANGELOG.md. Pending: a harness verification pass to confirm it renders/contrasts
-  correctly, same as the other four fixes in this class.
+  known fix, no discovery needed). See CHANGELOG.md. Verified against a real render
+  (external harness, 2026-09-20), computed-style + pixel-sampled, across all four shipped
+  themes: `.c-decide__if`/`__then`/`__arrow`/`__head` all resolve to `--accent-ink` and clear
+  4.5:1 (5.04–7.15:1 across the four themes), `__arrow` specifically confirmed visible (the
+  worst pre-fix symptom), hairlines present. Clean pass, no edge case in the reused fix
+  pattern after four uses.
 - [x] **Icon sprite is undocumented infrastructure** — README gained an "Icons" section
   (the three required symbols, the canonical sprite, and open-slot guidance for
   `c-icon-bullet__i`/`m-pillar__i`); `frond.json` gained an `icons` key. See CHANGELOG.md.
@@ -124,10 +127,18 @@ worth specifically re-checking whenever a new atom/molecule touches `.slide--acc
   `.slide--accent` (forced to `--accent-ink` by the generic full-color group, same as its
   own container's `--accent-ink` background) — reproduces on the shipped M7 gallery example.
   Fixed alongside the two new classes.
-  Deferred, not blocking: long title/action text at the full-width measure reads sparse
-  ("a small island in a large dark sea" per the vision pass) — a `max-width`/`margin-inline`
-  constraint on the inner text was suggested but not verified; worth a follow-up render pass
-  before shipping it.
+  Follow-up now resolved too: the deferred text-sparseness question ("a small island in a
+  large dark sea") was tested against a real render (external harness, 2026-09-20) with
+  three candidates — `max-width: 700px` won over a `ch`-based cap (which didn't constrain
+  `.c-cta__title`/`__action` consistently, since they're different font sizes) and over just
+  bumping font-size (didn't address the core issue). Measured: uncapped short text occupied
+  only ~24% of the box's own width; 700px produced balanced wraps for both short and long
+  text, verified with/without an image and at `sizes/square.css`. Shipped — see CHANGELOG.md.
+  New follow-up from that same test, not yet fixed: `.c-cta--outline` combined with `--full`
+  and *short* text still reads as an oversized box for its content — a box-sizing question
+  (should `--outline` shrink-wrap even under `--full`?), not a text-measure one. No fix
+  proposed yet; needs its own render pass if `--outline --full` is a combination worth
+  supporting well rather than just not-broken.
 
 ## Future enhancements
 

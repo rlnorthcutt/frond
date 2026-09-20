@@ -330,6 +330,13 @@ with `.c-cta--outline` and `.c-cta--plain`, with or without an image inside, and
 outer edges land exactly on `--cv-pad`, same as `.c-foot` below it — both inherit the same
 token, so nothing bespoke is needed to line them up.
 
+`.c-cta--full`'s title/action text is capped at `max-width: 700px` and centered — without it,
+short text visibly "islands" in the wide box (measured at ~24% of the box's own width) and
+long text can orphan a single word onto its own line; 700px was the best-measured value for
+both. One open question from that same test, not yet resolved: `.c-cta--outline` combined
+with `--full` and *short* text still reads as an oversized box for its content — that's a
+box-sizing question, not a text one, and doesn't have a fix yet (see TODO.md).
+
 ---
 
 ## Icons

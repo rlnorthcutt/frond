@@ -310,6 +310,14 @@
    render to compose cleanly with --outline and --plain, with and without an
    image inside, at both the default canvas and sizes/square.css. */
 .c-cta--full { align-self: stretch; width: 100%; }
+/* Without a cap, short title/action text centers but still reads as an
+   "island" in the full-width box (measured: ~24% of the box's own width).
+   700px verified against a real render as the best measure for both short
+   text (still centers cleanly) and long text (forces a balanced two-line
+   wrap instead of the uncapped baseline's single-word orphan line). ch units
+   were tried and rejected — .c-cta__title/__action are different font
+   sizes, so a ch-based cap doesn't constrain them consistently. */
+.c-cta--full :is(.c-cta__title, .c-cta__action) { max-width: 700px; margin-inline: auto; }
 
 /* ==========================================================================
    A8 — QuoteMark / PullQuote
